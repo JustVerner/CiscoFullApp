@@ -64,7 +64,7 @@
         android:id="@+id/IpAdress"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:text="10.101.1.68"
+        android:text="10.100.1.125"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toTopOf="@+id/buttonLogin"

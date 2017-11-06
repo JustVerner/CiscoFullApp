@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.martin.ciscofullapp.CommandRunner.CommandRunner;
 import com.example.martin.ciscofullapp.Database.DatabaseHelper;
 import com.example.martin.ciscofullapp.Database.InsertData;
 import com.example.martin.ciscofullapp.R;
@@ -42,7 +43,7 @@ import static com.example.martin.ciscofullapp.Database.Login.username;
 public class MainActivity extends AppCompatActivity{
 
     Login login = new Login();
-    private Button update, statistics;
+    private Button update, statistics, commandRunner;
     public static String requiredTicket;
     MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
     String url = "https://"+ipadress+"/api/v1/ticket";
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity{
     String full;
     String full2;
     SparkPost sparkPost = new SparkPost();
+    CommandRunner commandRunnerClass = new CommandRunner();
 
 
 
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity{
 
         update = (Button) findViewById(R.id.buttonUpdate);
         statistics = (Button) findViewById(R.id.buttonStatistics);
+        commandRunner = (Button) findViewById(R.id.commandRunner);
 
         spinnerDevice = (Spinner) findViewById(R.id.deviceSpinner);
         spinnerDate = (Spinner) findViewById(R.id.dateSpinner);
@@ -92,6 +95,18 @@ public class MainActivity extends AppCompatActivity{
         final InsertData insertData = new InsertData();
         final FragmentOne fragmentOne = new FragmentOne();
 
+
+
+        commandRunner.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
+
+                                try {
+                    commandRunnerClass.run();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            });
 
         update.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
