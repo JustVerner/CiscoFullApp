@@ -27,9 +27,11 @@ public class Task {
 
     String url;
 
+    public static String fileid;
+
     public void run() throws IOException {
 
-        url = "10.100.1.125"+taskid;
+        url = "https://10.100.1.125"+taskid;
 
         getUnsafeOkHttpClient();
 
@@ -53,13 +55,15 @@ public class Task {
             public void onResponse(Call call, Response response) throws IOException {
 
 
-                //final String responses = response.body().string();
+                final String responses = response.body().string();
 
-                //String[] responseRunner = responses.split("\\\"");
+                String[] responseRunner = responses.split("\\\"");
 
-                Log.w("Succes", "Succes");
+                fileid = responseRunner[8];
 
-                //taskid = responseRunner[5];
+                Log.w("Succes", fileid);
+
+
 
             }
         });
