@@ -24,7 +24,7 @@ import static android.content.Context.MODE_PRIVATE;
 import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
 
 public class DatabaseHelper  extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION =64;
+    private static final int DATABASE_VERSION = 64;
     private static final String LOG = "DatabaseHelper";
     private static final String DATABASE_NAME = "Database_name.db";
     private static final String TAG = DatabaseHelper.class.getSimpleName().toString();

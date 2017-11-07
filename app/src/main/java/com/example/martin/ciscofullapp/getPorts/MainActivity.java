@@ -3,28 +3,19 @@ package com.example.martin.ciscofullapp.getPorts;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.martin.ciscofullapp.Database.DatabaseHelper;
 import com.example.martin.ciscofullapp.Database.InsertData;
 import com.example.martin.ciscofullapp.R;
 import com.example.martin.ciscofullapp.Spark.SparkPost;
 import com.example.martin.ciscofullapp.VisualRepresentations.FragmentController;
 import com.example.martin.ciscofullapp.VisualRepresentations.FragmentOne;
-import com.example.martin.ciscofullapp.app.App;
 import com.example.martin.ciscofullapp.Database.Login;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -39,7 +30,7 @@ import static com.example.martin.ciscofullapp.Database.Login.ipadress;
 import static com.example.martin.ciscofullapp.Database.Login.password;
 import static com.example.martin.ciscofullapp.Database.Login.username;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     Login login = new Login();
     private Button update, statistics;
@@ -59,8 +50,6 @@ public class MainActivity extends AppCompatActivity{
     String full;
     String full2;
     SparkPost sparkPost = new SparkPost();
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,5 +171,4 @@ public class MainActivity extends AppCompatActivity{
             }
         });
     }
-
 }

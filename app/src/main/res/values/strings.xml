@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CiscoFullApp</string>
+    <string name="array_command_runner">
+        <item>testOne</item>
+        <item>anotherTest</item>
+    </string>
+    <string name="search_hint">Search Commands</string>
 </resources>

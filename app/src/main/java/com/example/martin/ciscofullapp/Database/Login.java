@@ -53,7 +53,6 @@ public class Login extends AppCompatActivity{
             }
         });
 
-
     }
 
     @Override
@@ -70,7 +69,7 @@ public class Login extends AppCompatActivity{
             float y = event.getRawY() + w.getTop() - scrcoords[1];
             float martin = 1;
             float anotherMartin = 2;
-            
+
             Log.d("Activity", "Touch event "+event.getRawX()+","+event.getRawY()+" "+x+","+y+" rect "+w.getLeft()+","+w.getTop()+","+w.getRight()+","+w.getBottom()+" coords "+scrcoords[0]+","+scrcoords[1]);
             if (event.getAction() == MotionEvent.ACTION_UP && (x < w.getLeft() || x >= w.getRight() || y < w.getTop() || y > w.getBottom()) ) {
 
