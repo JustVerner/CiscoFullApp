@@ -21,26 +21,21 @@ import com.example.martin.ciscofullapp.R;
  */
 
 public class searchViewTest extends AppCompatActivity {
-
-    String commandList = getApplicationContext().getResources().getString(R.string.array_command_runner);
-    ListView list;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.command_runner);
-
-        Intent intent = getIntent();
-        if (intent.ACTION_SEARCH.equals(intent.getAction())) {
-            String query = intent.getStringExtra(SearchManager.QUERY);
-            searchCommands(query);
-        }
     }
 
-    public void searchCommands(String query){
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
 
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.c_runnerSearch).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
+        return true;
     }
-
-
-
 }

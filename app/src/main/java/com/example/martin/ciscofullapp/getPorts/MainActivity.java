@@ -20,6 +20,7 @@ import com.example.martin.ciscofullapp.VisualRepresentations.FragmentController;
 import com.example.martin.ciscofullapp.VisualRepresentations.FragmentOne;
 import com.example.martin.ciscofullapp.app.App;
 import com.example.martin.ciscofullapp.Database.Login;
+import com.example.martin.ciscofullapp.CommandRunner.searchViewTest;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -103,11 +104,9 @@ public class MainActivity extends AppCompatActivity{
         commandRunner.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
 
-                                try {
-                    commandRunnerClass.run();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                Intent intent = new Intent( MainActivity.this, searchViewTest.class);
+                startActivity(intent);
+
             }
             });
         taskRunner.setOnClickListener(new View.OnClickListener() {

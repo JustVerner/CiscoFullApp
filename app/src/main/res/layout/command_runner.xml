@@ -9,8 +9,9 @@
         android:id="@+id/logo"
         android:layout_width="65dp"
         android:layout_height="44dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintStart_toEndOf="@+id/backButton"
         app:srcCompat="@drawable/ciscologo"
-        tools:layout_editor_absoluteX="303dp"
         tools:layout_editor_absoluteY="507dp" />
 
     <ImageButton
@@ -29,5 +30,15 @@
 
         <requestFocus />
     </SearchView>
+
+    <android.support.constraint.Constraints
+        android:id="@+id/constraints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <android.support.constraint.Constraints
+        android:id="@+id/constraints2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </android.support.constraint.ConstraintLayout>
