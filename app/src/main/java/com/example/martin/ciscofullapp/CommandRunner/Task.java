@@ -14,32 +14,29 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import static com.example.martin.ciscofullapp.CommandRunner.CommandRunner.taskid;
 import static com.example.martin.ciscofullapp.getPorts.CertificateClient.getUnsafeOkHttpClient;
 
 /**
  * Created by Martin on 06-11-2017.
  */
 
-public class CommandRunner {
-
-    public static String taskid;
+public class Task {
 
     MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
 
-    String url = "https://10.100.1.125/api/v1/network-device-poller/cli/read-request" ;
+    String url;
 
     public void run() throws IOException {
 
+        url = "10.100.1.125"+taskid;
 
         getUnsafeOkHttpClient();
-
-        RequestBody body = RequestBody.create(mediaType, "{\r\n  \"name\": \"martin\",\r\n  \"commands\": [\r\n    \"show version\"\r\n  ],\r\n  \"description\": \"\",\r\n  \"timeout\": 0,\r\n  \"deviceUuids\": [\r\n    \"7f94c530-7933-48e6-8aed-e094ebe1e368\"\r\n  ]\r\n}");
 
         Request request = new Request.Builder()
                 .url(url)
                 .header("X-Auth-Token", MainActivity.requiredTicket)
                 .addHeader("content-type", "application/json; charset=utf-8")
-                .post(body)
                 .build();
 
 
@@ -56,17 +53,15 @@ public class CommandRunner {
             public void onResponse(Call call, Response response) throws IOException {
 
 
-                final String responses = response.body().string();
+                //final String responses = response.body().string();
 
-                String[] responseRunner = responses.split("\\\"");
+                //String[] responseRunner = responses.split("\\\"");
 
-                Log.w("Succes", responseRunner[9]);
+                Log.w("Succes", "Succes");
 
-                taskid = responseRunner[9];
+                //taskid = responseRunner[5];
 
             }
         });
     }
-
 }
-

@@ -15,7 +15,7 @@ import java.util.Date;
 public class DatabaseTable {
 
     public static final String TAG = DatabaseTable.class.getSimpleName();
-    public static final String TABLE = "Database";
+    public static final String TABLE = "DATATABLE";
     // Labels Table Columns names
     public static final String KEY_Id = "ID";
     public static final String KEY_Name = "Name";
