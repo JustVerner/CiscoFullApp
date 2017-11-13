@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.example.martin.ciscofullapp.CommandRunner.CommandRunner;
 import com.example.martin.ciscofullapp.CommandRunner.Task;
+//import com.example.martin.ciscofullapp.CommandRunner.commandClass;
+import com.example.martin.ciscofullapp.CommandRunner.commandClass;
 import com.example.martin.ciscofullapp.CommandRunner.fileRunner;
 import com.example.martin.ciscofullapp.Database.DatabaseHelper;
 import com.example.martin.ciscofullapp.Database.InsertData;
@@ -107,11 +109,8 @@ public class MainActivity extends AppCompatActivity{
         commandRunner.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
 
-                try {
-                    commandRunnerClass.run();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                Intent intent = new Intent(MainActivity.this, commandClass.class);
+                startActivity(intent);
 
             }
             });

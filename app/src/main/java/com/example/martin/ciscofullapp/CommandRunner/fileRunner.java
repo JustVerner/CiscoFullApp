@@ -24,11 +24,17 @@ public class fileRunner {
 
     MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
 
-    String url;
+    public String url;
+
+    String data;
+
+    boolean test;
 
     public void run() throws IOException {
 
         url = "https://10.100.1.125/api/v1/file/"+fileid;
+
+        test = false;
 
         getUnsafeOkHttpClient();
 
@@ -53,8 +59,11 @@ public class fileRunner {
 
                 final String responses = response.body().string();
 
+                data = responses;
+
                 Log.w("Succes", responses);
 
+                test = true;
             }
         });
     }
