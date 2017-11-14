@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <SearchView
+    <EditText
         android:id="@+id/c_runnerSearch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="463dp"
+        android:layout_marginBottom="530dp"
         android:iconifiedByDefault="false"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,33 +17,47 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <requestFocus />
-    </SearchView>
+
+    </EditText>
 
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="50dp"
         android:layout_height="40dp"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="2dp"
         android:layout_marginRight="2dp"
         android:layout_marginStart="265dp"
         android:layout_marginLeft="265dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintBottom_toBottomOf="@id/listview"
         app:layout_constraintEnd_toStartOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="?android:attr/homeAsUpIndicator" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="50dp"
         android:layout_height="40dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/listview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/c_runnerSearch"
+        app:layout_constraintTop_toBottomOf="parent"
         app:srcCompat="@drawable/ciscologo" />
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="fill_parent"
+        android:layout_height="520dp"
+        android:layout_below="@+id/c_runnerSearch"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/c_runnerSearch"
+        tools:layout_editor_absoluteY="47dp" />
 
 </android.support.constraint.ConstraintLayout>

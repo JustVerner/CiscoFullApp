@@ -1,6 +1,7 @@
 package com.example.martin.ciscofullapp.CommandRunner;
 
 import android.util.Log;
+import android.view.View;
 
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
@@ -66,6 +67,7 @@ public class CommandRunner {
 
             }
         });
+
     }
 
 }
