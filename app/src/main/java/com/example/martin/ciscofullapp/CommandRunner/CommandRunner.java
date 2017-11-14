@@ -6,6 +6,8 @@ import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -22,11 +24,16 @@ import static com.example.martin.ciscofullapp.getPorts.CertificateClient.getUnsa
 
 public class CommandRunner {
 
-    public static String taskid;
+    public static String taskid = null;
 
     MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
 
-    String url = "https://10.100.1.125/api/v1/network-device-poller/cli/read-request" ;
+    String url = "https://10.100.1.125/api/v1/network-device-poller/cli/read-request";
+
+    //TestFunction testFunction = new TestFunction();
+    //TestFunction testFunction;
+
+    boolean commandCheck = false;
 
     public void run() throws IOException {
 
@@ -58,15 +65,19 @@ public class CommandRunner {
 
                 final String responses = response.body().string();
 
-                String[] responseRunner = responses.split("\\\"");
+                final String[] responseRunner = responses.split("\\\"");
 
-                Log.w("Succes", responseRunner[9]);
+                commandCheck = true;
 
                 taskid = responseRunner[9];
+
+                Log.w("Succes", taskid);
+
+                //testFunction = new TestFunction();
+                //testFunction.run();
+
 
             }
         });
     }
-
 }
-
