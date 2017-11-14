@@ -53,10 +53,10 @@
 
     <Button
         android:id="@+id/commandRunner"
-        android:layout_width="0dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="52dp"
-        android:text="Button"
+        android:layout_width="148dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="60dp"
+        android:text="Commandrunner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/taskRunner"
@@ -68,10 +68,24 @@
         android:layout_width="122dp"
         android:layout_height="43dp"
         android:layout_marginBottom="42dp"
-        android:text="Button"
+        android:text="Task"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/commandRunner"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <Button
+        android:id="@+id/fileButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="31dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="13dp"
+        android:text="File"
+        app:layout_constraintEnd_toStartOf="@+id/taskRunner"
+        app:layout_constraintStart_toStartOf="@+id/commandRunner"
+        app:layout_constraintTop_toBottomOf="@+id/commandRunner" />
 
 </android.support.constraint.ConstraintLayout>

@@ -5,43 +5,38 @@ import android.util.Log;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
-import junit.framework.Test;
-
 import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 
-import static com.example.martin.ciscofullapp.CommandRunner.CommandRunner.taskid;
+import static com.example.martin.ciscofullapp.CommandRunner.Task.fileid;
 import static com.example.martin.ciscofullapp.getPorts.CertificateClient.getUnsafeOkHttpClient;
 
 /**
- * Created by Martin on 06-11-2017.
+ * Created by Martin on 08-11-2017.
  */
 
-public class Task {
+public class FileRunner {
 
     MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
 
-    String url;
-
-    public static String fileid;
-
-    //TestFunction testFunction;
+    public String url;
 
     //TestFunction testFunction = new TestFunction();
 
-    boolean taskCheck = false;
+    String data;
+
+    boolean test;
 
     public void run() throws IOException {
 
-        url = "https://10.100.1.125"+taskid;
+        url = "https://10.100.1.125/api/v1/file/"+fileid;
+
+        test = false;
 
         getUnsafeOkHttpClient();
 
@@ -64,22 +59,16 @@ public class Task {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
 
-
                 final String responses = response.body().string();
 
-                final String[] responseRunner = responses.split("\\\"");
+                data = responses;
 
-                fileid = responseRunner[8];
+                Log.w("Succes", responses);
 
-                taskCheck = true;
-
-                Log.w("Succes", fileid);
-
-
-                //testFunction = new TestFunction();
                 //testFunction.run();
 
             }
         });
     }
 }
+
