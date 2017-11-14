@@ -10,8 +10,7 @@
 
     <item
         android:id="@+id/menu_search"
-        android:title="@string/array_command_runner"
+        android:title="Search Commands"
         appcompat:actionViewClass="android.support.v7.widget.SearchView"
         appcompat:showAsAction="always"/>
-
 </menu>
