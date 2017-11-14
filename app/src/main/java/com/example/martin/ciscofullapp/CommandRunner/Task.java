@@ -5,7 +5,11 @@ import android.util.Log;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
+import junit.framework.Test;
+
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -28,6 +32,12 @@ public class Task {
     String url;
 
     public static String fileid;
+
+    //TestFunction testFunction;
+
+    //TestFunction testFunction = new TestFunction();
+
+    boolean taskCheck = false;
 
     public void run() throws IOException {
 
@@ -57,13 +67,17 @@ public class Task {
 
                 final String responses = response.body().string();
 
-                String[] responseRunner = responses.split("\\\"");
+                final String[] responseRunner = responses.split("\\\"");
 
                 fileid = responseRunner[8];
+
+                taskCheck = true;
 
                 Log.w("Succes", fileid);
 
 
+                //testFunction = new TestFunction();
+                //testFunction.run();
 
             }
         });

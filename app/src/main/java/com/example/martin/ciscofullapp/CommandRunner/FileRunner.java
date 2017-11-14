@@ -20,11 +20,13 @@ import static com.example.martin.ciscofullapp.getPorts.CertificateClient.getUnsa
  * Created by Martin on 08-11-2017.
  */
 
-public class fileRunner {
+public class FileRunner {
 
     MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
 
     public String url;
+
+    //TestFunction testFunction = new TestFunction();
 
     String data;
 
@@ -63,7 +65,8 @@ public class fileRunner {
 
                 Log.w("Succes", responses);
 
-                test = true;
+                //testFunction.run();
+
             }
         });
     }

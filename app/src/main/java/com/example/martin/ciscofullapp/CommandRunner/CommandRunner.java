@@ -35,49 +35,52 @@ public class CommandRunner {
 
     boolean commandCheck = false;
 
+
     public void run() throws IOException {
 
 
-        getUnsafeOkHttpClient();
+        
+            getUnsafeOkHttpClient();
 
-        RequestBody body = RequestBody.create(mediaType, "{\r\n  \"name\": \"martin\",\r\n  \"commands\": [\r\n    \"show version\"\r\n  ],\r\n  \"description\": \"\",\r\n  \"timeout\": 0,\r\n  \"deviceUuids\": [\r\n    \"7f94c530-7933-48e6-8aed-e094ebe1e368\"\r\n  ]\r\n}");
+            RequestBody body = RequestBody.create(mediaType, "{\r\n  \"name\": \"martin\",\r\n  \"commands\": [\r\n    \"show version\"\r\n  ],\r\n  \"description\": \"\",\r\n  \"timeout\": 0,\r\n  \"deviceUuids\": [\r\n    \"7f94c530-7933-48e6-8aed-e094ebe1e368\"\r\n  ]\r\n}");
 
-        Request request = new Request.Builder()
-                .url(url)
-                .header("X-Auth-Token", MainActivity.requiredTicket)
-                .addHeader("content-type", "application/json; charset=utf-8")
-                .post(body)
-                .build();
-
-
-        CertificateClient.getUnsafeOkHttpClient().newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                call.cancel();
-
-                Log.w("Failure", "failure");
-
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            Request request = new Request.Builder()
+                    .url(url)
+                    .header("X-Auth-Token", MainActivity.requiredTicket)
+                    .addHeader("content-type", "application/json; charset=utf-8")
+                    .post(body)
+                    .build();
 
 
-                final String responses = response.body().string();
+            CertificateClient.getUnsafeOkHttpClient().newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    call.cancel();
 
-                final String[] responseRunner = responses.split("\\\"");
+                    Log.w("Failure", "failure");
 
-                commandCheck = true;
+                }
 
-                taskid = responseRunner[9];
-
-                Log.w("Succes", taskid);
-
-                //testFunction = new TestFunction();
-                //testFunction.run();
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
 
 
-            }
-        });
-    }
+                    final String responses = response.body().string();
+
+                    final String[] responseRunner = responses.split("\\\"");
+
+                    commandCheck = true;
+
+                    taskid = responseRunner[9];
+
+                    Log.w("Succes", taskid);
+
+                    //testFunction = new TestFunction();
+                    //testFunction.run();
+
+
+                }
+            });
+        }
+
 }

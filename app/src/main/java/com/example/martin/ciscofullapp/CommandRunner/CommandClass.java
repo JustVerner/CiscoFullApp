@@ -1,6 +1,5 @@
 package com.example.martin.ciscofullapp.CommandRunner;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,7 +7,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.martin.ciscofullapp.R;
-import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
 import java.io.IOException;
 
@@ -16,13 +14,14 @@ import java.io.IOException;
  * Created by Martin on 09-11-2017.
  */
 
-public class commandClass extends AppCompatActivity {
+public class CommandClass extends AppCompatActivity {
 
     private Button commandButton, taskButton, fileButton;
     private TextView commandTextView;
-    CommandRunner commandRunner = new CommandRunner();
-    Task task = new Task();
-    fileRunner filerunner = new fileRunner();
+    //CommandRunner commandRunner = new CommandRunner();
+    //Task task = new Task();
+    //FileRunner filerunner = new FileRunner();
+    TestFunction testFunction = new TestFunction();
     boolean runcheck = false;
     String replaceString;
 
@@ -43,13 +42,13 @@ public class commandClass extends AppCompatActivity {
             public void onClick(View v){
 
                 try {
-                    commandRunner.run();
+                    testFunction.run();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         });
-        taskButton.setOnClickListener(new View.OnClickListener() {
+        /*taskButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
 
                 try {
@@ -64,31 +63,13 @@ public class commandClass extends AppCompatActivity {
 
                 try {
                     filerunner.run();
-                    run();
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    run();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
             }
-        });
-
-
-
-
-
-    }
-    public void run() throws IOException {
-
-        //replaceString = filerunner.data.replaceAll("\n", " \n ");
-
-        commandTextView.setText(filerunner.data);
-
+        });*/
     }
 
 }

@@ -39,7 +39,7 @@
             <meta-data android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".CommandRunner.commandClass"
+        <activity android:name=".CommandRunner.CommandClass"
             android:screenOrientation="portrait"></activity>
 
 

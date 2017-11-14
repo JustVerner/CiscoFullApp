@@ -3,34 +3,24 @@ package com.example.martin.ciscofullapp.getPorts;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.martin.ciscofullapp.CommandRunner.CommandRunner;
 import com.example.martin.ciscofullapp.CommandRunner.Task;
-//import com.example.martin.ciscofullapp.CommandRunner.commandClass;
-import com.example.martin.ciscofullapp.CommandRunner.commandClass;
-import com.example.martin.ciscofullapp.CommandRunner.fileRunner;
-import com.example.martin.ciscofullapp.Database.DatabaseHelper;
+//import com.example.martin.ciscofullapp.CommandRunner.CommandClass;
+import com.example.martin.ciscofullapp.CommandRunner.CommandClass;
+import com.example.martin.ciscofullapp.CommandRunner.FileRunner;
 import com.example.martin.ciscofullapp.Database.InsertData;
 import com.example.martin.ciscofullapp.R;
 import com.example.martin.ciscofullapp.Spark.SparkPost;
 import com.example.martin.ciscofullapp.VisualRepresentations.FragmentController;
 import com.example.martin.ciscofullapp.VisualRepresentations.FragmentOne;
-import com.example.martin.ciscofullapp.app.App;
 import com.example.martin.ciscofullapp.Database.Login;
-import com.example.martin.ciscofullapp.CommandRunner.searchViewTest;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -67,7 +57,7 @@ public class MainActivity extends AppCompatActivity{
     SparkPost sparkPost = new SparkPost();
     CommandRunner commandRunnerClass = new CommandRunner();
     Task task = new Task();
-    fileRunner fileRunners = new fileRunner();
+    FileRunner fileRunners = new FileRunner();
 
 
 
@@ -109,7 +99,7 @@ public class MainActivity extends AppCompatActivity{
         commandRunner.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
 
-                Intent intent = new Intent(MainActivity.this, commandClass.class);
+                Intent intent = new Intent(MainActivity.this, CommandClass.class);
                 startActivity(intent);
 
             }
