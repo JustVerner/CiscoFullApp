@@ -42,11 +42,13 @@
     <TextView
         android:id="@+id/commandTextView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="181dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="25dp"
-        android:text="reeeeeeee"
+        android:layout_marginTop="33dp"
+        android:maxWidth="350dp"
+        android:maxLines="32"
+        android:scrollbars="vertical"
+        android:text="Der er en stor abe kat i vejen \n abe \n abe \n abe \n abe \n abe \n abe \n abe \n abe v \n abe \n abe \n abe \n abe \n abe \n abe"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/commandButton" />
 

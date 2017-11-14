@@ -26,14 +26,16 @@ public class CommandRunner {
 
     public static String taskid = null;
 
+    Timer timer = new Timer();
+
     MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
 
     String url = "https://10.100.1.125/api/v1/network-device-poller/cli/read-request";
 
-    //TestFunction testFunction = new TestFunction();
+    TestFunction testFunction = new TestFunction();
     //TestFunction testFunction;
 
-    boolean commandCheck = false;
+    static public boolean commandCheck = false;
 
 
     public void run() throws IOException {
@@ -76,8 +78,17 @@ public class CommandRunner {
                     Log.w("Succes", taskid);
 
                     //testFunction = new TestFunction();
-                    //testFunction.run();
 
+                    timer.schedule(new TimerTask() {
+
+                        public void run() {
+                            try {
+                                testFunction.run();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, 2000);
 
                 }
             });

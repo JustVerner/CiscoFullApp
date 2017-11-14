@@ -31,13 +31,15 @@ public class Task {
 
     String url;
 
+    Timer timer = new Timer();
+
     public static String fileid;
 
     //TestFunction testFunction;
 
-    //TestFunction testFunction = new TestFunction();
+    TestFunction testFunction = new TestFunction();
 
-    boolean taskCheck = false;
+    public static boolean taskCheck = false;
 
     public void run() throws IOException {
 
@@ -77,7 +79,17 @@ public class Task {
 
 
                 //testFunction = new TestFunction();
-                //testFunction.run();
+
+                timer.schedule(new TimerTask() {
+
+                    public void run() {
+                        try {
+                            testFunction.run();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, 2000);
 
             }
         });
