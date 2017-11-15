@@ -28,7 +28,9 @@ public class FileRunner {
 
     //TestFunction testFunction = new TestFunction();
 
-    String data;
+    //CommandClass commandClass = new CommandClass();
+
+    public static String data;
 
     boolean test;
 
@@ -36,7 +38,7 @@ public class FileRunner {
 
         url = "https://10.100.1.125/api/v1/file/"+fileid;
 
-        test = false;
+        //test = false;
 
         getUnsafeOkHttpClient();
 
@@ -65,9 +67,10 @@ public class FileRunner {
 
                 Log.w("Succes", responses);
 
-                //testFunction.run();
-
+                //commandClass.ChangeText();
             }
+
+
         });
     }
 }

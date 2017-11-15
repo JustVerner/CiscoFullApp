@@ -11,23 +11,26 @@ import com.example.martin.ciscofullapp.CommandRunner.Task;
 
 public class TestFunction {
 
-    CommandRunner commandRunner = new CommandRunner();
-    Task task = new Task();
-    FileRunner fileRunner = new FileRunner();
+    //CommandRunner commandRunner = new CommandRunner();
+    //Task task = new Task();
+    //FileRunner fileRunner = new FileRunner();
 
     public void run() throws IOException {
 
-        if (commandRunner.commandCheck == false)
+        if (!CommandRunner.commandCheck)
         {
+            CommandRunner commandRunner = new CommandRunner();
             commandRunner.run();
         }
 
-        if (commandRunner.commandCheck == true && task.taskCheck == false)
+        if (CommandRunner.commandCheck && !Task.taskCheck)
         {
+            Task task = new Task();
             task.run();
         }
-        if (commandRunner.commandCheck == true && task.taskCheck == true)
+        if (CommandRunner.commandCheck && Task.taskCheck)
         {
+            FileRunner fileRunner = new FileRunner();
             fileRunner.run();
         }
 
