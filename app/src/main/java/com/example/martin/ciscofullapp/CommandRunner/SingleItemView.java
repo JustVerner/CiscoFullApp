@@ -22,11 +22,7 @@ public class SingleItemView extends Activity {
          super.onCreate(savedInstanceState);
          setContentView(R.layout.single_item_view);
 
-         Intent i = getIntent();
-         command = i.getStringExtra("command");
-
          txtCommand = (TextView) findViewById(R.id.command);
 
-         txtCommand.setText(command);
      }
 }

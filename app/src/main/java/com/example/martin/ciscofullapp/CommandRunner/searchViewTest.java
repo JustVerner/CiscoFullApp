@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -56,7 +58,7 @@ public class searchViewTest extends AppCompatActivity{
         list = (ListView) findViewById(R.id.listview);
         editSearch = (EditText) findViewById(R.id.c_runnerSearch);
 
-        adapter = new ArrayAdapter<String>(this, R.layout.single_item_view, R.id.command, command);
+        adapter = new ArrayAdapter<String>(this, R.layout.listview_item, R.id.command, command);
         list.setAdapter(adapter);
 
         editSearch.addTextChangedListener(new TextWatcher() {
@@ -91,6 +93,9 @@ public class searchViewTest extends AppCompatActivity{
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+/*                Toast toast = Toast.makeText(searchViewTest.this, "This is text", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 50);
+                toast.show();*/
                 Intent intent = new Intent(searchViewTest.this, SingleItemView.class);
 
                 startActivity(intent);
@@ -98,12 +103,4 @@ public class searchViewTest extends AppCompatActivity{
         });
 
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-
 }

@@ -1,8 +1,10 @@
 package com.example.martin.ciscofullapp.getPorts;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -12,6 +14,7 @@ import com.example.martin.ciscofullapp.CommandRunner.CommandRunner;
 import com.example.martin.ciscofullapp.CommandRunner.Task;
 //import com.example.martin.ciscofullapp.CommandRunner.CommandClass;
 import com.example.martin.ciscofullapp.CommandRunner.CommandClass;
+import com.example.martin.ciscofullapp.CommandRunner.searchViewTest;
 import com.example.martin.ciscofullapp.CommandRunner.FileRunner;
 import com.example.martin.ciscofullapp.Database.InsertData;
 import com.example.martin.ciscofullapp.R;
@@ -60,7 +63,6 @@ public class MainActivity extends AppCompatActivity{
     FileRunner fileRunners = new FileRunner();
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity{
         commandRunner.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
 
-                Intent intent = new Intent(MainActivity.this, CommandClass.class);
+                Intent intent = new Intent(MainActivity.this, searchViewTest.class);
                 startActivity(intent);
 
             }
@@ -212,7 +214,9 @@ public class MainActivity extends AppCompatActivity{
 
                         requiredTicket  = myResponse.substring(myResponse.indexOf(":") +19, myResponse.indexOf(",")-1);
 
-                        Toast.makeText(MainActivity.this, "Your token is" + requiredTicket + ". Application needs restart in 6 hours(1 hour idle)", Toast.LENGTH_LONG).show();
+                        Toast toast = Toast.makeText(MainActivity.this, "Your token is" + requiredTicket + ". Application needs restart in 6 hours(1 hour idle)", Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 50);
+                        toast.show();
                     }
                 });
 
