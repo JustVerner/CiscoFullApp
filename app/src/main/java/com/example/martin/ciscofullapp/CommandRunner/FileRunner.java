@@ -26,9 +26,11 @@ public class FileRunner {
 
     public String url;
 
-    //TestFunction testFunction = new TestFunction();
+    TestFunction testFunction = new TestFunction();
 
-    String data;
+    CommandClass commandClass = new CommandClass();
+
+    public static String data;
 
     boolean test;
 
@@ -65,9 +67,10 @@ public class FileRunner {
 
                 Log.w("Succes", responses);
 
-                //testFunction.run();
-
+                commandClass.ChangeText();
             }
+
+
         });
     }
 }

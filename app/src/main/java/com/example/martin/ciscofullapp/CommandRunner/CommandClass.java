@@ -2,6 +2,7 @@ package com.example.martin.ciscofullapp.CommandRunner;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,7 +18,7 @@ import java.io.IOException;
 public class CommandClass extends AppCompatActivity {
 
     private Button commandButton, taskButton, fileButton;
-    private TextView commandTextView;
+    public TextView commandTextView;
     //CommandRunner commandRunner = new CommandRunner();
     //Task task = new Task();
     //FileRunner filerunner = new FileRunner();
@@ -35,8 +36,7 @@ public class CommandClass extends AppCompatActivity {
         taskButton = (Button) findViewById(R.id.taskButton);
         fileButton = (Button) findViewById(R.id.fileButtons);
         commandTextView = (TextView) findViewById(R.id.commandTextView);
-
-
+        commandTextView.setMovementMethod(new ScrollingMovementMethod());
 
         commandButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
@@ -70,6 +70,11 @@ public class CommandClass extends AppCompatActivity {
 
             }
         });*/
+    }
+
+    public void ChangeText()
+    {
+        commandTextView.setText(FileRunner.data);
     }
 
 }
