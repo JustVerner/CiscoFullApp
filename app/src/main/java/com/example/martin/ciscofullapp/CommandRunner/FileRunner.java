@@ -1,11 +1,14 @@
 package com.example.martin.ciscofullapp.CommandRunner;
 
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -30,15 +33,19 @@ public class FileRunner {
 
     //CommandClass commandClass = new CommandClass();
 
+    Timer timer = new Timer();
+
     public static String data;
 
-    boolean test;
+    static public boolean test;
+
+    TestFunction testFunction = new TestFunction();
+
+    //CommandClass commandClass = new CommandClass();
 
     public void run() throws IOException {
 
         url = "https://10.100.1.125/api/v1/file/"+fileid;
-
-        //test = false;
 
         getUnsafeOkHttpClient();
 
@@ -67,11 +74,38 @@ public class FileRunner {
 
                 Log.w("Succes", responses);
 
+                /*timer.schedule(new TimerTask() {
+
+                    public void run() {
+                        Log.w("Waster time", "Timer waster");
+                        }
+
+                }, 5000);*/
+                //CommandClass commandClass = new CommandClass();
+
                 //commandClass.ChangeText();
+
+                /*timer.schedule(new TimerTask() {
+
+                    public void run() {
+                        try {
+                            test = true;
+                            testFunction.run();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, 1000);*/
             }
 
 
         });
     }
+   /* public void update()
+    {
+
+        CommandClas();
+    }*/
 }
+
 
