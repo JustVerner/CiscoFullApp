@@ -73,7 +73,6 @@ public class Task {
 
                 fileid = responseRunner[8];
 
-                taskCheck = true;
 
                 Log.w("Succes", fileid);
 
@@ -84,6 +83,7 @@ public class Task {
 
                     public void run() {
                         try {
+                            taskCheck = true;
                             testFunction.run();
                         } catch (IOException e) {
                             e.printStackTrace();
