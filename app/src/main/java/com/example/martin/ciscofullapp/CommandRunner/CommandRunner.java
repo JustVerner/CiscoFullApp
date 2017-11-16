@@ -81,7 +81,7 @@ public class CommandRunner {
 
                     public void run() {
                         try {
-
+                            commandCheck = true;
                             testFunction.run();
                         } catch (IOException e) {
                             e.printStackTrace();

@@ -43,7 +43,7 @@ public class CommandClass extends AppCompatActivity {
         taskButton = (Button) findViewById(R.id.taskButton);
         fileButton = (Button) findViewById(R.id.fileButtons);
         commandTextView = (TextView) findViewById(R.id.commandTextView);
-        //commandTextView.setMovementMethod(new ScrollingMovementMethod());
+        commandTextView.setMovementMethod(new ScrollingMovementMethod());
 
         commandButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -52,12 +52,12 @@ public class CommandClass extends AppCompatActivity {
 
                     public void run() {
                         try {
-                           commandRunner.run();
+                            commandRunner.run();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
-                }, 750);
+                }, 1000);
                 timer2.schedule(new TimerTask() {
 
                     public void run() {
@@ -68,7 +68,7 @@ public class CommandClass extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-                }, 1500);
+                }, 2000);
                 timer3.schedule(new TimerTask() {
 
                     public void run() {
@@ -79,18 +79,16 @@ public class CommandClass extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-                }, 2225);
+                }, 3000);
                 timer4.schedule(new TimerTask() {
 
                     public void run() {
-                       setText();
+                        setText();
                     }
-                }, 3000);
+                }, 4000);
             }
         });
     }
-
-
         /*taskButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
 
@@ -120,10 +118,11 @@ public class CommandClass extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                if(FileRunner.data != null) {
+                    FileRunner.data = FileRunner.data.replace("\\n", System.getProperty("line.separator"));
+                }
                 commandTextView.setText(FileRunner.data);
             }
         });
     }
 }
-
-

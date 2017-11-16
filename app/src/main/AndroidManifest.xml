@@ -26,6 +26,10 @@
             android:screenOrientation="portrait">
 
         </activity>
+            <activity android:name=".CommandRunner.CommandClass"
+                android:screenOrientation="portrait">
+
+        </activity>
         <activity android:name=".getPorts.MainActivity"
             android:screenOrientation="portrait">
 

@@ -15,7 +15,6 @@ import com.example.martin.ciscofullapp.Database.DatabaseManager;
 public class  App extends Application {
     private static Context context;
     private static DatabaseHelper dbHelper;
-    private float kage;
 
     @Override
     public void onCreate()

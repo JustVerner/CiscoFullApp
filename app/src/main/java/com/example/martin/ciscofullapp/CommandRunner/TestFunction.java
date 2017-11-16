@@ -12,10 +12,6 @@ import com.example.martin.ciscofullapp.CommandRunner.Task;
 
 public class TestFunction{
 
-    //CommandRunner commandRunner = new CommandRunner();
-    //Task task = new Task();
-    //FileRunner fileRunner = new FileRunner();
-
     public void run() throws IOException {
 
         if (!CommandRunner.commandCheck)
