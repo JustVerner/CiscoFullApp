@@ -93,11 +93,15 @@ public class searchViewTest extends AppCompatActivity{
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-/*                Toast toast = Toast.makeText(searchViewTest.this, "This is text", Toast.LENGTH_SHORT);
+
+                String s = parent.getAdapter().getItem(position).toString();
+
+                /*Toast toast = Toast.makeText(searchViewTest.this, "This is " + s + " item", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 50);
                 toast.show();*/
-                Intent intent = new Intent(searchViewTest.this, SingleItemView.class);
 
+                Intent intent = new Intent(searchViewTest.this, SingleItemView.class);
+                intent.putExtra("name", s);
                 startActivity(intent);
             }
         });

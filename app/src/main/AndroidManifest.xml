@@ -41,11 +41,12 @@
 
         </activity>
 
-        <activity android:name=".CommandRunner.SingleItemView" />
+        <activity android:name=".CommandRunner.SingleItemView"
+            android:label="CiscoFullApp"
+            android:windowSoftInputMode="stateHidden">
 
-        <activity android:name=".CommandRunner.CommandClass"/>
-
-
+        </activity>
     </application>
+
 
 </manifest>
