@@ -47,6 +47,8 @@ public class FileRunner {
 
         url = "https://10.100.1.125/api/v1/file/"+fileid;
 
+        //test = false;
+
         getUnsafeOkHttpClient();
 
         Request request = new Request.Builder()
@@ -74,38 +76,11 @@ public class FileRunner {
 
                 Log.w("Succes", responses);
 
-                /*timer.schedule(new TimerTask() {
-
-                    public void run() {
-                        Log.w("Waster time", "Timer waster");
-                        }
-
-                }, 5000);*/
-                //CommandClass commandClass = new CommandClass();
-
                 //commandClass.ChangeText();
-
-                /*timer.schedule(new TimerTask() {
-
-                    public void run() {
-                        try {
-                            test = true;
-                            testFunction.run();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, 1000);*/
             }
 
 
         });
     }
-   /* public void update()
-    {
-
-        CommandClas();
-    }*/
 }
-
 
