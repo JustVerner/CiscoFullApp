@@ -31,6 +31,8 @@ public class CommandRunner {
 
     String url = "https://10.100.1.125/api/v1/network-device-poller/cli/read-request";
 
+    String replaceString;
+
     TestFunction testFunction = new TestFunction();
     //TestFunction testFunction;
 
@@ -39,11 +41,11 @@ public class CommandRunner {
 
     public void run() throws IOException {
 
-
+        replaceString = CommandClass.s;
 
         getUnsafeOkHttpClient();
 
-        RequestBody body = RequestBody.create(mediaType, "{\r\n  \"name\": \"martin\",\r\n  \"commands\": [\r\n    \"show version\"\r\n  ],\r\n  \"description\": \"\",\r\n  \"timeout\": 0,\r\n  \"deviceUuids\": [\r\n    \"7f94c530-7933-48e6-8aed-e094ebe1e368\"\r\n  ]\r\n}");
+        RequestBody body = RequestBody.create(mediaType, "{\r\n  \"name\": \"martin\",\r\n  \""+replaceString+"\": [\r\n    \"replace\"\r\n  ],\r\n  \"description\": \"\",\r\n  \"timeout\": 0,\r\n  \"deviceUuids\": [\r\n    \"7f94c530-7933-48e6-8aed-e094ebe1e368\"\r\n  ]\r\n}");
 
         Request request = new Request.Builder()
                 .url(url)

@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity{
         commandRunner.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
 
-                Intent intent = new Intent(MainActivity.this, CommandClass.class);
+                Intent intent = new Intent(MainActivity.this, searchViewTest.class);
                 startActivity(intent);
 
             }

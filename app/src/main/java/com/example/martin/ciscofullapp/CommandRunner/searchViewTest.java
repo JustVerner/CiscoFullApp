@@ -100,7 +100,7 @@ public class searchViewTest extends AppCompatActivity{
                 toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 50);
                 toast.show();*/
 
-                Intent intent = new Intent(searchViewTest.this, SingleItemView.class);
+                Intent intent = new Intent(searchViewTest.this, CommandRunner.class);
                 intent.putExtra("name", s);
                 startActivity(intent);
             }

@@ -1,5 +1,6 @@
 package com.example.martin.ciscofullapp.CommandRunner;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
@@ -32,6 +33,7 @@ public class CommandClass extends AppCompatActivity {
     Timer timer3 = new Timer();
     Timer timer4 = new Timer();
 
+    public static String s;
 
 
     @Override
@@ -44,6 +46,9 @@ public class CommandClass extends AppCompatActivity {
         fileButton = (Button) findViewById(R.id.fileButtons);
         commandTextView = (TextView) findViewById(R.id.commandTextView);
         commandTextView.setMovementMethod(new ScrollingMovementMethod());
+
+        Intent intent = getIntent();
+        s = intent.getExtras().getString("name");
 
         commandButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
