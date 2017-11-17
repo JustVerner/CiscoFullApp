@@ -51,9 +51,7 @@ public class searchViewTest extends AppCompatActivity{
 
         imageButton = (ImageButton) findViewById(R.id.imageButton);
 
-        final String command[] =  {"testOne", "testTwo", "anotherTestOne" , "bAnotherTestOne" , "gAnotherTestFive", "lulhehexd",
-                "MY BELLY IS HUGE", "MY BRAIN HAS DELAY", "YOU GUESSED IT RIGHT", "IM FROM NA",
-                "I NEED TO TYPE MORE ITEMS", "NONAMECLEVER", "BLA BLA BLA", "MARTIN", "HAHA", "HEHE", "HIHI" };
+        final String command[] =  {"Show Version", "Show Running", "sh Interface gig" , "Ping" };
 
         list = (ListView) findViewById(R.id.listview);
         editSearch = (EditText) findViewById(R.id.c_runnerSearch);
