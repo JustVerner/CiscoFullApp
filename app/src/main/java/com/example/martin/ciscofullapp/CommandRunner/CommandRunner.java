@@ -74,19 +74,20 @@ public class CommandRunner {
 
                 Log.w("Succes", taskid);
 
+                commandCheck = true;
                 //testFunction = new TestFunction();
 
-                timer.schedule(new TimerTask() {
+ /*               timer.schedule(new TimerTask() {
 
                     public void run() {
                         try {
-                            commandCheck = true;
+
                             testFunction.run();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
-                }, 2000);
+                }, 1000);*/
 
             }
         });

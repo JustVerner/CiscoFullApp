@@ -2,18 +2,16 @@ package com.example.martin.ciscofullapp.CommandRunner;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.text.TextWatcher;
-import android.widget.Toast;
 
 import com.example.martin.ciscofullapp.R;
 
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Martin on 09-11-2017.
@@ -23,13 +21,17 @@ public class CommandClass extends AppCompatActivity {
 
     private Button commandButton, taskButton, fileButton;
     public TextView commandTextView;
-    //CommandRunner commandRunner = new CommandRunner();
-    //Task task = new Task();
-    //FileRunner filerunner = new FileRunner();
+    CommandRunner commandRunner = new CommandRunner();
+    Task task = new Task();
+    FileRunner filerunner = new FileRunner();
     TestFunction testFunction = new TestFunction();
     boolean runcheck = false;
     String replaceString;
-    EditText edit;
+    Timer timer = new Timer();
+    Timer timer2 = new Timer();
+    Timer timer3 = new Timer();
+    Timer timer4 = new Timer();
+
 
 
     @Override
@@ -41,23 +43,52 @@ public class CommandClass extends AppCompatActivity {
         taskButton = (Button) findViewById(R.id.taskButton);
         fileButton = (Button) findViewById(R.id.fileButtons);
         commandTextView = (TextView) findViewById(R.id.commandTextView);
-        commandTextView.setMovementMethod(new ScrollingMovementMethod());
-
-
+        //commandTextView.setMovementMethod(new ScrollingMovementMethod());
 
         commandButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
+            public void onClick(View v) {
 
-                try {
-                    testFunction.run();
-                    TextWatcherTest();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                timer.schedule(new TimerTask() {
 
+                    public void run() {
+                        try {
+                           commandRunner.run();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, 750);
+                timer2.schedule(new TimerTask() {
 
+                    public void run() {
+                        try {
+
+                            task.run();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, 1500);
+                timer3.schedule(new TimerTask() {
+
+                    public void run() {
+                        try {
+
+                            filerunner.run();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, 2225);
+                timer4.schedule(new TimerTask() {
+
+                    public void run() {
+                       setText();
+                    }
+                }, 3000);
             }
         });
+    }
 
 
         /*taskButton.setOnClickListener(new View.OnClickListener() {
@@ -82,30 +113,17 @@ public class CommandClass extends AppCompatActivity {
 
             }
         });*/
-    }
 
-    public void ChangeText()
-    {
-        commandTextView.setText(FileRunner.data);
-    }
 
-    public void TextWatcherTest() {
-        edit.addTextChangedListener(new TextWatcher() {
+
+   public void setText() {
+        runOnUiThread(new Runnable() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                FileRunner.data = edit.toString();
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                Toast toast = Toast.makeText(CommandClass.this, edit.toString(), Toast.LENGTH_SHORT  );
-                toast.show();
+            public void run() {
+                commandTextView.setText(FileRunner.data);
             }
         });
     }
 }
+
+

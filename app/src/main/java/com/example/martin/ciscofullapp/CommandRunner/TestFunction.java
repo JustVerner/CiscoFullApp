@@ -1,5 +1,6 @@
 package com.example.martin.ciscofullapp.CommandRunner;
 
+import java.io.File;
 import java.io.IOException;
 import com.example.martin.ciscofullapp.CommandRunner.FileRunner;
 import com.example.martin.ciscofullapp.CommandRunner.CommandRunner;
@@ -9,7 +10,7 @@ import com.example.martin.ciscofullapp.CommandRunner.Task;
  * Created by Martin on 13-11-2017.
  */
 
-public class TestFunction {
+public class TestFunction{
 
     //CommandRunner commandRunner = new CommandRunner();
     //Task task = new Task();
@@ -28,10 +29,16 @@ public class TestFunction {
             Task task = new Task();
             task.run();
         }
-        if (CommandRunner.commandCheck && Task.taskCheck)
+        if (CommandRunner.commandCheck && Task.taskCheck && !FileRunner.test)
         {
             FileRunner fileRunner = new FileRunner();
             fileRunner.run();
+        }
+
+        if (FileRunner.test && CommandRunner.commandCheck && Task.taskCheck)
+        {
+            CommandClass commandClass = new CommandClass();
+            //commandClass.setText();
         }
 
     }

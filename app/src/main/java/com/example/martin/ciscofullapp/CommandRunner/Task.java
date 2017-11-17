@@ -79,7 +79,7 @@ public class Task {
 
                 //testFunction = new TestFunction();
 
-                timer.schedule(new TimerTask() {
+                /*timer.schedule(new TimerTask() {
 
                     public void run() {
                         try {
@@ -89,7 +89,7 @@ public class Task {
                             e.printStackTrace();
                         }
                     }
-                }, 2000);
+                }, 1000);*/
 
             }
         });
