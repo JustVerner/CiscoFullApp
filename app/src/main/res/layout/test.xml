@@ -9,43 +9,36 @@
         android:id="@+id/commandButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginLeft="0dp"
+        android:layout_marginStart="16dp"
         android:text="Command button"
-        app:layout_constraintBottom_toBottomOf="@+id/fileButtons"
-        app:layout_constraintEnd_toStartOf="@+id/taskButton"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/fileButtons" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
-    <Button
-        android:id="@+id/taskButton"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/command"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:text="Task button"
-        app:layout_constraintBaseline_toBaselineOf="@+id/commandButton"
-        app:layout_constraintEnd_toStartOf="@+id/fileButtons"
-        app:layout_constraintStart_toEndOf="@+id/commandButton" />
-
-    <Button
-        android:id="@+id/fileButtons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="70dp"
-        android:text="File button"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:padding="10dip"
+        android:text="Hello"
+        android:textSize="16dip"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/commandTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/taskButton"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commandButton"
+        app:layout_constraintVertical_bias="0.537" />
 
     <TextView
         android:id="@+id/commandTextView"
         android:layout_width="wrap_content"
         android:layout_height="412dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="124dp"
         android:maxLines="32"
         android:maxWidth="325dp"
         android:scrollbars="vertical"
@@ -53,5 +46,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/commandButton" />
 
- />
+    />
 </android.support.constraint.ConstraintLayout>

@@ -94,13 +94,12 @@ public class searchViewTest extends AppCompatActivity{
 
                 String s = parent.getAdapter().getItem(position).toString();
 
-                /*Toast toast = Toast.makeText(searchViewTest.this, "This is " + s + " item", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 50);
-                toast.show();*/
-
-                Intent intent = new Intent(searchViewTest.this, SingleItemView.class);
+                Intent intent = new Intent(searchViewTest.this, CommandClass.class);
+                Intent intent1 = new Intent( searchViewTest.this, CommandRunner.class);
                 intent.putExtra("name", s);
+                intent1.putExtra("name", s);
                 startActivity(intent);
+                startActivity(intent1);
             }
         });
 

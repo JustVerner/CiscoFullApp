@@ -50,11 +50,6 @@
             android:windowSoftInputMode="stateHidden">
 
         </activity>
-
-        <activity android:name=".CommandRunner.CommandClass">
-
-
-        </activity>
     </application>
 
 

@@ -1,11 +1,13 @@
 package com.example.martin.ciscofullapp.CommandRunner;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.martin.ciscofullapp.R;
 
@@ -31,7 +33,9 @@ public class CommandClass extends AppCompatActivity {
     Timer timer2 = new Timer();
     Timer timer3 = new Timer();
     Timer timer4 = new Timer();
-
+    TextView txtCommand;
+    String s;
+    String command;
 
 
     @Override
@@ -39,9 +43,17 @@ public class CommandClass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test);
 
+        Intent intent = getIntent();
+        s = intent.getExtras().getString("name");
+
+        txtCommand = (TextView) findViewById(R.id.command);
+        txtCommand.setText(s);
+
+        Toast toast = Toast.makeText(CommandClass.this, s, Toast.LENGTH_SHORT);
+        toast.show();
+
         commandButton = (Button) findViewById(R.id.commandButton);
-        taskButton = (Button) findViewById(R.id.taskButton);
-        fileButton = (Button) findViewById(R.id.fileButtons);
+
         commandTextView = (TextView) findViewById(R.id.commandTextView);
         commandTextView.setMovementMethod(new ScrollingMovementMethod());
 
@@ -89,29 +101,6 @@ public class CommandClass extends AppCompatActivity {
             }
         });
     }
-        /*taskButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-
-                try {
-                    task.run();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        fileButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-
-                try {
-                    filerunner.run();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });*/
-
 
 
    public void setText() {
