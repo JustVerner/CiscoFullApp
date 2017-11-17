@@ -15,21 +15,5 @@ import com.example.martin.ciscofullapp.R;
  */
 
 public class SingleItemView extends Activity {
-     TextView txtCommand;
-     String s;
-     String command;
 
-     @Override
-    public void onCreate(Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
-         setContentView(R.layout.single_item_view);
-
-
-
-         Intent intent = getIntent();
-         s = intent.getExtras().getString("name");
-
-         txtCommand = (TextView) findViewById(R.id.command);
-         txtCommand.setText(s);
-     }
 }

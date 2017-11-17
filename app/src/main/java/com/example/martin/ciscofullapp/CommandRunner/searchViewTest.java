@@ -51,9 +51,7 @@ public class searchViewTest extends AppCompatActivity{
 
         imageButton = (ImageButton) findViewById(R.id.imageButton);
 
-        final String command[] =  {"testOne", "testTwo", "anotherTestOne" , "bAnotherTestOne" , "gAnotherTestFive", "lulhehexd",
-                "MY BELLY IS HUGE", "MY BRAIN HAS DELAY", "YOU GUESSED IT RIGHT", "IM FROM NA",
-                "I NEED TO TYPE MORE ITEMS", "NONAMECLEVER", "BLA BLA BLA", "MARTIN", "HAHA", "HEHE", "HIHI" };
+        final String command[] =  {"Show Version", "Show Running", "sh Interface gig" , "Ping" };
 
         list = (ListView) findViewById(R.id.listview);
         editSearch = (EditText) findViewById(R.id.c_runnerSearch);
@@ -96,13 +94,12 @@ public class searchViewTest extends AppCompatActivity{
 
                 String s = parent.getAdapter().getItem(position).toString();
 
-                /*Toast toast = Toast.makeText(searchViewTest.this, "This is " + s + " item", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 50);
-                toast.show();*/
-
-                Intent intent = new Intent(searchViewTest.this, CommandRunner.class);
+                Intent intent = new Intent(searchViewTest.this, CommandClass.class);
+                Intent intent1 = new Intent( searchViewTest.this, CommandRunner.class);
                 intent.putExtra("name", s);
+                intent1.putExtra("name", s);
                 startActivity(intent);
+                startActivity(intent1);
             }
         });
 
