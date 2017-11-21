@@ -39,10 +39,21 @@ public class searchViewTest extends AppCompatActivity{
     private ListView list;
     int textLength = 0;
     private EditText editSearch;
+    private String s;
+
+
+
 
     ArrayAdapter<String> adapter;
     ArrayList<HashMap<String, String>> arrayList;
 
+    public searchViewTest(){
+
+    }
+
+    public searchViewTest(String s1) {
+        this.s = s1;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState)  {
@@ -51,7 +62,7 @@ public class searchViewTest extends AppCompatActivity{
 
         imageButton = (ImageButton) findViewById(R.id.imageButton);
 
-        final String command[] =  {"Show Version", "Show Running", "sh Interface gig" , "Ping" };
+        final String command[] =  {"show version", "show running", "sh interface gig" , "ping" };
 
         list = (ListView) findViewById(R.id.listview);
         editSearch = (EditText) findViewById(R.id.c_runnerSearch);
@@ -92,14 +103,12 @@ public class searchViewTest extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                String s = parent.getAdapter().getItem(position).toString();
+                s = parent.getAdapter().getItem(position).toString();
 
                 Intent intent = new Intent(searchViewTest.this, CommandClass.class);
-                Intent intent1 = new Intent( searchViewTest.this, CommandRunner.class);
                 intent.putExtra("name", s);
-                intent1.putExtra("name", s);
+                startActivity(new Intent(searchViewTest.this, CommandRunner.class).putExtra("name1", s));
                 startActivity(intent);
-                startActivity(intent1);
             }
         });
 

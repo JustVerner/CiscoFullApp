@@ -12,6 +12,7 @@ import com.example.martin.ciscofullapp.CommandRunner.Task;
 
 public class TestFunction{
 
+
     public void run() throws IOException {
 
         if (!CommandRunner.commandCheck)

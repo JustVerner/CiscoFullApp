@@ -13,6 +13,7 @@ import com.example.martin.ciscofullapp.R;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.locks.Lock;
 
 /**
  * Created by Martin on 09-11-2017.
@@ -20,7 +21,7 @@ import java.util.TimerTask;
 
 public class CommandClass extends AppCompatActivity {
 
-    private Button commandButton, taskButton, fileButton;
+    private Button commandButton;
     public TextView commandTextView;
     CommandRunner commandRunner = new CommandRunner();
     Task task = new Task();
@@ -32,9 +33,10 @@ public class CommandClass extends AppCompatActivity {
     Timer timer2 = new Timer();
     Timer timer3 = new Timer();
     Timer timer4 = new Timer();
-
+    Object textLock = new Object();
+    private boolean text = true;
+    private boolean text2 = true;
     public static String s;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,8 +44,6 @@ public class CommandClass extends AppCompatActivity {
         setContentView(R.layout.test);
 
         commandButton = (Button) findViewById(R.id.commandButton);
-        taskButton = (Button) findViewById(R.id.taskButton);
-        fileButton = (Button) findViewById(R.id.fileButtons);
         commandTextView = (TextView) findViewById(R.id.commandTextView);
         commandTextView.setMovementMethod(new ScrollingMovementMethod());
 
@@ -53,70 +53,38 @@ public class CommandClass extends AppCompatActivity {
         commandButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                timer.schedule(new TimerTask() {
-
+                final Thread tyler1 = new Thread(new Runnable() {
+                    @Override
                     public void run() {
-                        try {
+                        if(text && text2) {
                             commandRunner.run();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                            run();
                         }
-                    }
-                }, 1000);
-                timer2.schedule(new TimerTask() {
-
-                    public void run() {
-                        try {
-
-                            task.run();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                        if(FileRunner.data != null) {
+                            text = false;
+                            run();
                         }
-                    }
-                }, 2000);
-                timer3.schedule(new TimerTask() {
-
-                    public void run() {
-                        try {
-
-                            filerunner.run();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                        while (!text){
+                            setText();
+                            text = true;
                         }
-                    }
-                }, 3000);
-                timer4.schedule(new TimerTask() {
 
-                    public void run() {
-                        setText();
                     }
-                }, 4000);
+                });
+                tyler1.start();
+
+
+
+
             }
         });
     }
-        /*taskButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-
-                try {
-                    task.run();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        fileButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-
-                try {
-                    filerunner.run();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });*/
-
+/*   public void update(float deltaTime) {
+        while(FileRunner.data != null && text == true) {
+            setText();
+            text = false;
+        }
+   }*/
 
 
    public void setText() {

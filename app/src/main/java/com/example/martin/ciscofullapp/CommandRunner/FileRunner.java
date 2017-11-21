@@ -29,10 +29,6 @@ public class FileRunner {
 
     public String url;
 
-    //TestFunction testFunction = new TestFunction();
-
-    //CommandClass commandClass = new CommandClass();
-
     Timer timer = new Timer();
 
     public static String data;
@@ -41,9 +37,7 @@ public class FileRunner {
 
     TestFunction testFunction = new TestFunction();
 
-    //CommandClass commandClass = new CommandClass();
-
-    public void run() throws IOException {
+    public void run() {
 
         url = "https://10.100.1.125/api/v1/file/"+fileid;
 
@@ -78,7 +72,6 @@ public class FileRunner {
 
                 Log.w("Succes", responses);
 
-                //commandClass.ChangeText();
             }
 
 
