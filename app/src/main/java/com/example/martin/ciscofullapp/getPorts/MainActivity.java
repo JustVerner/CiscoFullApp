@@ -110,22 +110,16 @@ public class MainActivity extends AppCompatActivity{
         taskRunner.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
 
-                try {
-                    task.run();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                    //task.run();
+
             }
         });
 
         fileButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
+            public void onClick(View v) {
 
-                try {
-                    fileRunners.run();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                fileRunners.run();
+
             }
         });
 

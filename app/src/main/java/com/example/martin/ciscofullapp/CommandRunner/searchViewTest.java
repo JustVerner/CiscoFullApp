@@ -51,7 +51,7 @@ public class searchViewTest extends AppCompatActivity{
 
         imageButton = (ImageButton) findViewById(R.id.imageButton);
 
-        final String command[] =  {"Show Version", "Show Running", "sh Interface gig" , "Ping" };
+        final String command[] =  {"show version","show running","show proc cpu","sh Interface gig","ping"};
 
         list = (ListView) findViewById(R.id.listview);
         editSearch = (EditText) findViewById(R.id.c_runnerSearch);
@@ -95,11 +95,11 @@ public class searchViewTest extends AppCompatActivity{
                 String s = parent.getAdapter().getItem(position).toString();
 
                 Intent intent = new Intent(searchViewTest.this, CommandClass.class);
-                Intent intent1 = new Intent( searchViewTest.this, CommandRunner.class);
+                //Intent intent1 = new Intent( searchViewTest.this, CommandRunner.class);
                 intent.putExtra("name", s);
-                intent1.putExtra("name", s);
+                //intent1.putExtra("name", s);
                 startActivity(intent);
-                startActivity(intent1);
+                //startActivity(intent1);
             }
         });
 

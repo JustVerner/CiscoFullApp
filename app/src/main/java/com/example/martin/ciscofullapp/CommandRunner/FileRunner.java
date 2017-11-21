@@ -37,13 +37,13 @@ public class FileRunner {
 
     public static String data;
 
-    static public boolean test;
+    public static boolean fileCheck = false;
 
-    TestFunction testFunction = new TestFunction();
+    //TestFunction testFunction = new TestFunction();
 
     //CommandClass commandClass = new CommandClass();
 
-    public void run() throws IOException {
+    public void run(){
 
         url = "https://10.100.1.125/api/v1/file/"+fileid;
 
@@ -75,6 +75,8 @@ public class FileRunner {
                 final String responses = response.body().string();
 
                 data = responses;
+
+                fileCheck = true;
 
                 Log.w("Succes", responses);
 

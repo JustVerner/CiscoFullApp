@@ -20,18 +20,21 @@ import java.util.TimerTask;
 
 public class CommandClass extends AppCompatActivity {
 
-    private Button commandButton, taskButton, fileButton;
+    private Button commandButton;
     public TextView commandTextView;
     CommandRunner commandRunner = new CommandRunner();
     Task task = new Task();
     FileRunner filerunner = new FileRunner();
-    TestFunction testFunction = new TestFunction();
+    //TestFunction testFunction = new TestFunction();
     boolean runcheck = false;
     String replaceString;
     Timer timer = new Timer();
     Timer timer2 = new Timer();
     Timer timer3 = new Timer();
     Timer timer4 = new Timer();
+
+
+
 
     public static String s;
 
@@ -42,18 +45,23 @@ public class CommandClass extends AppCompatActivity {
         setContentView(R.layout.test);
 
         commandButton = (Button) findViewById(R.id.commandButton);
-        taskButton = (Button) findViewById(R.id.taskButton);
-        fileButton = (Button) findViewById(R.id.fileButtons);
         commandTextView = (TextView) findViewById(R.id.commandTextView);
         commandTextView.setMovementMethod(new ScrollingMovementMethod());
 
         Intent intent = getIntent();
         s = intent.getExtras().getString("name");
 
-        commandButton.setOnClickListener(new View.OnClickListener() {
+
+
+
+       commandButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                timer.schedule(new TimerTask() {
+                run();
+
+
+
+                /*timer.schedule(new TimerTask() {
 
                     public void run() {
                         try {
@@ -73,7 +81,7 @@ public class CommandClass extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-                }, 2000);
+                }, 4000);
                 timer3.schedule(new TimerTask() {
 
                     public void run() {
@@ -84,16 +92,50 @@ public class CommandClass extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-                }, 3000);
+                }, 5000);
                 timer4.schedule(new TimerTask() {
 
                     public void run() {
                         setText();
                     }
-                }, 4000);
+                }, 6000);*/
             }
         });
     }
+
+
+        public void run() {
+
+            Thread t1 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+                    commandRunner.run();
+
+                }
+                }); t1.start();
+
+                Thread t2 = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        task.run();
+                    }
+                }); t2.start();
+                Thread t3 = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        filerunner.run();
+                    }
+                }); t3.start();
+
+                    Thread t4 = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            setText();
+                        }
+                    }); t4.start();
+                }
+
         /*taskButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
 

@@ -35,13 +35,16 @@ public class Task {
 
     public static String fileid;
 
+
     //TestFunction testFunction;
 
-    TestFunction testFunction = new TestFunction();
+    //TestFunction testFunction = new TestFunction();
 
     public static boolean taskCheck = false;
 
-    public void run() throws IOException {
+
+
+    public void run(){
 
         url = "https://10.100.1.125"+taskid;
 
@@ -73,6 +76,7 @@ public class Task {
 
                 fileid = responseRunner[8];
 
+                taskCheck = true;
 
                 Log.w("Succes", fileid);
 

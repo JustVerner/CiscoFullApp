@@ -1,4 +1,5 @@
 package com.example.martin.ciscofullapp.CommandRunner;
+import android.content.Intent;
 import android.util.Log;
 
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
@@ -15,6 +16,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import static com.example.martin.ciscofullapp.CommandRunner.CommandClass.s;
 import static com.example.martin.ciscofullapp.getPorts.CertificateClient.getUnsafeOkHttpClient;
 
 /**
@@ -31,21 +33,31 @@ public class CommandRunner {
 
     String url = "https://10.100.1.125/api/v1/network-device-poller/cli/read-request";
 
-    String replaceString;
+    String replaceString = "{\r\n  \"name\": \"martin\",\r\n  \"commands\": [\r\n    \"replace\"\r\n  ],\r\n  \"description\": \"\",\r\n  \"timeout\": 0,\r\n  \"deviceUuids\": [\r\n    \"7f94c530-7933-48e6-8aed-e094ebe1e368\"\r\n  ]\r\n}";
+    String replaceString2;
 
-    TestFunction testFunction = new TestFunction();
+
+    //TestFunction testFunction = new TestFunction();
+
     //TestFunction testFunction;
+
+
 
     static public boolean commandCheck = false;
 
 
-    public void run() throws IOException {
+    public void run(){
 
-        replaceString = CommandClass.s;
+        replaceString2 = replaceString.replace("replace",s);
+
+        /*Intent intent = Intent.getIntent();
+        s = intent.getExtras().getString("name");*/
+
+
 
         getUnsafeOkHttpClient();
 
-        RequestBody body = RequestBody.create(mediaType, "{\r\n  \"name\": \"martin\",\r\n  \""+replaceString+"\": [\r\n    \"replace\"\r\n  ],\r\n  \"description\": \"\",\r\n  \"timeout\": 0,\r\n  \"deviceUuids\": [\r\n    \"7f94c530-7933-48e6-8aed-e094ebe1e368\"\r\n  ]\r\n}");
+        RequestBody body = RequestBody.create(mediaType, replaceString2);
 
         Request request = new Request.Builder()
                 .url(url)
@@ -67,6 +79,7 @@ public class CommandRunner {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
 
+                commandCheck = true;
 
                 final String responses = response.body().string();
 
@@ -76,7 +89,6 @@ public class CommandRunner {
 
                 Log.w("Succes", taskid);
 
-                commandCheck = true;
                 //testFunction = new TestFunction();
 
  /*               timer.schedule(new TimerTask() {

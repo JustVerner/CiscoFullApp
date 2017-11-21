@@ -10,7 +10,7 @@ import com.example.martin.ciscofullapp.CommandRunner.Task;
  * Created by Martin on 13-11-2017.
  */
 
-public class TestFunction{
+/*public class TestFunction{
 
     public void run() throws IOException {
 
@@ -38,4 +38,4 @@ public class TestFunction{
         }
 
     }
-}
+}*/
