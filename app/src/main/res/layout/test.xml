@@ -2,48 +2,60 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/CR_"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="25dp">
 
     <Button
         android:id="@+id/commandButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
         android:layout_marginStart="16dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:text="Command button"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@+id/CommandNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/command"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="44dp"
         android:padding="10dip"
         android:text="Hello"
         android:textSize="16dip"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/commandTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.122"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/commandButton"
-        app:layout_constraintVertical_bias="0.537" />
+        app:layout_constraintEnd_toStartOf="@+id/CommandNumber"
+        app:layout_constraintStart_toStartOf="@+id/CommandNumber"
+        app:layout_constraintTop_toTopOf="@+id/CommandNumber" />
 
     <TextView
         android:id="@+id/commandTextView"
         android:layout_width="wrap_content"
-        android:layout_height="412dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="124dp"
         android:maxLines="32"
         android:maxWidth="325dp"
         android:scrollbars="vertical"
         android:text="Der er en stor abe kat i vejen \n abe \n abe \n abe \n abe \n abe \n abe \n abe \n abe v \n abe \n abe \n abe \n abe \n abe \n abe"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CommandNumber" />
+
+    <EditText
+        android:id="@+id/CommandNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="78dp"
+        android:layout_marginEnd="17dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/commandTextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/commandButton" />
 
     />

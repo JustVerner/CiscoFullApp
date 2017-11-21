@@ -3,9 +3,11 @@ package com.example.martin.ciscofullapp.CommandRunner;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.martin.ciscofullapp.R;
@@ -21,6 +23,7 @@ import java.util.concurrent.locks.Lock;
 
 public class CommandClass extends AppCompatActivity {
 
+    private EditText commandNumber;
     private Button commandButton;
     public TextView commandTextView;
     CommandRunner commandRunner = new CommandRunner();
@@ -46,6 +49,14 @@ public class CommandClass extends AppCompatActivity {
         commandButton = (Button) findViewById(R.id.commandButton);
         commandTextView = (TextView) findViewById(R.id.commandTextView);
         commandTextView.setMovementMethod(new ScrollingMovementMethod());
+        commandNumber = (EditText) findViewById(R.id.CommandNumber);
+
+        if(searchViewTest.showText == true)
+        {
+            commandNumber.setVisibility(View.VISIBLE);
+        }
+
+        commandNumber.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_CLASS_TEXT);
 
         Intent intent = getIntent();
         s = intent.getExtras().getString("name");
@@ -76,15 +87,6 @@ public class CommandClass extends AppCompatActivity {
 
 
 
-            }
-        });
-    }
-/*   public void update(float deltaTime) {
-        while(FileRunner.data != null && text == true) {
-            setText();
-            text = false;
-        }
-   }*/
 
 
    public void setText() {

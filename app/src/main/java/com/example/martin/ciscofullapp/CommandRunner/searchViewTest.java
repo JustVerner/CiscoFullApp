@@ -9,9 +9,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -43,6 +40,7 @@ public class searchViewTest extends AppCompatActivity{
 
 
 
+    public static boolean showText = true;
 
     ArrayAdapter<String> adapter;
     ArrayList<HashMap<String, String>> arrayList;
@@ -109,6 +107,17 @@ public class searchViewTest extends AppCompatActivity{
                 intent.putExtra("name", s);
                 startActivity(new Intent(searchViewTest.this, CommandRunner.class).putExtra("name1", s));
                 startActivity(intent);
+
+                if(s == "Ping")
+                {
+                    showText = true;
+                }
+                else
+                {
+                    showText = false;
+                }
+
+
             }
         });
 
