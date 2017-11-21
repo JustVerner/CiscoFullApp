@@ -3,9 +3,11 @@ package com.example.martin.ciscofullapp.CommandRunner;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.martin.ciscofullapp.R;
@@ -21,6 +23,7 @@ import java.util.TimerTask;
 public class CommandClass extends AppCompatActivity {
 
     private Button commandButton, taskButton, fileButton;
+    private EditText commandNumber;
     public TextView commandTextView;
     CommandRunner commandRunner = new CommandRunner();
     Task task = new Task();
@@ -42,10 +45,16 @@ public class CommandClass extends AppCompatActivity {
         setContentView(R.layout.test);
 
         commandButton = (Button) findViewById(R.id.commandButton);
-        taskButton = (Button) findViewById(R.id.taskButton);
-        fileButton = (Button) findViewById(R.id.fileButtons);
         commandTextView = (TextView) findViewById(R.id.commandTextView);
         commandTextView.setMovementMethod(new ScrollingMovementMethod());
+        commandNumber = (EditText) findViewById(R.id.CommandNumber);
+
+        if(searchViewTest.showText == true)
+        {
+            commandNumber.setVisibility(View.VISIBLE);
+        }
+
+        commandNumber.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_CLASS_TEXT);
 
         Intent intent = getIntent();
         s = intent.getExtras().getString("name");
