@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.example.martin.ciscofullapp.R;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -28,20 +27,12 @@ public class CommandClass extends AppCompatActivity {
     private Button commandButton;
     public TextView commandTextView;
     CommandRunner commandRunner = new CommandRunner();
-    Task task = new Task();
-    FileRunner filerunner = new FileRunner();
-    //TestFunction testFunction = new TestFunction();
     boolean runcheck = false;
     String replaceString;
-    Timer timer = new Timer();
-    Timer timer2 = new Timer();
-    Timer timer3 = new Timer();
-    Timer timer4 = new Timer();
     Object textLock = new Object();
-    private boolean text = true;
-    private boolean text2 = true;
+    public static boolean text = true;
+    private boolean text2 = false;
     public static String s;
-    private String totallyWorks;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,38 +53,31 @@ public class CommandClass extends AppCompatActivity {
         Intent intent = getIntent();
         s = intent.getExtras().getString("name");
 
+
         commandButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                final Thread tyler1 = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (text && !text2) {
+                            commandRunner.run();
+                            text2 = true;
+                            run();
+                        }
 
-                run();
+                        while(text2)
+                            if(!text)
+                            {
+                                setText();
+                                text2 = false;
+                                run();
+                        }
+                    }
+                });
+                tyler1.start();
             }
         });
-    }
-
-
-    public void run() {
-        if (text2) {
-            commandRunner.run();
-            task.run();
-            filerunner.run();
-            if(filerunner.data != null)
-            {
-                text2 = false;
-                run();
-            }
-            //totallyWorks = filerunner.getDataId();
-            //totallyWorks = filerunner.getDataId();
-            //text2 = false;
-
-        }
-        if (totallyWorks != null) {
-            text = false;
-            setText();
-        }
-
-
-
     }
 
 
@@ -109,4 +93,3 @@ public class CommandClass extends AppCompatActivity {
         });
     }
 }
-
