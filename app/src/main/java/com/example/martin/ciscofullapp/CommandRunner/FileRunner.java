@@ -71,6 +71,8 @@ public class FileRunner {
 
                 data = responses;
 
+                CommandClass.text = false;
+
                 Log.w("Succes", responses);
 
             }
