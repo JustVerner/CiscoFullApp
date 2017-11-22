@@ -27,18 +27,11 @@ public class CommandClass extends AppCompatActivity {
     private Button commandButton;
     public TextView commandTextView;
     CommandRunner commandRunner = new CommandRunner();
-    Task task = new Task();
-    FileRunner filerunner = new FileRunner();
-    TestFunction testFunction = new TestFunction();
     boolean runcheck = false;
     String replaceString;
-    Timer timer = new Timer();
-    Timer timer2 = new Timer();
-    Timer timer3 = new Timer();
-    Timer timer4 = new Timer();
     Object textLock = new Object();
-    private boolean text = true;
-    private boolean text2 = true;
+    public static boolean text = true;
+    private boolean text2 = false;
     public static String s;
 
     @Override
@@ -51,8 +44,7 @@ public class CommandClass extends AppCompatActivity {
         commandTextView.setMovementMethod(new ScrollingMovementMethod());
         commandNumber = (EditText) findViewById(R.id.CommandNumber);
 
-        if(searchViewTest.showText == true)
-        {
+        if (searchViewTest.showText == true) {
             commandNumber.setVisibility(View.VISIBLE);
         }
 
@@ -61,39 +53,39 @@ public class CommandClass extends AppCompatActivity {
         Intent intent = getIntent();
         s = intent.getExtras().getString("name");
 
+
         commandButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 final Thread tyler1 = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        if(text && text2) {
+                        if (text && !text2) {
                             commandRunner.run();
+                            text2 = true;
                             run();
-                        }
-                        if(FileRunner.data != null) {
-                            text = false;
-                            run();
-                        }
-                        while (!text){
-                            setText();
-                            text = true;
                         }
 
+                        while(text2)
+                            if(!text)
+                            {
+                                setText();
+                                text2 = false;
+                                run();
+                        }
                     }
                 });
                 tyler1.start();
+            }
+        });
+    }
 
 
-
-
-
-
-   public void setText() {
+    public void setText() {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if(FileRunner.data != null) {
+                if (FileRunner.data != null) {
                     FileRunner.data = FileRunner.data.replace("\\n", System.getProperty("line.separator"));
                 }
                 commandTextView.setText(FileRunner.data);
