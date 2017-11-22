@@ -1,6 +1,7 @@
 package com.example.martin.ciscofullapp.CommandRunner;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
@@ -29,7 +30,6 @@ public class CommandClass extends AppCompatActivity {
     CommandRunner commandRunner = new CommandRunner();
     Task task = new Task();
     FileRunner filerunner = new FileRunner();
-    TestFunction testFunction = new TestFunction();
     boolean runcheck = false;
     String replaceString;
     Timer timer = new Timer();
@@ -51,8 +51,7 @@ public class CommandClass extends AppCompatActivity {
         commandTextView.setMovementMethod(new ScrollingMovementMethod());
         commandNumber = (EditText) findViewById(R.id.CommandNumber);
 
-        if(searchViewTest.showText == true)
-        {
+        if (searchViewTest.showText == true) {
             commandNumber.setVisibility(View.VISIBLE);
         }
 
@@ -63,26 +62,23 @@ public class CommandClass extends AppCompatActivity {
 
         commandButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
                 final Thread tyler1 = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        if(text && text2) {
+                        if(text) {
                             commandRunner.run();
-                            run();
-                        }
-                        if(FileRunner.data != null) {
                             text = false;
-                            run();
                         }
-                        while (!text){
-                            setText();
-                            text = true;
-                        }
+
+
 
                     }
                 });
                 tyler1.start();
+
+            }
+        });
+    }
 
 
 
@@ -101,3 +97,4 @@ public class CommandClass extends AppCompatActivity {
         });
     }
 }
+
