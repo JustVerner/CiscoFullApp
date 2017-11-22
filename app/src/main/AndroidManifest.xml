@@ -45,10 +45,7 @@
 
         </activity>
 
-        <activity android:name=".CommandRunner.SingleItemView"
-            android:label="CiscoFullApp"
-            android:windowSoftInputMode="stateHidden"></activity>
-
+        <activity android:name=".CommandRunner.CommandRunner"></activity>
     </application>
 
 

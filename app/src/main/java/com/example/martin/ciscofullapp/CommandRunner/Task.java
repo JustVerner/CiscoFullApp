@@ -35,16 +35,15 @@ public class Task {
 
     public static String fileid;
 
-
     //TestFunction testFunction;
 
-    //TestFunction testFunction = new TestFunction();
+    TestFunction testFunction = new TestFunction();
 
     public static boolean taskCheck = false;
+    private FileRunner fileRunner = new FileRunner();
+    private boolean bla = false;
 
-
-
-    public void run(){
+    public void run() {
 
         url = "https://10.100.1.125"+taskid;
 
@@ -76,26 +75,16 @@ public class Task {
 
                 fileid = responseRunner[8];
 
-                taskCheck = true;
 
-                Log.w("Succes", fileid);
+                Log.w("Succes", responses);
 
 
-                //testFunction = new TestFunction();
-
-                /*timer.schedule(new TimerTask() {
-
-                    public void run() {
-                        try {
-                            taskCheck = true;
-                            testFunction.run();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, 1000);*/
-
+                if(responses.contains("CLI Runner request creation"))
+                    run();
+                if(!responses.contains("CLI Runner request creation"))
+                    fileRunner.run();
             }
         });
+
     }
 }

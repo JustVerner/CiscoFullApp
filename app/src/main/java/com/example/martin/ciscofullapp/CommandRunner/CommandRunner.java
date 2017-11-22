@@ -1,4 +1,5 @@
 package com.example.martin.ciscofullapp.CommandRunner;
+import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 
@@ -16,44 +17,29 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-import static com.example.martin.ciscofullapp.CommandRunner.CommandClass.s;
 import static com.example.martin.ciscofullapp.getPorts.CertificateClient.getUnsafeOkHttpClient;
 
 /**
  * Created by Martin on 06-11-2017.
  */
 
-public class CommandRunner {
+public class CommandRunner extends Activity {
 
     public static String taskid = null;
-
     Timer timer = new Timer();
-
     MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
-
     String url = "https://10.100.1.125/api/v1/network-device-poller/cli/read-request";
-
     String replaceString = "{\r\n  \"name\": \"martin\",\r\n  \"commands\": [\r\n    \"replace\"\r\n  ],\r\n  \"description\": \"\",\r\n  \"timeout\": 0,\r\n  \"deviceUuids\": [\r\n    \"7f94c530-7933-48e6-8aed-e094ebe1e368\"\r\n  ]\r\n}";
     String replaceString2;
-
-
-    //TestFunction testFunction = new TestFunction();
-
-    //TestFunction testFunction;
-
-
-
+    TestFunction testFunction = new TestFunction();
     static public boolean commandCheck = false;
+    searchViewTest sT;
+    private Task task = new Task();
+    private boolean bla = false;
 
+    public void run() {
 
-    public void run(){
-
-        replaceString2 = replaceString.replace("replace",s);
-
-        /*Intent intent = Intent.getIntent();
-        s = intent.getExtras().getString("name");*/
-
-
+        replaceString2 = replaceString.replace("replace", CommandClass.s);
 
         getUnsafeOkHttpClient();
 
@@ -79,32 +65,23 @@ public class CommandRunner {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
 
-                commandCheck = true;
 
                 final String responses = response.body().string();
 
                 final String[] responseRunner = responses.split("\\\"");
 
+
+
+                commandCheck = true;
+
                 taskid = responseRunner[9];
 
                 Log.w("Succes", taskid);
 
-                //testFunction = new TestFunction();
-
- /*               timer.schedule(new TimerTask() {
-
-                    public void run() {
-                        try {
-                            commandCheck = true;
-                            testFunction.run();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, 1000);*/
-
+                task.run();
             }
         });
+
     }
 
 }

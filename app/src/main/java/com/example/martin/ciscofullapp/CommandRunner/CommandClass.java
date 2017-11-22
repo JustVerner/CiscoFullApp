@@ -3,9 +3,11 @@ package com.example.martin.ciscofullapp.CommandRunner;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.martin.ciscofullapp.R;
@@ -13,6 +15,7 @@ import com.example.martin.ciscofullapp.R;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.locks.Lock;
 
 /**
  * Created by Martin on 09-11-2017.
@@ -20,24 +23,23 @@ import java.util.TimerTask;
 
 public class CommandClass extends AppCompatActivity {
 
+    private EditText commandNumber;
     private Button commandButton;
     public TextView commandTextView;
     CommandRunner commandRunner = new CommandRunner();
     Task task = new Task();
     FileRunner filerunner = new FileRunner();
-    //TestFunction testFunction = new TestFunction();
+    TestFunction testFunction = new TestFunction();
     boolean runcheck = false;
     String replaceString;
     Timer timer = new Timer();
     Timer timer2 = new Timer();
     Timer timer3 = new Timer();
     Timer timer4 = new Timer();
-
-
-
-
+    Object textLock = new Object();
+    private boolean text = true;
+    private boolean text2 = true;
     public static String s;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,117 +49,43 @@ public class CommandClass extends AppCompatActivity {
         commandButton = (Button) findViewById(R.id.commandButton);
         commandTextView = (TextView) findViewById(R.id.commandTextView);
         commandTextView.setMovementMethod(new ScrollingMovementMethod());
+        commandNumber = (EditText) findViewById(R.id.CommandNumber);
+
+        if(searchViewTest.showText == true)
+        {
+            commandNumber.setVisibility(View.VISIBLE);
+        }
+
+        commandNumber.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_CLASS_TEXT);
 
         Intent intent = getIntent();
         s = intent.getExtras().getString("name");
 
-
-
-
-       commandButton.setOnClickListener(new View.OnClickListener() {
+        commandButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                run();
-
-
-
-                /*timer.schedule(new TimerTask() {
-
+                final Thread tyler1 = new Thread(new Runnable() {
+                    @Override
                     public void run() {
-                        try {
+                        if(text && text2) {
                             commandRunner.run();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                            run();
                         }
-                    }
-                }, 1000);
-                timer2.schedule(new TimerTask() {
-
-                    public void run() {
-                        try {
-
-                            task.run();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                        if(FileRunner.data != null) {
+                            text = false;
+                            run();
                         }
-                    }
-                }, 4000);
-                timer3.schedule(new TimerTask() {
-
-                    public void run() {
-                        try {
-
-                            filerunner.run();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, 5000);
-                timer4.schedule(new TimerTask() {
-
-                    public void run() {
-                        setText();
-                    }
-                }, 6000);*/
-            }
-        });
-    }
-
-
-        public void run() {
-
-            Thread t1 = new Thread(new Runnable() {
-                @Override
-                public void run() {
-
-                    commandRunner.run();
-
-                }
-                }); t1.start();
-
-                Thread t2 = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        task.run();
-                    }
-                }); t2.start();
-                Thread t3 = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        filerunner.run();
-                    }
-                }); t3.start();
-
-                    Thread t4 = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
+                        while (!text){
                             setText();
+                            text = true;
                         }
-                    }); t4.start();
-                }
 
-        /*taskButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
+                    }
+                });
+                tyler1.start();
 
-                try {
-                    task.run();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        fileButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
 
-                try {
-                    filerunner.run();
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });*/
 
 
 

@@ -29,21 +29,15 @@ public class FileRunner {
 
     public String url;
 
-    //TestFunction testFunction = new TestFunction();
-
-    //CommandClass commandClass = new CommandClass();
-
     Timer timer = new Timer();
 
     public static String data;
 
-    public static boolean fileCheck = false;
+    static public boolean test;
 
-    //TestFunction testFunction = new TestFunction();
+    TestFunction testFunction = new TestFunction();
 
-    //CommandClass commandClass = new CommandClass();
-
-    public void run(){
+    public void run() {
 
         url = "https://10.100.1.125/api/v1/file/"+fileid;
 
@@ -76,11 +70,8 @@ public class FileRunner {
 
                 data = responses;
 
-                fileCheck = true;
-
                 Log.w("Succes", responses);
 
-                //commandClass.ChangeText();
             }
 
 
