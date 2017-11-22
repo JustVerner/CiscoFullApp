@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.martin.ciscofullapp.R;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -29,7 +30,7 @@ public class CommandClass extends AppCompatActivity {
     CommandRunner commandRunner = new CommandRunner();
     Task task = new Task();
     FileRunner filerunner = new FileRunner();
-    TestFunction testFunction = new TestFunction();
+    //TestFunction testFunction = new TestFunction();
     boolean runcheck = false;
     String replaceString;
     Timer timer = new Timer();
@@ -40,6 +41,7 @@ public class CommandClass extends AppCompatActivity {
     private boolean text = true;
     private boolean text2 = true;
     public static String s;
+    private String totallyWorks;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,8 +53,7 @@ public class CommandClass extends AppCompatActivity {
         commandTextView.setMovementMethod(new ScrollingMovementMethod());
         commandNumber = (EditText) findViewById(R.id.CommandNumber);
 
-        if(searchViewTest.showText == true)
-        {
+        if (searchViewTest.showText == true) {
             commandNumber.setVisibility(View.VISIBLE);
         }
 
@@ -64,36 +65,43 @@ public class CommandClass extends AppCompatActivity {
         commandButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                final Thread tyler1 = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if(text && text2) {
-                            commandRunner.run();
-                            run();
-                        }
-                        if(FileRunner.data != null) {
-                            text = false;
-                            run();
-                        }
-                        while (!text){
-                            setText();
-                            text = true;
-                        }
 
-                    }
-                });
-                tyler1.start();
+                run();
+            }
+        });
+    }
 
 
+    public void run() {
+        if (text2) {
+            commandRunner.run();
+            task.run();
+            filerunner.run();
+            if(filerunner.data != null)
+            {
+                text2 = false;
+                run();
+            }
+            //totallyWorks = filerunner.getDataId();
+            //totallyWorks = filerunner.getDataId();
+            //text2 = false;
+
+        }
+        if (totallyWorks != null) {
+            text = false;
+            setText();
+        }
 
 
 
+    }
 
-   public void setText() {
+
+    public void setText() {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if(FileRunner.data != null) {
+                if (FileRunner.data != null) {
                     FileRunner.data = FileRunner.data.replace("\\n", System.getProperty("line.separator"));
                 }
                 commandTextView.setText(FileRunner.data);
@@ -101,3 +109,4 @@ public class CommandClass extends AppCompatActivity {
         });
     }
 }
+

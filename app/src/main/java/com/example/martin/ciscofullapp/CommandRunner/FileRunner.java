@@ -31,11 +31,14 @@ public class FileRunner {
 
     Timer timer = new Timer();
 
-    public static String data;
+    public static String data = null;
 
     static public boolean test;
 
-    TestFunction testFunction = new TestFunction();
+    String dataid;
+
+
+   // TestFunction testFunction = new TestFunction();
 
     public void run() {
 
@@ -68,14 +71,30 @@ public class FileRunner {
 
                 final String responses = response.body().string();
 
+
+
+
                 data = responses;
 
-                Log.w("Succes", responses);
+                    Log.w("Succes", responses);
 
-            }
+                    setDataidId(data);
 
 
-        });
+
+
+
+        }
+    });
+
+    }
+
+    public void setDataidId(String dataid) {
+        this.dataid = data;
+    }
+
+    public String getDataId() {
+        return dataid;
     }
 }
 

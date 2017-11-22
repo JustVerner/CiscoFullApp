@@ -37,7 +37,7 @@ public class Task {
 
     //TestFunction testFunction;
 
-    TestFunction testFunction = new TestFunction();
+    //TestFunction testFunction = new TestFunction();
 
     public static boolean taskCheck = false;
     private FileRunner fileRunner = new FileRunner();
@@ -73,16 +73,19 @@ public class Task {
 
                 final String[] responseRunner = responses.split("\\\"");
 
-                fileid = responseRunner[8];
+
 
 
                 Log.w("Succes", responses);
 
 
-                if(responses.contains("CLI Runner request creation"))
+                if(responses.contains("CLI Runner request creation")) {
                     run();
-                if(!responses.contains("CLI Runner request creation"))
-                    fileRunner.run();
+                }
+                if(!responses.contains("CLI Runner request creation")) {
+                    fileid = responseRunner[8];
+
+                }
             }
         });
 

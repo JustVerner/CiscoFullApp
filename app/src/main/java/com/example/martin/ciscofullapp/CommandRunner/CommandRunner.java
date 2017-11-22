@@ -31,7 +31,7 @@ public class CommandRunner extends Activity {
     String url = "https://10.100.1.125/api/v1/network-device-poller/cli/read-request";
     String replaceString = "{\r\n  \"name\": \"martin\",\r\n  \"commands\": [\r\n    \"replace\"\r\n  ],\r\n  \"description\": \"\",\r\n  \"timeout\": 0,\r\n  \"deviceUuids\": [\r\n    \"7f94c530-7933-48e6-8aed-e094ebe1e368\"\r\n  ]\r\n}";
     String replaceString2;
-    TestFunction testFunction = new TestFunction();
+    //TestFunction testFunction = new TestFunction();
     static public boolean commandCheck = false;
     searchViewTest sT;
     private Task task = new Task();
@@ -78,7 +78,6 @@ public class CommandRunner extends Activity {
 
                 Log.w("Succes", taskid);
 
-                task.run();
             }
         });
 
