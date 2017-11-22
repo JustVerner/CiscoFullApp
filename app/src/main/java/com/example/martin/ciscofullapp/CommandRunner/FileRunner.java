@@ -1,5 +1,7 @@
 package com.example.martin.ciscofullapp.CommandRunner;
 
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -9,6 +11,8 @@ import com.example.martin.ciscofullapp.getPorts.MainActivity;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -35,14 +39,11 @@ public class FileRunner {
 
     static public boolean test;
 
-    TestFunction testFunction = new TestFunction();
-
     public void run() {
 
-        url = "https://10.100.1.125/api/v1/file/"+fileid;
+        url = "https://10.100.1.125/api/v1/file/" + fileid;
 
         //test = false;
-
 
 
         getUnsafeOkHttpClient();

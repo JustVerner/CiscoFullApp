@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:\Users\Martin\Desktop\Extra CiscoFullApp\CiscoFullApp2\.idea\CiscoFullApp.iml" filepath="C:\Users\Martin\Desktop\Extra CiscoFullApp\CiscoFullApp2\.idea\CiscoFullApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CiscoFullApp.iml" filepath="$PROJECT_DIR$/.idea/CiscoFullApp.iml" />
       <module fileurl="file://C:\Users\Andreas\Desktop\Cisco 4th try\CiscoFullApp\CiscoFullApp.iml" filepath="C:\Users\Andreas\Desktop\Cisco 4th try\CiscoFullApp\CiscoFullApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CiscoFullApp2.iml" filepath="$PROJECT_DIR$/CiscoFullApp2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

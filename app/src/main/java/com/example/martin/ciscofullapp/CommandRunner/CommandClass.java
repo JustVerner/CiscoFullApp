@@ -1,6 +1,7 @@
 package com.example.martin.ciscofullapp.CommandRunner;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
@@ -56,7 +57,6 @@ public class CommandClass extends AppCompatActivity {
 
         commandButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
                 final Thread tyler1 = new Thread(new Runnable() {
                     @Override
                     public void run() {
