@@ -31,8 +31,8 @@ public class CommandClass extends AppCompatActivity {
     boolean runcheck = false;
     String replaceString;
     Object textLock = new Object();
-    public static boolean text = true;
-    private boolean text2 = false;
+    public static boolean text;
+    private boolean text2;
     public static String s;
     public static String textEdit;
 
@@ -46,9 +46,11 @@ public class CommandClass extends AppCompatActivity {
         commandTextView.setMovementMethod(new ScrollingMovementMethod());
         commandNumber = (EditText) findViewById(R.id.CommandNumber);
 
-        if (searchViewTest.showText == true) {
+        if (searchViewTest.showText) {
             commandNumber.setVisibility(View.VISIBLE);
         }
+
+        text = true;
 
         commandNumber.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_CLASS_TEXT);
 
