@@ -108,7 +108,7 @@ public class searchViewTest extends AppCompatActivity{
                 startActivity(new Intent(searchViewTest.this, CommandRunner.class).putExtra("name1", s));
                 startActivity(intent);
 
-                if(s == "Ping")
+                if(s == "ping" || s == "sh interface gig")
                 {
                     showText = true;
                 }

@@ -34,6 +34,7 @@ public class CommandClass extends AppCompatActivity {
     public static boolean text = true;
     private boolean text2 = false;
     public static String s;
+    public static String textEdit;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,9 @@ public class CommandClass extends AppCompatActivity {
                 final Thread tyler1 = new Thread(new Runnable() {
                     @Override
                     public void run() {
+
                         if (text && !text2) {
+                            textEdit = commandNumber.getText().toString();
                             commandRunner.run();
                             text2 = true;
                             run();

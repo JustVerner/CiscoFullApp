@@ -38,7 +38,14 @@ public class CommandRunner extends Activity {
 
     public void run() {
 
-        replaceString2 = replaceString.replace("replace", CommandClass.s);
+        if (CommandClass.s.equals("ping") || CommandClass.s.equals("sh interface gig"))
+        {
+            replaceString2 = replaceString.replace("replace",CommandClass.s+" "+CommandClass.textEdit);
+        }
+        else{
+            replaceString2 = replaceString.replace("replace", CommandClass.s);
+        }
+
 
         getUnsafeOkHttpClient();
 
@@ -68,8 +75,6 @@ public class CommandRunner extends Activity {
                 final String responses = response.body().string();
 
                 final String[] responseRunner = responses.split("\\\"");
-
-
 
                 commandCheck = true;
 
