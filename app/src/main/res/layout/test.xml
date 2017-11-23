@@ -14,7 +14,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:focusable="true"
-        android:focusableInTouchMode="true"
+        android:focusableInTouchMode="false"
         android:text="Command button"
         app:layout_constraintBottom_toTopOf="@+id/CommandNumber"
         app:layout_constraintStart_toStartOf="parent"

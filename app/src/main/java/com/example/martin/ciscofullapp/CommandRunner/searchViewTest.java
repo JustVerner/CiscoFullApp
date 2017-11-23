@@ -106,9 +106,10 @@ public class searchViewTest extends AppCompatActivity{
                 {
                     showText = true;
                 }
-                else{
+                else
                     showText = false;
-                }
+
+
             }
         });
 

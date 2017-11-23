@@ -31,13 +31,10 @@ public class Task {
 
     String url;
 
-    Timer timer = new Timer();
-
     public static String fileid;
 
     public static boolean taskCheck = false;
     private FileRunner fileRunner = new FileRunner();
-    private boolean bla = false;
 
     public void run() {
 
