@@ -31,16 +31,10 @@ import com.example.martin.ciscofullapp.getPorts.MainActivity;
  */
 
 public class searchViewTest extends AppCompatActivity{
-    private ImageButton imageButton;
     private TextView text;
-    private ListView list;
     int textLength = 0;
-    private EditText editSearch;
     private String s;
-
-
-
-    public static boolean showText = true;
+    public static boolean showText = false;
 
     ArrayAdapter<String> adapter;
     ArrayList<HashMap<String, String>> arrayList;
@@ -58,12 +52,12 @@ public class searchViewTest extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.command_runner);
 
-        imageButton = (ImageButton) findViewById(R.id.imageButton);
+        ImageButton imageButton = (ImageButton) findViewById(R.id.imageButton);
 
         final String command[] =  {"show version", "show running", "sh interface gig" , "ping" };
 
-        list = (ListView) findViewById(R.id.listview);
-        editSearch = (EditText) findViewById(R.id.c_runnerSearch);
+        ListView list = (ListView) findViewById(R.id.listview);
+        EditText editSearch = (EditText) findViewById(R.id.c_runnerSearch);
 
         adapter = new ArrayAdapter<String>(this, R.layout.listview_item, R.id.command, command);
         list.setAdapter(adapter);
@@ -108,16 +102,13 @@ public class searchViewTest extends AppCompatActivity{
                 startActivity(new Intent(searchViewTest.this, CommandRunner.class).putExtra("name1", s));
                 startActivity(intent);
 
-                if(s == "ping" || s == "sh interface gig")
+                if(s.equals("ping") || s.equals("sh interface gig"))
                 {
                     showText = true;
                 }
-                else
-                {
+                else{
                     showText = false;
                 }
-
-
             }
         });
 
