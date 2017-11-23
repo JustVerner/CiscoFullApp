@@ -35,8 +35,6 @@ public class Task {
 
     public static String fileid;
 
-
-
     public static boolean taskCheck = false;
     private FileRunner fileRunner = new FileRunner();
     private boolean bla = false;

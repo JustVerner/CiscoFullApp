@@ -31,14 +31,21 @@ public class CommandRunner extends Activity {
     String url = "https://10.100.1.125/api/v1/network-device-poller/cli/read-request";
     String replaceString = "{\r\n  \"name\": \"martin\",\r\n  \"commands\": [\r\n    \"replace\"\r\n  ],\r\n  \"description\": \"\",\r\n  \"timeout\": 0,\r\n  \"deviceUuids\": [\r\n    \"7f94c530-7933-48e6-8aed-e094ebe1e368\"\r\n  ]\r\n}";
     String replaceString2;
-    static public boolean commandCheck = false;
+       static public boolean commandCheck = false;
     searchViewTest sT;
     private Task task = new Task();
     private boolean bla = false;
 
     public void run() {
 
-        replaceString2 = replaceString.replace("replace", CommandClass.s);
+        if (CommandClass.s.equals("ping") || CommandClass.s.equals("sh interface gig"))
+        {
+            replaceString2 = replaceString.replace("replace",CommandClass.s+" "+CommandClass.textEdit);
+        }
+        else{
+            replaceString2 = replaceString.replace("replace", CommandClass.s);
+        }
+
 
         getUnsafeOkHttpClient();
 
@@ -68,8 +75,6 @@ public class CommandRunner extends Activity {
                 final String responses = response.body().string();
 
                 final String[] responseRunner = responses.split("\\\"");
-
-
 
                 commandCheck = true;
 
