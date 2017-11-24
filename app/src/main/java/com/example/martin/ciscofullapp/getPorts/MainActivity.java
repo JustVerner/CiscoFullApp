@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity{
         taskRunner = (Button) findViewById(R.id.taskRunner);
         fileButton = (Button) findViewById(R.id.fileButton);
 
-        spinnerDevice = (Spinner) findViewById(R.id.deviceSpinner);
         spinnerDate = (Spinner) findViewById(R.id.dateSpinner);
 
         /*List<String> deviceUniques = new ArrayList<>(new LinkedHashSet<>(deviceUnique));
@@ -190,7 +189,7 @@ public class MainActivity extends AppCompatActivity{
 
                         requiredTicket  = myResponse.substring(myResponse.indexOf(":") +19, myResponse.indexOf(",")-1);
 
-                        Toast toast = Toast.makeText(MainActivity.this, "Your token is" + requiredTicket + ". Application needs restart in 6 hours(1 hour idle)", Toast.LENGTH_LONG);
+                        Toast toast = Toast.makeText(MainActivity.this, "Your token is " + requiredTicket + ". Application needs restart in 6 hours(1 hour idle)", Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 50);
                         toast.show();
                     }
