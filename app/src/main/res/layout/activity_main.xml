@@ -9,16 +9,10 @@
 
 
     <Spinner
-        android:id="@+id/deviceSpinner"
-        android:layout_width="135dp"
-        android:layout_height="60dp"
-        android:layout_centerHorizontal="true"></Spinner>
-
-    <Spinner
         android:id="@+id/dateSpinner"
         android:layout_width="135dp"
         android:layout_height="56dp"
-        android:gravity="right">
+        android:gravity="end">
 
     </Spinner>
 
@@ -27,19 +21,19 @@
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_weight="0.26"
-        android:text="Pie" />
+        android:text="@string/Pie" />
 
     <Button
         android:id="@+id/buttonTest"
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_weight="0.26"
-        android:text="Test" />
+        android:text="@string/Test" />
 
     <Button
         android:id="@+id/buttonGraph"
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_weight="0.26"
-        android:text="graph" />
+        android:text="@string/Graph" />
 </LinearLayout>

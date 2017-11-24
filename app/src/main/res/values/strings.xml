@@ -3,4 +3,7 @@
     <string name="search_hint">Search Commands</string>
     <string name="command"></string>
     <string name="commandLabel">Command: </string>
+    <string name="Pie">Pie</string>
+    <string name="Test">Test</string>
+    <string name="Graph">Graph</string>
 </resources>
