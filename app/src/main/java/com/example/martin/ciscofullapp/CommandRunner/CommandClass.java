@@ -57,15 +57,17 @@ public class CommandClass extends AppCompatActivity {
         Intent intent = getIntent();
         s = intent.getExtras().getString("name");
 
+        //commandNumber.setText("10.100.1.1");
+
 
         commandButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final Thread tyler1 = new Thread(new Runnable() {
                     @Override
                     public void run() {
-
+                        textEdit = commandNumber.getText().toString();
                         if (text && !text2) {
-                            textEdit = commandNumber.getText().toString();
+
                             commandRunner.run();
                             text2 = true;
                             run();

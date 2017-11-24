@@ -18,7 +18,8 @@
         android:text="Command button"
         app:layout_constraintBottom_toTopOf="@+id/CommandNumber"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <TextView
         android:id="@+id/command"
@@ -59,7 +60,8 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/commandTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/commandButton" />
+        app:layout_constraintTop_toBottomOf="@+id/commandButton"
+        />
 
     />
 </android.support.constraint.ConstraintLayout>

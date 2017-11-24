@@ -18,6 +18,7 @@ import com.example.martin.ciscofullapp.CommandRunner.searchViewTest;
 import com.example.martin.ciscofullapp.CommandRunner.FileRunner;
 import com.example.martin.ciscofullapp.Database.InsertData;
 import com.example.martin.ciscofullapp.R;
+import com.example.martin.ciscofullapp.SoftwareAdvisor.CcoLogin;
 import com.example.martin.ciscofullapp.Spark.SparkPost;
 import com.example.martin.ciscofullapp.VisualRepresentations.FragmentController;
 import com.example.martin.ciscofullapp.VisualRepresentations.FragmentOne;
@@ -95,6 +96,7 @@ public class MainActivity extends AppCompatActivity{
         final PortsGet portsGet = new PortsGet();
         final InsertData insertData = new InsertData();
         final FragmentOne fragmentOne = new FragmentOne();
+        final CcoLogin ccoLogin = new CcoLogin();
 
 
 
@@ -106,6 +108,15 @@ public class MainActivity extends AppCompatActivity{
 
             }
             });
+
+        fileButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
+
+                ccoLogin.run();
+
+
+            }
+        });
 
         update.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
