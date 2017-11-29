@@ -2,7 +2,6 @@ package com.example.martin.ciscofullapp.SoftwareAdvisor;
 
 import android.util.Log;
 
-import com.example.martin.ciscofullapp.CommandRunner.CommandClass;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
@@ -15,39 +14,28 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-import static com.example.martin.ciscofullapp.CommandRunner.Task.fileid;
 import static com.example.martin.ciscofullapp.getPorts.CertificateClient.getUnsafeOkHttpClient;
 
 /**
- * Created by Martin on 24-11-2017.
+ * Created by Andreas on 24-Nov-17.
  */
 
-public class CcoLogin {
-
-    String url ;
-
+public class Summary {
     MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
+    String url = "https://10.100.1.125/api/v1/advice/cco-user/lifecycle/summary";
 
-    public static String ccoToken;
-
-    private Summary summary = new Summary();
+    public static String data;
 
     public void run() {
 
 
-       url = "https://10.100.1.125/api/v1/advice/cco-user";
-        //test = false;
-
-
         getUnsafeOkHttpClient();
-
-        RequestBody body = RequestBody.create(mediaType, "{\r\n  \"password\": \"FckStyr3r!\",\r\n  \"username\": \"perjense\"\r\n}");
 
         Request request = new Request.Builder()
                 .url(url)
                 .header("X-Auth-Token", MainActivity.requiredTicket)
+                .addHeader("X-CAA-AUTH-TOKEN", CcoLogin.ccoToken)
                 .addHeader("content-type", "application/json; charset=utf-8")
-                .post(body)
                 .build();
 
 
@@ -65,14 +53,12 @@ public class CcoLogin {
 
                 final String responses = response.body().string();
 
-                String[] responseSplit = responses.split("\\\"");
+                data = responses;
 
-                ccoToken = responseSplit[7];
-
-                Log.w("Succes", ccoToken);
-
-                summary.run();
+                SoftwareClass.text = false;
+                Log.w("Succes", responses);
             }
         });
+
     }
 }

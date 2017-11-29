@@ -22,11 +22,6 @@ import okio.BufferedSink;
 
 public class SpecificLifecycle {
 
-
-
-
-
-
     public void run() {
         CcoLogin ccoLogin = new CcoLogin();
 

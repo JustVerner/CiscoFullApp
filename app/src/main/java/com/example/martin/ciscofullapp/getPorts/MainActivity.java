@@ -19,7 +19,9 @@ import com.example.martin.ciscofullapp.CommandRunner.FileRunner;
 import com.example.martin.ciscofullapp.Database.InsertData;
 import com.example.martin.ciscofullapp.R;
 import com.example.martin.ciscofullapp.SoftwareAdvisor.CcoLogin;
+import com.example.martin.ciscofullapp.SoftwareAdvisor.SoftwareClass;
 import com.example.martin.ciscofullapp.SoftwareAdvisor.SpecificLifecycle;
+import com.example.martin.ciscofullapp.SoftwareAdvisor.Summary;
 import com.example.martin.ciscofullapp.Spark.SparkPost;
 import com.example.martin.ciscofullapp.VisualRepresentations.FragmentController;
 import com.example.martin.ciscofullapp.VisualRepresentations.FragmentOne;
@@ -99,6 +101,7 @@ public class MainActivity extends AppCompatActivity{
         final InsertData insertData = new InsertData();
         final FragmentOne fragmentOne = new FragmentOne();
         final CcoLogin ccoLogin = new CcoLogin();
+        final Summary summary = new Summary();
 
 
 
@@ -113,10 +116,14 @@ public class MainActivity extends AppCompatActivity{
 
         fileButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, SoftwareClass.class);
+                startActivity(intent);
+            }
+        });
 
-                ccoLogin.run();
-
-
+        taskRunner.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                summary.run();
             }
         });
 
