@@ -33,8 +33,6 @@ public class FileRunner {
 
     public String url;
 
-    Timer timer = new Timer();
-
     public static String data;
 
     static public boolean test;

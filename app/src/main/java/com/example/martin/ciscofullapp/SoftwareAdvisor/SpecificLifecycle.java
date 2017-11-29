@@ -42,8 +42,6 @@ public class SpecificLifecycle {
                 .addHeader("cache-control", "no-cache")
                 .build();
 
-        
-
         CertificateClient.getUnsafeOkHttpClient().newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
