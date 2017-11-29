@@ -7,6 +7,7 @@ import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
 import java.io.IOException;
+import java.util.Timer;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -22,25 +23,26 @@ import okio.BufferedSink;
 
 public class SpecificLifecycle {
 
+    CcoLogin ccoLogin = new CcoLogin();
 
+    Timer timer = new Timer();
 
-
-
+    String url = "https://10.100.1.125/api/v1/advice/cco-user/lifecycle?eolType=PSIRT&limit=100&offset=0";
 
     public void run() {
-        CcoLogin ccoLogin = new CcoLogin();
-
 
         CertificateClient.getUnsafeOkHttpClient();
 
         Request request = new Request.Builder()
-                .url("https://10.100.1.125/api/v1/advice/cco-user/lifecycle?eolType=PSIRT&limit=100&offset=0")
+                .url(url)
                 .get()
                 .header("X-Auth-Token", MainActivity.requiredTicket)
-                .addHeader("X-CAA-AUTH-TOKEN", CcoLogin.ccoToken)
+                .addHeader("X-CAA-AUTH-TOKEN", ccoLogin.ccoToken)
                 .addHeader("content-type", "application/json; charset=utf-8")
                 .addHeader("cache-control", "no-cache")
                 .build();
+
+        
 
         CertificateClient.getUnsafeOkHttpClient().newCall(request).enqueue(new Callback() {
             @Override
