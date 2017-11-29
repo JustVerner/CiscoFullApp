@@ -24,7 +24,7 @@ import static android.content.Context.MODE_PRIVATE;
 import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
 
 public class DatabaseHelper  extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 66;
+    private static final int DATABASE_VERSION =90;
     private static final String LOG = "DatabaseHelper";
     private static final String DATABASE_NAME = "Database_name.db";
     private static final String TAG = DatabaseHelper.class.getSimpleName().toString();
@@ -62,7 +62,7 @@ public class DatabaseHelper  extends SQLiteOpenHelper {
 
 
     public String[] getContacts(){
-        Cursor cursor = getReadableDatabase().rawQuery("SELECT Name FROM DATATABLE", null);
+        Cursor cursor = getReadableDatabase().rawQuery("SELECT Name FROM Database", null);
         cursor.moveToFirst();
         ArrayList<String> names = new ArrayList<String>();
         while(!cursor.isAfterLast()) {
@@ -74,7 +74,7 @@ public class DatabaseHelper  extends SQLiteOpenHelper {
     }
 
     public Integer[] getUpPorts(){
-        Cursor cursor = getReadableDatabase().rawQuery("SELECT Used FROM DATATABLE", null);
+        Cursor cursor = getReadableDatabase().rawQuery("SELECT Used FROM Database", null);
         cursor.moveToFirst();
         ArrayList<Integer> upPorts = new ArrayList<Integer>();
         while(!cursor.isAfterLast()) {
@@ -86,7 +86,7 @@ public class DatabaseHelper  extends SQLiteOpenHelper {
     }
 
     public Integer[] getDownPorts(){
-        Cursor cursor = getReadableDatabase().rawQuery("SELECT NUsed FROM DATATABLE", null);
+        Cursor cursor = getReadableDatabase().rawQuery("SELECT NUsed FROM Database", null);
         cursor.moveToFirst();
         ArrayList<Integer> downPorts = new ArrayList<Integer>();
         while(!cursor.isAfterLast()) {
@@ -98,7 +98,7 @@ public class DatabaseHelper  extends SQLiteOpenHelper {
     }
 
     public Integer[] getPercent(){
-        Cursor cursor = getReadableDatabase().rawQuery("SELECT Percent FROM DATATABLE", null);
+        Cursor cursor = getReadableDatabase().rawQuery("SELECT Percent FROM Database", null);
         cursor.moveToFirst();
         ArrayList<Integer> percent = new ArrayList<Integer>();
         while(!cursor.isAfterLast()) {
@@ -110,7 +110,7 @@ public class DatabaseHelper  extends SQLiteOpenHelper {
     }
 
     public String[] getDate(){
-        Cursor cursor = getReadableDatabase().rawQuery("SELECT Date FROM DATATABLE", null);
+        Cursor cursor = getReadableDatabase().rawQuery("SELECT Date FROM Database", null);
         cursor.moveToFirst();
         ArrayList<String> date = new ArrayList<String>();
         while(!cursor.isAfterLast()) {
@@ -146,7 +146,7 @@ public class DatabaseHelper  extends SQLiteOpenHelper {
     }
 
     public String[] getTime(){
-        Cursor cursor = getReadableDatabase().rawQuery("SELECT Time FROM DATATABLE", null);
+        Cursor cursor = getReadableDatabase().rawQuery("SELECT Time FROM Database", null);
         cursor.moveToFirst();
         ArrayList<String> time = new ArrayList<String>();
         while(!cursor.isAfterLast()) {
