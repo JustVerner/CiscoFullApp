@@ -121,12 +121,6 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        taskRunner.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                summary.run();
-            }
-        });
-
         update.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
 
