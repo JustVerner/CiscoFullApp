@@ -28,7 +28,7 @@ public class CcoLogin {
 
     MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
 
-    public String ccoToken;
+    public static String ccoToken;
 
     public void run() {
 

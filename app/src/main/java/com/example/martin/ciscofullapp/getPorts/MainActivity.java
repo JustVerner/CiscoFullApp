@@ -19,10 +19,12 @@ import com.example.martin.ciscofullapp.CommandRunner.FileRunner;
 import com.example.martin.ciscofullapp.Database.InsertData;
 import com.example.martin.ciscofullapp.R;
 import com.example.martin.ciscofullapp.SoftwareAdvisor.CcoLogin;
+import com.example.martin.ciscofullapp.SoftwareAdvisor.SpecificLifecycle;
 import com.example.martin.ciscofullapp.Spark.SparkPost;
 import com.example.martin.ciscofullapp.VisualRepresentations.FragmentController;
 import com.example.martin.ciscofullapp.VisualRepresentations.FragmentOne;
 import com.example.martin.ciscofullapp.Database.Login;
+import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 
 import java.io.IOException;
 import java.util.Timer;
@@ -42,7 +44,7 @@ import static com.example.martin.ciscofullapp.Database.Login.username;
 public class MainActivity extends AppCompatActivity{
 
     Login login = new Login();
-    private Button update, statistics, commandRunner, taskRunner, fileButton;
+    private Button update, statistics, commandRunner, taskRunner, fileButton, menuMockup;
     public static String requiredTicket;
     MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
     String url = "https://"+ipadress+"/api/v1/ticket";
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity{
     CommandRunner commandRunnerClass = new CommandRunner();
     Task task = new Task();
     FileRunner fileRunners = new FileRunner();
-
+    SpecificLifecycle specificLifecycle = new SpecificLifecycle();
 
 
     @Override
@@ -81,7 +83,7 @@ public class MainActivity extends AppCompatActivity{
         commandRunner = (Button) findViewById(R.id.commandRunner);
         taskRunner = (Button) findViewById(R.id.taskRunner);
         fileButton = (Button) findViewById(R.id.fileButton);
-
+        menuMockup = (Button) findViewById(R.id.menuButton);
         spinnerDate = (Spinner) findViewById(R.id.dateSpinner);
 
         /*List<String> deviceUniques = new ArrayList<>(new LinkedHashSet<>(deviceUnique));
@@ -159,11 +161,25 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+        taskRunner.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                specificLifecycle.run();
+            }
+        });
+
         try {
             run();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        menuMockup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Menu_Mockup.class);
+                startActivity(intent);
+            }
+        });
     }
 
     void run() throws IOException {

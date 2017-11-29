@@ -1,5 +1,6 @@
 package com.example.martin.ciscofullapp.SoftwareAdvisor;
 
+import android.app.Activity;
 import android.util.Log;
 
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
@@ -24,17 +25,21 @@ public class SpecificLifecycle {
 
 
 
-    void run() throws IOException {
 
+
+    public void run() {
+        CcoLogin ccoLogin = new CcoLogin();
 
 
         CertificateClient.getUnsafeOkHttpClient();
 
         Request request = new Request.Builder()
                 .url("https://10.100.1.125/api/v1/advice/cco-user/lifecycle?eolType=PSIRT&limit=100&offset=0")
+                .get()
                 .header("X-Auth-Token", MainActivity.requiredTicket)
-                .header("X-CAA-AUTH-TOKEN", "")
+                .addHeader("X-CAA-AUTH-TOKEN", CcoLogin.ccoToken)
                 .addHeader("content-type", "application/json; charset=utf-8")
+                .addHeader("cache-control", "no-cache")
                 .build();
 
         CertificateClient.getUnsafeOkHttpClient().newCall(request).enqueue(new Callback() {

@@ -46,6 +46,7 @@
         </activity>
 
         <activity android:name=".CommandRunner.CommandRunner"></activity>
+        <activity android:name=".VisualRepresentations.Menu_Mockup"></activity>
     </application>
 
 
