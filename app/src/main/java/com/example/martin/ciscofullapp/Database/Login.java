@@ -13,6 +13,7 @@ import android.widget.EditText;
 
 import com.example.martin.ciscofullapp.R;
 import com.example.martin.ciscofullapp.VisualRepresentations.FragmentController;
+import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
 import java.io.IOException;
@@ -46,7 +47,7 @@ public class Login extends AppCompatActivity{
                 password = passWord.getText().toString();
                 ipadress = ipAdress.getText().toString();
 
-                Intent intent = new Intent(Login.this, MainActivity.class);
+                Intent intent = new Intent(Login.this, Menu_Mockup.class);
                 startActivity(intent);
 
 

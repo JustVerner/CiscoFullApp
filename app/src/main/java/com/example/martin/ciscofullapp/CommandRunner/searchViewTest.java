@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.Locale;
 
 import com.example.martin.ciscofullapp.R;
+import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
 /**
@@ -86,7 +87,7 @@ public class searchViewTest extends AppCompatActivity{
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(searchViewTest.this , MainActivity.class);
+                Intent intent = new Intent(searchViewTest.this , Menu_Mockup.class);
                 startActivity(intent);
             }
         });
