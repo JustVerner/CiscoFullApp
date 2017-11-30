@@ -32,6 +32,8 @@ public class CcoLogin {
 
     private Summary summary = new Summary();
 
+    private String kage;
+
     public void run() {
 
 
