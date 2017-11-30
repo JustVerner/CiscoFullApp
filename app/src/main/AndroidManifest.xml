@@ -11,38 +11,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
+
+
         <activity android:name=".Database.Login">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
-
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
+
         <activity android:name=".getPorts.PortsGet"
             android:screenOrientation="portrait">
-
         </activity>
+
         <activity android:name=".VisualRepresentations.FragmentController"
             android:screenOrientation="portrait">
 
         </activity>
             <activity android:name=".CommandRunner.CommandClass"
                 android:screenOrientation="portrait">
-
         </activity>
+
         <activity android:name=".getPorts.MainActivity"
             android:screenOrientation="portrait">
-
         </activity>
 
         <activity android:name=".CommandRunner.searchViewTest"
             android:label="@string/app_name"
             android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
 
         <activity android:name=".CommandRunner.CommandRunner"></activity>
