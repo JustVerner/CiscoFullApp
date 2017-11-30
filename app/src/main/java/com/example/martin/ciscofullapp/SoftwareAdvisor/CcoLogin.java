@@ -30,6 +30,10 @@ public class CcoLogin {
 
     public static String ccoToken;
 
+    private Summary summary = new Summary();
+
+    private String kage;
+
     public void run() {
 
 
@@ -63,16 +67,14 @@ public class CcoLogin {
 
                 final String responses = response.body().string();
 
-
-
                 String[] responseSplit = responses.split("\\\"");
 
                 ccoToken = responseSplit[7];
 
                 Log.w("Succes", ccoToken);
+
+                summary.run();
             }
-
-
         });
     }
 }

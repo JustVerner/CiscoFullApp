@@ -22,11 +22,6 @@ import okio.BufferedSink;
 
 public class SpecificLifecycle {
 
-
-
-
-
-
     public void run() {
         CcoLogin ccoLogin = new CcoLogin();
 
@@ -35,7 +30,6 @@ public class SpecificLifecycle {
 
         Request request = new Request.Builder()
                 .url("https://10.100.1.125/api/v1/advice/cco-user/lifecycle?eolType=PSIRT&limit=100&offset=0")
-                .get()
                 .header("X-Auth-Token", MainActivity.requiredTicket)
                 .addHeader("X-CAA-AUTH-TOKEN", CcoLogin.ccoToken)
                 .addHeader("content-type", "application/json; charset=utf-8")
