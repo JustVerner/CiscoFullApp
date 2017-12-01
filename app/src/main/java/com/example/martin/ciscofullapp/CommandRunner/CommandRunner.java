@@ -3,6 +3,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 
+import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
@@ -31,7 +32,7 @@ public class CommandRunner extends Activity {
     String url = "https://10.100.1.125/api/v1/network-device-poller/cli/read-request";
     String replaceString = "{\r\n  \"name\": \"martin\",\r\n  \"commands\": [\r\n    \"replace\"\r\n  ],\r\n  \"description\": \"\",\r\n  \"timeout\": 0,\r\n  \"deviceUuids\": [\r\n    \"7f94c530-7933-48e6-8aed-e094ebe1e368\"\r\n  ]\r\n}";
     String replaceString2;
-       static public boolean commandCheck = false;
+    static public boolean commandCheck = false;
     searchViewTest sT;
     private Task task = new Task();
     private boolean bla = false;
@@ -53,7 +54,7 @@ public class CommandRunner extends Activity {
 
         Request request = new Request.Builder()
                 .url(url)
-                .header("X-Auth-Token", MainActivity.requiredTicket)
+                .header("X-Auth-Token", Menu_Mockup.requiredTicket)
                 .addHeader("content-type", "application/json; charset=utf-8")
                 .post(body)
                 .build();

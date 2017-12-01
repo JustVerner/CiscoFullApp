@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.martin.ciscofullapp.R;
+import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
@@ -106,17 +107,13 @@ public class PortsGet extends AppCompatActivity {
         PortsGet portsGet = new PortsGet();
 
     }
-
-
-    //Thread t = new Thread(){
-
         public void run()  {
 
             CertificateClient.getUnsafeOkHttpClient();
 
             Request request = new Request.Builder()
                     .url(networkdevicesURL)
-                    .header("X-Auth-Token", MainActivity.requiredTicket)
+                    .header("X-Auth-Token", Menu_Mockup.requiredTicket)
                     .addHeader("content-type", "application/json; charset=utf-8")
                     .build();
 
@@ -173,16 +170,6 @@ public class PortsGet extends AppCompatActivity {
                                         finalNetwork.add(deviceNameFix);
                                         devices = finalNetwork.size();
                                     }
-
-                                    /*if (networksplit2.length > 13 && (networksplit2[I].substring(1, 7).equals("upTime"))) {
-                                        uptime = networksplit2[I];
-
-                                        uptimeFix = uptime.substring(9, uptime.length());
-
-                                    }*/
-
-
-
                                 }
                             }
                         }
@@ -193,8 +180,7 @@ public class PortsGet extends AppCompatActivity {
                     });
                 }
             });
-    //    }
-    };
+    }
 
         public void runs() throws IOException {
 
@@ -212,7 +198,7 @@ public class PortsGet extends AppCompatActivity {
 
             Request request = new Request.Builder()
                     .url(realURL)
-                    .header("X-Auth-Token", MainActivity.requiredTicket)
+                    .header("X-Auth-Token", Menu_Mockup.requiredTicket)
                     .addHeader("content-type", "application/json; charset=utf-8")
                     .build();
 
@@ -245,7 +231,6 @@ public class PortsGet extends AppCompatActivity {
                                 for (int i = 0; i < responeSplit2.length; i++) {
                                     if (responeSplit2.length > 10 && responeSplit2[i].substring(responeSplit2[i].length() - 11, responeSplit2[i].length() - 1).equals("SwitchPort")) {
                                         for (int o = 0; o < responeSplit2.length; o++) {
-                                            //if (responeSplit2.length > 10 && responeSplit2[o].substring(responeSplit2[o].length() -11, responeSplit2[o].length() -1).equals("SwitchPort")) {
                                             if (responeSplit2.length > 10 && responeSplit2[o].substring(1, 7).equals("status")) {
 
                                                 portsGet = responeSplit2[o];
@@ -259,46 +244,6 @@ public class PortsGet extends AppCompatActivity {
                                                     percentdown++;
 
                                                 }
-                                                /*if (compare2 - 1 == I) {
-                                                    percentValue = upPorts + downPorts;
-                                                    percentValue2 = (upPorts * 100) / (percentValue);
-                                                    portUp.add(upPorts);
-                                                    portDown.add(downPorts);
-                                                    percent.add(percentValue2);
-
-
-                                                    if (compare - 1 > testI) {
-                                                        testI++;
-
-                                                        try {
-                                                            runs();
-                                                        } catch (IOException e) {
-                                                            e.printStackTrace();
-                                                        }
-
-                                                    } else {
-                                                        percentAlls = percentup + percentdown;
-
-                                                        percentup = percentup * 100;
-
-                                                        percentFinal = percentup / percentAlls;
-
-                                                        percentAll.add(percentFinal);
-
-                                                        percentup = 0;
-                                                        percentdown = 0;
-                                                        percentAlls = 0;
-                                                        percentFinal = 0;
-
-                                                        testI = 0;
-
-
-                                                    }
-
-
-                                                }*/
-
-
                                             }
 
 
