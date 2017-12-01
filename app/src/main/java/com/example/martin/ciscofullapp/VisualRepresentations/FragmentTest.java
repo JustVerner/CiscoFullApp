@@ -40,7 +40,6 @@ public class FragmentTest extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
     }
 
 
@@ -50,7 +49,6 @@ public class FragmentTest extends Fragment {
         // Inflate the layout for this fragment
 
         view = inflater.inflate(R.layout.fragmenttest, container, false);
-
         run();
 
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
