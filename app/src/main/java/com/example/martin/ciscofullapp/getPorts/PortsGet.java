@@ -6,12 +6,14 @@ package com.example.martin.ciscofullapp.getPorts;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.martin.ciscofullapp.R;
+import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
@@ -116,7 +118,7 @@ public class PortsGet extends AppCompatActivity {
 
             Request request = new Request.Builder()
                     .url(networkdevicesURL)
-                    .header("X-Auth-Token", MainActivity.requiredTicket)
+                    .header("X-Auth-Token", Menu_Mockup.requiredTicket)
                     .addHeader("content-type", "application/json; charset=utf-8")
                     .build();
 
@@ -212,7 +214,7 @@ public class PortsGet extends AppCompatActivity {
 
             Request request = new Request.Builder()
                     .url(realURL)
-                    .header("X-Auth-Token", MainActivity.requiredTicket)
+                    .header("X-Auth-Token", Menu_Mockup.requiredTicket)
                     .addHeader("content-type", "application/json; charset=utf-8")
                     .build();
 

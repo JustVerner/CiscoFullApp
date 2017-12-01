@@ -14,6 +14,7 @@ import com.example.martin.ciscofullapp.CommandRunner.searchViewTest;
 import com.example.martin.ciscofullapp.Database.InsertData;
 import com.example.martin.ciscofullapp.R;
 import com.example.martin.ciscofullapp.SoftwareAdvisor.CcoLogin;
+import com.example.martin.ciscofullapp.SoftwareAdvisor.SoftwareClass;
 import com.example.martin.ciscofullapp.SoftwareAdvisor.SpecificLifecycle;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
@@ -42,7 +43,7 @@ public class Menu_Mockup extends AppCompatActivity{
 
 
     public  static String requiredTicket;
-    private Button update, statistics, commandRunner, taskRunner, fileButton;
+    private Button update, statistics, commandRunner, softwareAdvisor, fileButton;
     MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
     String url = "https://"+ipadress+"/api/v1/ticket";
     CcoLogin ccoLogin = new CcoLogin();
@@ -61,6 +62,7 @@ public class Menu_Mockup extends AppCompatActivity{
         update = (Button) findViewById(R.id.buttonUpdate);
         statistics = (Button) findViewById(R.id.buttonStatistics);
         commandRunner = (Button) findViewById(R.id.commandRunner);
+        softwareAdvisor = (Button) findViewById(R.id.softwareAdvisor);
 
 
 
@@ -92,6 +94,14 @@ public class Menu_Mockup extends AppCompatActivity{
                         });
                     }
                 }, 5000);
+            }
+
+        });
+
+        softwareAdvisor.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(Menu_Mockup.this, SoftwareClass.class);
+                startActivity(intent);
             }
 
         });

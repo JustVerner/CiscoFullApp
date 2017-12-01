@@ -2,6 +2,7 @@ package com.example.martin.ciscofullapp.SoftwareAdvisor;
 
 import android.util.Log;
 
+import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
@@ -33,7 +34,7 @@ public class Summary {
 
         Request request = new Request.Builder()
                 .url(url)
-                .header("X-Auth-Token", MainActivity.requiredTicket)
+                .header("X-Auth-Token", Menu_Mockup.requiredTicket)
                 .addHeader("X-CAA-AUTH-TOKEN", CcoLogin.ccoToken)
                 .addHeader("content-type", "application/json; charset=utf-8")
                 .build();

@@ -5,6 +5,7 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
@@ -48,7 +49,7 @@ public class FileRunner {
 
         Request request = new Request.Builder()
                 .url(url)
-                .header("X-Auth-Token", MainActivity.requiredTicket)
+                .header("X-Auth-Token", Menu_Mockup.requiredTicket)
                 .addHeader("content-type", "application/json; charset=utf-8")
                 .build();
 

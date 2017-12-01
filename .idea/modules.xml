@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CiscoFullApp.iml" filepath="$PROJECT_DIR$/CiscoFullApp.iml" />
       <module fileurl="file://D:\CISCO BULLSHIT\CiscoFullApp\.idea\CiscoFullApp.iml" filepath="D:\CISCO BULLSHIT\CiscoFullApp\.idea\CiscoFullApp.iml" />
-      <module fileurl="file://C:\Users\Martin\Desktop\FixedCisco\CiscoFullApp\CiscoFullApp.iml" filepath="C:\Users\Martin\Desktop\FixedCisco\CiscoFullApp\CiscoFullApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

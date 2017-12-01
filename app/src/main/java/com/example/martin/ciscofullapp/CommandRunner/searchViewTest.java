@@ -55,7 +55,7 @@ public class searchViewTest extends AppCompatActivity{
 
         ImageButton imageButton = (ImageButton) findViewById(R.id.imageButton);
 
-        final String command[] =  {"show version", "show running", "sh interface gig" , "ping" };
+        final String command[] =  {"show version", "show running", "show proc cpu" , "sh interface gig" , "ping" };
 
         ListView list = (ListView) findViewById(R.id.listview);
         EditText editSearch = (EditText) findViewById(R.id.c_runnerSearch);
