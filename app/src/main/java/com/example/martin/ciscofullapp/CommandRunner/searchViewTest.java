@@ -1,17 +1,22 @@
 package com.example.martin.ciscofullapp.CommandRunner;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SearchView;
@@ -27,6 +32,9 @@ import com.example.martin.ciscofullapp.R;
 import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
+import static android.view.inputmethod.EditorInfo.IME_ACTION_DONE;
+import static android.view.inputmethod.EditorInfo.IME_MASK_ACTION;
+
 /**
  * Created by Frederik on 06-11-2017.
  */
@@ -35,8 +43,12 @@ public class searchViewTest extends AppCompatActivity{
     private TextView text;
     int textLength = 0;
     private String s;
+    private String s2;
+    private EditText editText;
+    private EditText editNumber;
+    private Button ownButton;
+    private ListView list;
     public static boolean showText = false;
-
     ArrayAdapter<String> adapter;
     ArrayList<HashMap<String, String>> arrayList;
 
@@ -54,11 +66,14 @@ public class searchViewTest extends AppCompatActivity{
         setContentView(R.layout.command_runner);
 
         ImageButton imageButton = (ImageButton) findViewById(R.id.imageButton);
+        editText = (EditText) findViewById(R.id.c_ownCommand);
+        editNumber = (EditText) findViewById(R.id.CommandNumber);
+        ownButton = (Button) findViewById(R.id.ownCommandButton);
 
         final String command[] =  {"show version", "show running", "sh interface gig" , "ping" };
 
-        ListView list = (ListView) findViewById(R.id.listview);
-        EditText editSearch = (EditText) findViewById(R.id.c_runnerSearch);
+        list = (ListView) findViewById(R.id.listview);
+        final EditText editSearch = (EditText) findViewById(R.id.c_runnerSearch);
 
         adapter = new ArrayAdapter<String>(this, R.layout.listview_item, R.id.command, command);
         list.setAdapter(adapter);
@@ -109,6 +124,31 @@ public class searchViewTest extends AppCompatActivity{
                 }
                 else
                     showText = false;
+
+
+            }
+        });
+
+        ownButton.setOnClickListener(new AdapterView.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                s2 = editText.getText().toString();
+
+                switch (s2) {
+                    case "ping":
+                        showText = true;
+                        //editNumber.setInputType(InputType.TYPE_CLASS_TEXT);
+
+                        //editNumber.setHint("Enter IP Address");
+                        break;
+                    case "sh interface gig":
+                        showText = true;
+                        editNumber.setInputType(InputType.TYPE_CLASS_TEXT);
+                        break;
+                }
+
+                startActivity(new Intent(searchViewTest.this, CommandRunner.class).putExtra("name1", s2));
+                startActivity(new Intent(searchViewTest.this, CommandClass.class).putExtra("name", s2));
 
 
             }
