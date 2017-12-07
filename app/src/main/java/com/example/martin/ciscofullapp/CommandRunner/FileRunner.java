@@ -5,6 +5,7 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.martin.ciscofullapp.Database.Login;
 import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
@@ -34,9 +35,17 @@ public class FileRunner {
 
     public String url;
 
+    Login login = new Login();
+
+    public String[] metadataArray, metadataArray2;
+
+    public String metaData, metaData2;
+
     public static String data;
 
     static public boolean test;
+
+    boolean metaDataReturn = false;
 
     public void run() {
 
@@ -49,7 +58,7 @@ public class FileRunner {
 
         Request request = new Request.Builder()
                 .url(url)
-                .header("X-Auth-Token", Menu_Mockup.requiredTicket)
+                .header("X-Auth-Token", login.requiredTicket)
                 .addHeader("content-type", "application/json; charset=utf-8")
                 .build();
 
@@ -68,11 +77,19 @@ public class FileRunner {
 
                 final String responses = response.body().string();
 
-                data = responses;
+                metadataArray = responses.split("\\{");
+
+                metaData = metadataArray[3];
+
+                metadataArray2 = metaData.split("\\}");
+
+                metaData2 = metadataArray2[0];
+
+                data = metaData2;
 
                 CommandClass.text = false;
 
-                Log.w("Succes", responses);
+                Log.w("Succes", data);
 
             }
 

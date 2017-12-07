@@ -70,7 +70,7 @@ public class searchViewTest extends AppCompatActivity{
         editNumber = (EditText) findViewById(R.id.CommandNumber);
         ownButton = (Button) findViewById(R.id.ownCommandButton);
 
-        final String command[] =  {"show version", "show running", "sh interface gig" , "ping" };
+        final String command[] =  {"show version", "show running", "show proc cpu" , "sh interface gig" , "ping" };
 
         list = (ListView) findViewById(R.id.listview);
         final EditText editSearch = (EditText) findViewById(R.id.c_runnerSearch);

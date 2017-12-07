@@ -6,11 +6,14 @@ package com.example.martin.ciscofullapp.getPorts;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.martin.ciscofullapp.Database.Login;
 import com.example.martin.ciscofullapp.R;
 import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
@@ -81,6 +84,9 @@ public class PortsGet extends AppCompatActivity {
     String[] finalNetworkArray;
 
 
+    Login login = new Login();
+
+
     String networkURL;
     String networkdevicesURL = "https://"+ipadress+"/api/v1/network-device";
 
@@ -90,6 +96,8 @@ public class PortsGet extends AppCompatActivity {
 
     private Button portGet, portPls, buttonData, returnButton;
     private TextView portTextView;
+
+    public static String testData;
 
 
     @Override
@@ -113,7 +121,7 @@ public class PortsGet extends AppCompatActivity {
 
             Request request = new Request.Builder()
                     .url(networkdevicesURL)
-                    .header("X-Auth-Token", Menu_Mockup.requiredTicket)
+                    .header("X-Auth-Token", login.requiredTicket)
                     .addHeader("content-type", "application/json; charset=utf-8")
                     .build();
 
@@ -130,6 +138,7 @@ public class PortsGet extends AppCompatActivity {
 
                     final String myResponseNetwork = response.body().string();
 
+                    Log.w("Succes", myResponseNetwork);
 
                     PortsGet.this.runOnUiThread(new Runnable() {
                         @Override
@@ -198,7 +207,7 @@ public class PortsGet extends AppCompatActivity {
 
             Request request = new Request.Builder()
                     .url(realURL)
-                    .header("X-Auth-Token", Menu_Mockup.requiredTicket)
+                    .header("X-Auth-Token", login.requiredTicket)
                     .addHeader("content-type", "application/json; charset=utf-8")
                     .build();
 

@@ -3,10 +3,13 @@ package com.example.martin.ciscofullapp.SoftwareAdvisor;
 import android.app.Activity;
 import android.util.Log;
 
+import com.example.martin.ciscofullapp.Database.Login;
+import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
 import java.io.IOException;
+import java.util.Timer;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -22,16 +25,23 @@ import okio.BufferedSink;
 
 public class SpecificLifecycle {
 
-    public void run() {
-        CcoLogin ccoLogin = new CcoLogin();
+    CcoLogin ccoLogin = new CcoLogin();
 
+    Login login = new Login();
+
+    Timer timer = new Timer();
+
+    String url = "https://10.100.1.125/api/v1/advice/cco-user/lifecycle?eolType=PSIRT&limit=100&offset=0";
+
+    public void run() {
 
         CertificateClient.getUnsafeOkHttpClient();
 
         Request request = new Request.Builder()
-                .url("https://10.100.1.125/api/v1/advice/cco-user/lifecycle?eolType=PSIRT&limit=100&offset=0")
-                .header("X-Auth-Token", MainActivity.requiredTicket)
-                .addHeader("X-CAA-AUTH-TOKEN", CcoLogin.ccoToken)
+                .url(url)
+                .get()
+                .header("X-Auth-Token", login.requiredTicket)
+                .addHeader("X-CAA-AUTH-TOKEN", ccoLogin.ccoToken)
                 .addHeader("content-type", "application/json; charset=utf-8")
                 .addHeader("cache-control", "no-cache")
                 .build();

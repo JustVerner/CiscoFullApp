@@ -2,6 +2,8 @@ package com.example.martin.ciscofullapp.SoftwareAdvisor;
 
 import android.util.Log;
 
+import com.example.martin.ciscofullapp.Database.Login;
+import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 
@@ -24,6 +26,8 @@ public class Summary {
     MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
     String url = "https://10.100.1.125/api/v1/advice/cco-user/lifecycle/summary";
 
+    Login login = new Login();
+
     public static String data;
 
     public void run() {
@@ -33,7 +37,7 @@ public class Summary {
 
         Request request = new Request.Builder()
                 .url(url)
-                .header("X-Auth-Token", MainActivity.requiredTicket)
+                .header("X-Auth-Token", login.requiredTicket)
                 .addHeader("X-CAA-AUTH-TOKEN", CcoLogin.ccoToken)
                 .addHeader("content-type", "application/json; charset=utf-8")
                 .build();
