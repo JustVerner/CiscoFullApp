@@ -3,6 +3,7 @@ package com.example.martin.ciscofullapp.SoftwareAdvisor;
 import android.util.Log;
 
 import com.example.martin.ciscofullapp.CommandRunner.CommandClass;
+import com.example.martin.ciscofullapp.Database.Login;
 import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
@@ -24,6 +25,8 @@ import static com.example.martin.ciscofullapp.getPorts.CertificateClient.getUnsa
  */
 
 public class CcoLogin {
+
+    Login login = new Login();
 
     String url ;
 
@@ -48,7 +51,7 @@ public class CcoLogin {
 
         Request request = new Request.Builder()
                 .url(url)
-                .header("X-Auth-Token", Menu_Mockup.requiredTicket)
+                .header("X-Auth-Token", login.requiredTicket)
                 .addHeader("content-type", "application/json; charset=utf-8")
                 .post(body)
                 .build();

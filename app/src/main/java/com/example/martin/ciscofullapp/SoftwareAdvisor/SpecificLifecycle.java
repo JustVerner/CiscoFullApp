@@ -3,6 +3,7 @@ package com.example.martin.ciscofullapp.SoftwareAdvisor;
 import android.app.Activity;
 import android.util.Log;
 
+import com.example.martin.ciscofullapp.Database.Login;
 import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
@@ -26,6 +27,8 @@ public class SpecificLifecycle {
 
     CcoLogin ccoLogin = new CcoLogin();
 
+    Login login = new Login();
+
     Timer timer = new Timer();
 
     String url = "https://10.100.1.125/api/v1/advice/cco-user/lifecycle?eolType=PSIRT&limit=100&offset=0";
@@ -37,7 +40,7 @@ public class SpecificLifecycle {
         Request request = new Request.Builder()
                 .url(url)
                 .get()
-                .header("X-Auth-Token", Menu_Mockup.requiredTicket)
+                .header("X-Auth-Token", login.requiredTicket)
                 .addHeader("X-CAA-AUTH-TOKEN", ccoLogin.ccoToken)
                 .addHeader("content-type", "application/json; charset=utf-8")
                 .addHeader("cache-control", "no-cache")
