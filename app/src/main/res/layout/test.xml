@@ -5,7 +5,8 @@
     android:id="@+id/CR_"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout_editor_absoluteY="25dp">
+    tools:layout_editor_absoluteY="25dp"
+    android:background="@drawable/test2">
 
     <Button
         android:id="@+id/commandButton"
@@ -15,7 +16,7 @@
         android:layout_marginLeft="8dp"
         android:focusable="true"
         android:focusableInTouchMode="false"
-        android:text="Command button"
+        android:text="Run Command"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +32,6 @@
         android:maxLines="32"
         android:maxWidth="325dp"
         android:scrollbars="vertical"
-        android:text="Der er en stor abe kat i vejen \n abe \n abe \n abe \n abe \n abe \n abe \n abe \n abe v \n abe \n abe \n abe \n abe \n abe \n abe"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

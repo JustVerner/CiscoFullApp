@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,43 +46,43 @@ public class PortsGet extends AppCompatActivity {
     public static String newResponse;
     public String portsGet;
     public String portFix;
+    public String trunkFix;
+    public int trunks;
+    public int access;
     public int upPorts;
     public int downPorts;
-    public String deviceName;
     public String deviceNameFix;
-    public String ports;
-    public String sentence;
-    public int testus;
-    public String hostname;
     public String urlGet;
     public String urlFix;
-    public String urlReal;
     public String networkName;
     public String id;
-    public String uptime;
-    public String uptimeFix;
     public static Integer devices;
     public int testI = 0;
     public int compare;
     public int compare2;
+    public int percentTrunkValue;
+    public int percentTrunkValue2;
     public int percentValue;
     public int percentValue2;
-    public int percentValue3;
+    public double percentTrunk;
+    public double percentAccess;
     public double percentup;
     public double percentdown;
+    public double percentTrunkAccess;
+    public double percentFinalTrunk;
     public double percentAlls;
     public double percentFinal;
     public static ArrayList<String> finalNetwork = new ArrayList<String>();
     public static ArrayList<String> finalUrl = new ArrayList<String>();
+    public static ArrayList<Integer> TrunkArray = new ArrayList<Integer>();
+    public static ArrayList<Integer> AccessArray = new ArrayList<Integer>();
+    public static ArrayList<Integer> PercentArray = new ArrayList<Integer>();
+    public static ArrayList<Double> PercentAllArray = new ArrayList<Double>();
     public static ArrayList<Integer> portUp = new ArrayList<Integer>();
     public static ArrayList<Integer> portDown = new ArrayList<Integer>();
     public static ArrayList<Integer> percent = new ArrayList<Integer>();
     public static ArrayList<Double> percentAll = new ArrayList<Double>();
-    public static ArrayList<String> date = new ArrayList<String>();
-    public static ArrayList<String> upTime = new ArrayList<>();
     String[] urls;
-    String[] upTimeArray;
-    String[] finalNetworkArray;
 
 
     Login login = new Login();
@@ -94,25 +95,10 @@ public class PortsGet extends AppCompatActivity {
 
     String url = "https://10.100.1.125/api/v1/interface/network-device/" + networkURL;
 
-    private Button portGet, portPls, buttonData, returnButton;
-    private TextView portTextView;
-
-    public static String testData;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.portpost);
-
-        portGet = (Button) findViewById(R.id.portGet);
-        portPls = (Button) findViewById(R.id.portpls);
-        buttonData = (Button) findViewById(R.id.insertDatabase);
-        returnButton = (Button) findViewById(R.id.returnButton);
-
-
-        portTextView = (TextView) findViewById(R.id.portTextView);
-        PortsGet portsGet = new PortsGet();
 
     }
         public void run()  {
@@ -147,7 +133,7 @@ public class PortsGet extends AppCompatActivity {
                             networks = myResponseNetwork;
 
                             String[] networkSplit = networks.split("\\{");
-                            //int x = 1;
+
                             for (int i = 1; i < networkSplit.length; i++) {
                                 String[] networksplit2 = networkSplit[i].split("\\,");
 
@@ -167,13 +153,13 @@ public class PortsGet extends AppCompatActivity {
                                 for (int I = 0; I < networksplit2.length; I++) {
 
 
-                                    if (networksplit2.length > 13 && networksplit2[I].substring(1, 3).equals("id") /*&& (!uptimeFix.equals("null"))*/) {
+                                    if (networksplit2.length > 13 && networksplit2[I].substring(1, 3).equals("id")) {
                                         urlGet = networksplit2[I];
                                         urlFix = urlGet.substring(6, 42);
                                         finalUrl.add(urlFix);
                                         urls = finalUrl.toArray(new String[finalUrl.size()]);
                                     }
-                                    if (networksplit2.length > 13 && networksplit2[I].substring(1, 9).equals("hostname") /*&& (!uptimeFix.equals("null"))*/) {
+                                    if (networksplit2.length > 13 && networksplit2[I].substring(1, 9).equals("hostname")) {
                                         networkName = networksplit2[I];
                                         deviceNameFix = networkName.substring(12, networkName.length() - 1);
                                         finalNetwork.add(deviceNameFix);
@@ -195,7 +181,8 @@ public class PortsGet extends AppCompatActivity {
 
 
             compare = finalUrl.size();
-
+            trunks = 0;
+            access = 0;
             upPorts = 0;
             downPorts = 0;
             percentAlls = 0;
@@ -244,6 +231,8 @@ public class PortsGet extends AppCompatActivity {
 
                                                 portsGet = responeSplit2[o];
                                                 portFix = portsGet.substring(10, portsGet.length() - 1);
+                                                trunkFix = portsGet.substring(13, portsGet.length() - 1);
+
                                                 if (portFix.equals("up")) {
                                                     upPorts++;
                                                     percentup++;
@@ -253,6 +242,15 @@ public class PortsGet extends AppCompatActivity {
                                                     percentdown++;
 
                                                 }
+                                                if(trunkFix.equals("trunk")) {
+                                                    trunks++;
+                                                    percentTrunk++;
+                                                }
+                                                if(trunkFix.equals("access")) {
+                                                    access++;
+                                                    percentAccess++;
+                                                }
+
                                             }
 
 
@@ -265,6 +263,13 @@ public class PortsGet extends AppCompatActivity {
                                         portDown.add(downPorts);
                                         percent.add(percentValue2);
 
+                                        percentTrunkValue = trunks + access;
+                                        percentTrunkValue2 = (trunks * 100) / (percentTrunkValue);
+                                        TrunkArray.add(trunks);
+                                        AccessArray.add(access);
+                                        PercentArray.add(percentTrunkValue2);
+
+
 
                                         if (compare - 1 > testI) {
                                             testI++;
@@ -276,13 +281,24 @@ public class PortsGet extends AppCompatActivity {
                                             }
 
                                         } else {
+                                            percentTrunkAccess = percentTrunk + percentAccess;
                                             percentAlls = percentup + percentdown;
 
+                                            percentTrunk = percentTrunk * 100;
                                             percentup = percentup * 100;
 
+                                            percentFinalTrunk = percentTrunk / percentTrunkAccess;
                                             percentFinal = percentup / percentAlls;
 
+                                            PercentAllArray.add(percentFinalTrunk);
                                             percentAll.add(percentFinal);
+
+
+
+                                            percentTrunk = 0;
+                                            percentAccess = 0;
+                                            percentTrunkAccess = 0;
+                                            percentFinalTrunk = 0;
 
                                             percentup = 0;
                                             percentdown = 0;
@@ -331,9 +347,6 @@ public class PortsGet extends AppCompatActivity {
         return percentAll;
     }
 
-    public static ArrayList<String> dateReturn()
-    {
-        return date;
-    }
+
 
 }
