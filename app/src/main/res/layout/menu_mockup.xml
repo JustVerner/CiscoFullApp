@@ -123,7 +123,7 @@
 
         <TextView
             android:id="@+id/editText2"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_above="@+id/editText3"
             android:layout_alignLeft="@+id/editText3"
@@ -138,7 +138,7 @@
 
         <TextView
             android:id="@+id/editText4"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_above="@+id/editText5"
             android:layout_alignLeft="@+id/editText5"
@@ -153,7 +153,7 @@
 
         <TextView
             android:id="@+id/editText5"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
@@ -170,7 +170,7 @@
 
         <TextView
             android:id="@+id/editText3"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_above="@+id/editText4"
             android:layout_alignLeft="@+id/editText4"
