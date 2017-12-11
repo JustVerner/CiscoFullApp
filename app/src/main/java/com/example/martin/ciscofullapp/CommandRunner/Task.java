@@ -58,7 +58,6 @@ public class Task {
                 call.cancel();
 
                 Log.w("Failure", "failure");
-
             }
 
             @Override
