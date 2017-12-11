@@ -124,8 +124,6 @@ public class searchViewTest extends AppCompatActivity{
                 }
                 else
                     showText = false;
-
-
             }
         });
 

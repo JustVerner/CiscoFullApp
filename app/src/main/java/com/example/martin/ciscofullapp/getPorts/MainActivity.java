@@ -100,8 +100,6 @@ public class MainActivity extends AppCompatActivity{
         final PortsGet portsGet = new PortsGet();
         final InsertData insertData = new InsertData();
         final FragmentOne fragmentOne = new FragmentOne();
-        final CcoLogin ccoLogin = new CcoLogin();
-        final Summary summary = new Summary();
 
 
 
@@ -116,6 +114,7 @@ public class MainActivity extends AppCompatActivity{
 
         fileButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
+
                 Intent intent = new Intent(MainActivity.this, SoftwareClass.class);
                 startActivity(intent);
             }
