@@ -9,6 +9,8 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.martin.ciscofullapp.R;
@@ -25,8 +27,10 @@ import java.util.concurrent.locks.Lock;
 public class CommandClass extends AppCompatActivity {
 
     private EditText commandNumber;
-    private Button commandButton;
+    private Button commandButton, commandBack;
     public TextView commandTextView;
+    private TextView command;
+    private RelativeLayout editTextList;
     CommandRunner commandRunner = new CommandRunner();
     boolean runcheck = false;
     String replaceString;
@@ -41,23 +45,22 @@ public class CommandClass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test);
 
+        command = (TextView) findViewById(R.id.command);
         commandButton = (Button) findViewById(R.id.commandButton);
         commandTextView = (TextView) findViewById(R.id.commandTextView);
         commandTextView.setMovementMethod(new ScrollingMovementMethod());
         commandNumber = (EditText) findViewById(R.id.CommandNumber);
 
-        if (searchViewTest.showText) {
-            commandNumber.setVisibility(View.VISIBLE);
-        }
-
+        commandNumber.setInputType(InputType.TYPE_NULL);
         text = true;
-
-        commandNumber.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_CLASS_TEXT);
 
         Intent intent = getIntent();
         s = intent.getExtras().getString("name");
 
-        //commandNumber.setText("10.100.1.1");
+        if(s.equals("ping") || s.equals("sh interface gig")) {
+            commandNumber.setInputType(InputType.TYPE_CLASS_PHONE);
+        }
+        command.setText(s);
 
 
         commandButton.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +88,14 @@ public class CommandClass extends AppCompatActivity {
                 tyler1.start();
             }
         });
+
+        commandBack.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(CommandClass.this , searchViewTest.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 

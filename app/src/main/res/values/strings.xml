@@ -6,4 +6,14 @@
     <string name="Pie">Pie</string>
     <string name="Test">Test</string>
     <string name="Graph">Graph</string>
+    <string name="TotalDevice">Total Devices on Network: 34</string>
+    <string name="Router">Routers: 8</string>
+    <string name="Unknown">Unknown Cisco Device: 10</string>
+    <string name="Mobile">Mobile Devices: 6</string>
+    <string name="Access">Access Points: 10</string>
+    <string name="DisplayData">&#032;&#032;&#032;&#032;&#032;&#032;Display Database</string>
+    <string name="UpdateData">&#032;&#032;&#032;&#032;&#032;&#032;Update Database</string>
+    <string name="IntegVery">&#032;&#032;&#032;&#032;&#032;&#032;Integrity Verification</string>
+    <string name="SoftAd">&#032;&#032;&#032;&#032;&#032;&#032;Software Advisor</string>
+    <string name="CmdRun">&#032;&#032;&#032;&#032;&#032;&#032;Command Runner</string>
 </resources>
