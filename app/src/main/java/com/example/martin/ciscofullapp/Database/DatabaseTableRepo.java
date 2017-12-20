@@ -57,6 +57,9 @@ public class DatabaseTableRepo  {
         values.put(DatabaseTable.KEY_Percent, table.getPercent());
         values.put(DatabaseTable.KEY_DATE, table.getDate());
         values.put(DatabaseTable.Key_TIME, table.getTime());
+        values.put(DatabaseTable.KEY_TRUNK, table.getTrunk());
+        values.put(DatabaseTable.KEY_ACCES, table.getAcces());
+
 
         // Inserting Row
         db.insert(DatabaseTable.TABLE,null, values);

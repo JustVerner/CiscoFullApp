@@ -24,6 +24,8 @@ public class DatabaseTable {
     public static final String KEY_Percent = "Percent";
     public static final String KEY_DATE = "Date";
     public static final String Key_TIME = "Time";
+    public static final String KEY_TRUNK = "Trunk";
+    public static final String KEY_ACCES = "Acces";
 
 
     private String id;
@@ -33,6 +35,8 @@ public class DatabaseTable {
     private Integer percent;
     private String date;
     private String time;
+    private Integer trunk;
+    private Integer acces;
 
 
     public String getId() {
@@ -70,6 +74,16 @@ public class DatabaseTable {
     public String getTime() {return time;}
 
     public void setTime(String time) { this.time = time;}
+
+    public Integer getTrunk() {return trunk;}
+
+    public void setTrunk(Integer trunk) {this.trunk = trunk;}
+
+    public Integer getAcces() {return acces;}
+
+    public void setAcces(Integer acces) {this.acces = acces;}
+
+
 
 
 
