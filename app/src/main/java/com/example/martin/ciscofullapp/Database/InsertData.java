@@ -87,7 +87,6 @@ public class InsertData {
         ArrayList<Integer> downPortsRet = PortsGet.downPortReturn();
         ArrayList<Integer> percentRet = PortsGet.percentReturn();
         ArrayList<Double> percentAllret = PortsGet.percentAllReturn();
-        ArrayList<String> dateRet = PortsGet.dateReturn();
 
 
         networksArray = networkNames.toArray(new String[networkNames.size()]);
@@ -95,7 +94,6 @@ public class InsertData {
         downPorts = downPortsRet.toArray(new Integer[downPortsRet.size()]);
         percent = percentRet.toArray(new Integer[percentRet.size()]);
         percentAll = percentAllret.toArray(new Double[percentAllret.size()]);
-        dateAll =  dateRet.toArray(new String[dateRet.size()]);
 
         for (int i = 0; i < networksArray.length; i++) {
 
@@ -136,11 +134,9 @@ public class InsertData {
                 downPortsRet.clear();
                 percentRet.clear();
                 percentAllret.clear();
-                dateRet.clear();
                 PortsGet.upPortReturns().clear();
                 PortsGet.downPortReturn().clear();
                 PortsGet.myNetworks().clear();
-                PortsGet.dateReturn().clear();
                 PortsGet.percentReturn().clear();
                 PortsGet.percentAllReturn().clear();
                 PortsGet.percent.clear();
@@ -149,7 +145,6 @@ public class InsertData {
                 PortsGet.portUp.clear();
                 PortsGet.portDown.clear();
                 PortsGet.percentAll.clear();
-                PortsGet.date.clear();
 
                 ListData();
 
