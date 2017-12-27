@@ -39,7 +39,9 @@ public class DatabaseTableRepo  {
                 + DatabaseTable.KEY_NUSED + " INTEGER NOT NULL, "
                 + DatabaseTable.KEY_Percent + " INTEGER NOT NULL, "
                 + DatabaseTable.KEY_DATE + " TEXT NOT NULL, "
-                + DatabaseTable.Key_TIME + " TEXT NOT NULL)";
+                + DatabaseTable.Key_TIME + " TEXT NOT NULL, "
+                + DatabaseTable.KEY_ACCES + " INTEGER NOT NULL, "
+                + DatabaseTable.KEY_TRUNK + " INTEGER NOT NULL)";
 
     }
 
@@ -90,6 +92,8 @@ public class DatabaseTableRepo  {
                 + ", Database." + DatabaseTable.KEY_Percent
                 + ", Database." + DatabaseTable.KEY_DATE
                 + ", Database." + DatabaseTable.Key_TIME
+                + ", Database." + DatabaseTable.KEY_ACCES
+                + ", Database." + DatabaseTable.KEY_TRUNK
                 + " FROM " + DatabaseTable.TABLE
                 ;
 
@@ -106,6 +110,8 @@ public class DatabaseTableRepo  {
                 portdataList.setPercent(cursor.getInt(cursor.getColumnIndex(DatabaseTable.KEY_Percent)));
                 portdataList.setDate(cursor.getString(cursor.getColumnIndex(DatabaseTable.KEY_DATE)));
                 portdataList.setTime(cursor.getString(cursor.getColumnIndex(DatabaseTable.Key_TIME)));
+                portdataList.setAcces(cursor.getInt(cursor.getColumnIndex(DatabaseTable.KEY_ACCES)));
+                portdataList.setTrunk(cursor.getInt(cursor.getColumnIndex(DatabaseTable.KEY_TRUNK)));
 
                 portDataLists.add(portdataList);
             } while (cursor.moveToNext());

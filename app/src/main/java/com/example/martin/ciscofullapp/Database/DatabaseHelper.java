@@ -24,7 +24,7 @@ import static android.content.Context.MODE_PRIVATE;
 import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
 
 public class DatabaseHelper  extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION =90;
+    private static final int DATABASE_VERSION =100;
     private static final String LOG = "DatabaseHelper";
     private static final String DATABASE_NAME = "Database_name.db";
     private static final String TAG = DatabaseHelper.class.getSimpleName().toString();
@@ -52,8 +52,8 @@ public class DatabaseHelper  extends SQLiteOpenHelper {
         onCreate(db);
     }
     /*public Cursor getPerson(int id) {
-        DatabaseManager databaseHelper = new DatabaseManager();
-
+//        DatabaseManager databaseHelper = new DatabaseManager();
+//
         SQLiteDatabase db = openOrCreateDatabase("Database_name.db", android.content.Context.MODE_PRIVATE, null);
         //SQLiteDatabase db = this.getReadableDatabase();
         Cursor res = db.rawQuery( "SELECT " + DatabaseTable.TABLE + " FROM " +
@@ -167,6 +167,30 @@ public class DatabaseHelper  extends SQLiteOpenHelper {
         }
         cursor.close();
         return timeAll.toArray(new String[timeAll.size()]);
+    }
+
+    public Integer[] getAccesPort(){
+        Cursor cursor = getReadableDatabase().rawQuery("SELECT Acess FROM Database", null);
+        cursor.moveToFirst();
+        ArrayList<Integer> acces = new ArrayList<Integer>();
+        while(!cursor.isAfterLast()) {
+            acces.add(cursor.getInt(cursor.getColumnIndex("Acces")));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return acces.toArray(new Integer[acces.size()]);
+    }
+
+    public Integer[] getTrunkPort(){
+        Cursor cursor = getReadableDatabase().rawQuery("SELECT Trunk FROM Database", null);
+        cursor.moveToFirst();
+        ArrayList<Integer> trunk = new ArrayList<Integer>();
+        while(!cursor.isAfterLast()) {
+            trunk.add(cursor.getInt(cursor.getColumnIndex("Trunk")));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return trunk.toArray(new Integer[trunk.size()]);
     }
 
 

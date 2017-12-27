@@ -36,6 +36,8 @@ public class FragmentPie extends Fragment {
     Integer[] upArray = databaseHelper.getUpPorts();
     Integer[] downArray = databaseHelper.getDownPorts();
     String[] dateArray = databaseHelper.getDate();
+//    Integer[] accesArray = databaseHelper.getAccesPort();
+ //   Integer[] trunkArray = databaseHelper.getTrunkPort();
 
     Integer totalInt;
     Integer totalInt2 = 0;
@@ -84,6 +86,31 @@ public class FragmentPie extends Fragment {
         return view; }
 
 
+    /*private void pieChartTrunk()
+    {
+        List<PieEntry> pieEntries = new ArrayList<>();
+
+        for (int i = 0; i< accesArray.length; i++)
+        {
+            pieEntries.add(new PieEntry(accesArray[i], portNames[i]));
+        }
+
+        PieDataSet dataset = new PieDataSet(pieEntries, "");
+        PieData data = new PieData(dataset);
+
+        dataset.setColors(ContextCompat.getColor(getContext(), R.color.green),ContextCompat.getColor(getContext(),R.color.blue));
+
+        PieChart pieChart = (PieChart) view.findViewById(R.id.chart);
+        data.setValueTextSize(30f);
+        pieChart.getDescription().setEnabled(false);
+        pieChart.getLegend().setTextSize(20f);
+        pieChart.getLegend().setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
+        pieChart.setDrawEntryLabels(false);
+        pieChart.setData(data);
+        pieChart.animateY(1000);
+        pieChart.invalidate();
+
+    }*/
 
     private void setupPieChart() {
 

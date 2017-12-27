@@ -231,7 +231,7 @@ public class PortsGet extends AppCompatActivity {
 
                                                 portsGet = responeSplit2[o];
                                                 portFix = portsGet.substring(10, portsGet.length() - 1);
-                                                trunkFix = portsGet.substring(13, portsGet.length() - 1);
+
 
                                                 if (portFix.equals("up")) {
                                                     upPorts++;
@@ -240,8 +240,16 @@ public class PortsGet extends AppCompatActivity {
                                                 if (portFix.equals("down")) {
                                                     downPorts++;
                                                     percentdown++;
-
                                                 }
+
+
+
+                                            }
+                                            if (responeSplit2.length > 10 && responeSplit2[o].substring(1, 9).equals("portMode"))
+                                            {
+                                                portsGet = responeSplit2[o];
+                                                trunkFix = portsGet.substring(12, portsGet.length() - 1);
+
                                                 if(trunkFix.equals("trunk")) {
                                                     trunks++;
                                                     percentTrunk++;
@@ -250,6 +258,7 @@ public class PortsGet extends AppCompatActivity {
                                                     access++;
                                                     percentAccess++;
                                                 }
+
 
                                             }
 
@@ -345,6 +354,16 @@ public class PortsGet extends AppCompatActivity {
     public static ArrayList<Double> percentAllReturn()
     {
         return percentAll;
+    }
+
+    public static ArrayList<Integer> accesReturn()
+    {
+        return AccessArray;
+    }
+
+    public static ArrayList<Integer> trunkReturn()
+    {
+        return TrunkArray;
     }
 
 

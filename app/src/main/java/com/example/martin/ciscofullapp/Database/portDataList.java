@@ -20,6 +20,8 @@ public class portDataList {
     private Integer percent;
     private String date;
     private String time;
+    private Integer acces;
+    private Integer trunk;
 
     public String getid() {
         return id;
@@ -75,5 +77,21 @@ public class portDataList {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public Integer getAcces() {
+        return acces;
+    }
+
+    public void setAcces(Integer acces) {
+        this.acces = acces;
+    }
+
+    public Integer getTrunk() {
+        return trunk;
+    }
+
+    public void setTrunk(Integer trunk) {
+        this.trunk = trunk;
     }
 }

@@ -50,6 +50,8 @@ public class InsertData {
     Integer[] downPorts;
     Integer[] percent;
     Double[] percentAll;
+    Integer[] acces;
+    Integer[] trunk;
     String[] dateAll;
     String time;
 
@@ -87,7 +89,8 @@ public class InsertData {
         ArrayList<Integer> downPortsRet = PortsGet.downPortReturn();
         ArrayList<Integer> percentRet = PortsGet.percentReturn();
         ArrayList<Double> percentAllret = PortsGet.percentAllReturn();
-        ArrayList<String> dateRet = PortsGet.dateReturn();
+        ArrayList<Integer> accesArray = PortsGet.accesReturn();
+        ArrayList<Integer> trunkArray = PortsGet.trunkReturn();
 
 
         networksArray = networkNames.toArray(new String[networkNames.size()]);
@@ -95,7 +98,8 @@ public class InsertData {
         downPorts = downPortsRet.toArray(new Integer[downPortsRet.size()]);
         percent = percentRet.toArray(new Integer[percentRet.size()]);
         percentAll = percentAllret.toArray(new Double[percentAllret.size()]);
-        dateAll =  dateRet.toArray(new String[dateRet.size()]);
+        acces = accesArray.toArray(new Integer[accesArray.size()]);
+        trunk = trunkArray.toArray(new Integer[accesArray.size()]);
 
         for (int i = 0; i < networksArray.length; i++) {
 
@@ -105,6 +109,8 @@ public class InsertData {
             table.setPercent(percent[i]);
             table.setDate(df.format(date));
             table.setTime(tf.format(date));
+            table.setAcces(acces[i]);
+            table.setTrunk(trunk[i]);
             DataTable.insert(table);
 
             /*if (percent[i]>80)
@@ -136,11 +142,9 @@ public class InsertData {
                 downPortsRet.clear();
                 percentRet.clear();
                 percentAllret.clear();
-                dateRet.clear();
                 PortsGet.upPortReturns().clear();
                 PortsGet.downPortReturn().clear();
                 PortsGet.myNetworks().clear();
-                PortsGet.dateReturn().clear();
                 PortsGet.percentReturn().clear();
                 PortsGet.percentAllReturn().clear();
                 PortsGet.percent.clear();
@@ -149,7 +153,8 @@ public class InsertData {
                 PortsGet.portUp.clear();
                 PortsGet.portDown.clear();
                 PortsGet.percentAll.clear();
-                PortsGet.date.clear();
+                PortsGet.TrunkArray.clear();
+                PortsGet.AccessArray.clear();
 
                 ListData();
 
@@ -175,7 +180,9 @@ public class InsertData {
                 String.format("%-9s", "Time") +
                 String.format("%-18s", "PercentAll") +
                 String.format("%-9s", "DateAll") +
-                String.format("%-9s", "TimeAll")
+                String.format("%-9s", "TimeAll") +
+                String.format("%-18s", "Acces") +
+                String.format("%-9s", "Trunk")
         );
 
         Log.d(TAG, "=============================================================");
@@ -187,7 +194,9 @@ public class InsertData {
                     String.format("%-31s", portdataList.get(i).getnUsed()) +
                     String.format("%-31s", portdataList.get(i).getPercent()) +
                     String.format("%-12s", portdataList.get(i).getDate()) +
-                    String.format("%-9s", portdataList.get(i).getTime())
+                    String.format("%-9s", portdataList.get(i).getTime()) +
+                    String.format("%-18s", portdataList.get(i).getAcces()) +
+                    String.format("%-9s", portdataList.get(i).getTrunk())
 
 
 
