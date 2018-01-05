@@ -27,7 +27,7 @@ import java.util.concurrent.locks.Lock;
 public class CommandClass extends AppCompatActivity {
 
     private EditText commandNumber;
-    private Button commandButton, commandBack;
+    private Button commandButton;
     public TextView commandTextView;
     private TextView command;
     private RelativeLayout editTextList;
@@ -89,12 +89,14 @@ public class CommandClass extends AppCompatActivity {
             }
         });
 
+/*
         commandBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(CommandClass.this , searchViewTest.class);
                 startActivity(intent);
             }
         });
+*/
 
     }
 

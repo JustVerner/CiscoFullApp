@@ -118,12 +118,16 @@ public class searchViewTest extends AppCompatActivity{
                 startActivity(new Intent(searchViewTest.this, CommandRunner.class).putExtra("name1", s));
                 startActivity(intent);
 
-                if(s.equals("ping") || s.equals("sh interface gig"))
-                {
-                    showText = true;
+                switch(s) {
+                    case "ping":
+                        showText = true;
+                        editNumber.setHint("Enter IP Address");
+                        break;
+                    case "sh interface gig":
+                        showText = true;
+                        editNumber.setHint("Enter Port");
+                        break;
                 }
-                else
-                    showText = false;
             }
         });
 
@@ -142,6 +146,8 @@ public class searchViewTest extends AppCompatActivity{
                     case "sh interface gig":
                         showText = true;
                         editNumber.setInputType(InputType.TYPE_CLASS_TEXT);
+
+                        editNumber.setHint("Enter Port");
                         break;
                 }
 

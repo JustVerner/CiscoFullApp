@@ -5,29 +5,25 @@
     android:id="@+id/CR_"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout_editor_absoluteY="25dp"
-    android:background="@drawable/test2">
+    tools:layout_editor_absoluteY="25dp">
 
     <Button
         android:id="@+id/commandButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="573dp"
         android:focusable="true"
         android:focusableInTouchMode="false"
         android:text="Run Command"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
         android:id="@+id/commandTextView"
-        android:layout_width="354dp"
-        android:layout_height="486dp"
-        android:layout_marginBottom="32dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_width="409dp"
+        android:layout_height="538dp"
         android:background="@color/windowBackground"
         android:maxLines="32"
         android:maxWidth="325dp"
@@ -40,7 +36,7 @@
         android:id="@+id/relativeLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#A0A0A0"
+        android:background="@color/lightblue"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,9 +46,11 @@
             android:id="@+id/command"
             android:layout_width="180dp"
             android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_alignTop="@+id/CommandNumber"
+            android:layout_marginEnd="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_toLeftOf="@+id/CommandNumber"
+            android:layout_toStartOf="@+id/CommandNumber"
             android:background="@drawable/rounded_edittext"
             android:hint="Command"
             android:paddingLeft="10dp"
@@ -77,6 +75,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="1dp"
+        android:background="@color/lightblue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commandButton">
+
     </RelativeLayout>
 
 
