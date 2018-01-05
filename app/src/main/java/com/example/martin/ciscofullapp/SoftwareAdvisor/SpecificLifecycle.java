@@ -24,7 +24,7 @@ import okio.BufferedSink;
  */
 
 public class SpecificLifecycle {
-
+/*
     CcoLogin ccoLogin = new CcoLogin();
 
     Login login = new Login();
@@ -64,7 +64,7 @@ public class SpecificLifecycle {
 
     }
 
-
+*/
 
 
 }

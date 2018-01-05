@@ -36,13 +36,10 @@ public class CcoLogin {
 
     private Summary summary = new Summary();
 
-    private String kage;
-
     public void run() {
 
 
        url = "https://10.100.1.125/api/v1/advice/cco-user";
-        //test = false;
 
 
         getUnsafeOkHttpClient();

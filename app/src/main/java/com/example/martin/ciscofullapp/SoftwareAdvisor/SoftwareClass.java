@@ -40,7 +40,7 @@ import static com.example.martin.ciscofullapp.Database.Login.total;
 
 public class SoftwareClass extends AppCompatActivity {
 
-    private Button advisorButton, dataButton;
+    private Button advisorButton;
     public TextView advisorTextView;
     private Switch switchy;
     public static boolean text;
@@ -51,7 +51,6 @@ public class SoftwareClass extends AppCompatActivity {
     public CcoLogin ccoLogin = new CcoLogin();
     private boolean text2;
     private int switchint = 0;
-    private boolean switchState;
     private boolean textSet;
     PieChart pieChart;
     String[] token;
@@ -94,7 +93,6 @@ public class SoftwareClass extends AppCompatActivity {
 
                             ccoLogin.run();
                             text2 = true;
-                            run();
                         }
 
                         while(text2)
@@ -103,7 +101,6 @@ public class SoftwareClass extends AppCompatActivity {
                                 GetData();
                                 text2 = false;
                                 addDataSet();
-                                run();
                             }
                     }
                 });
@@ -139,21 +136,16 @@ public class SoftwareClass extends AppCompatActivity {
 
     public void addDataSet()
     {
-      ArrayList<PieEntry> yEntries = new ArrayList<>();
-      ArrayList<String> xEntries = new ArrayList<>();
+      List<PieEntry> yEntries = new ArrayList<>();
 
       for(int i = 0; i < numbers.length; i++)
       {
           yEntries.add(new PieEntry(numbers[i], names[i]));
       }
 
-//      for(int i = 1; i < names.length; i++)
-//      {
-//          xEntries.add(names[i]);
-//      }
 
-      PieDataSet pieDataSet = new PieDataSet(yEntries, "psirts");
-      pieDataSet.setSliceSpace(2);
+      PieDataSet pieDataSet = new PieDataSet(yEntries, "");
+      pieDataSet.setSliceSpace(1);
       pieDataSet.setValueTextSize(14);
       pieDataSet.setValueTextColor(Color.BLACK);
 
@@ -182,7 +174,7 @@ public class SoftwareClass extends AppCompatActivity {
             token = Summary.data.split(",");
 
             for (int i = 0; i < token.length; i++) {
-                if (token[i].length() > 15 && token[i].substring(1, 9).equals("psirtCnt")) {
+                if (token[i].substring(1, 9).equals("psirtCnt")) {
                     line = token[i];
                     number[0] = line;
                 } else if (token[i].substring(1, 10).equals("psirtHigh")) {
@@ -203,13 +195,8 @@ public class SoftwareClass extends AppCompatActivity {
 
             for (int i = 0; i < 5; i++) {
                 number[i] = number[i].replaceAll("[^0-9]", "");
+                numbers[i] = Integer.parseInt(number[i]);
             }
-
-            numbers[0] = Integer.parseInt(number[0]);
-            numbers[1] = Integer.parseInt(number[1]);
-            numbers[2] = Integer.parseInt(number[2]);
-            numbers[3] = Integer.parseInt(number[3]);
-            numbers[4] = Integer.parseInt(number[4]);
         }
     }
 
