@@ -231,7 +231,7 @@ public class PortsGet extends AppCompatActivity {
 
                                                 portsGet = responeSplit2[o];
                                                 portFix = portsGet.substring(10, portsGet.length() - 1);
-                                                trunkFix = portsGet.substring(13, portsGet.length() - 1);
+                                                trunkFix = portsGet.substring(12, portsGet.length() - 1);
 
                                                 if (portFix.equals("up")) {
                                                     upPorts++;

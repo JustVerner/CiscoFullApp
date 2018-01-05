@@ -1,5 +1,6 @@
 package com.example.martin.ciscofullapp.SoftwareAdvisor;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,10 +9,13 @@ import android.view.View;
 import android.view.ViewDebug;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.example.martin.ciscofullapp.CommandRunner.searchViewTest;
 import com.example.martin.ciscofullapp.R;
+import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
@@ -56,9 +60,8 @@ public class SoftwareClass extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.system_advisor);
-
+        ImageButton imageButton2 = (ImageButton) findViewById(R.id.imageButton2);
         advisorButton = (Button) findViewById(R.id.advisorButton);
-        dataButton = (Button) findViewById(R.id.DataButton);
         advisorTextView = (TextView) findViewById(R.id.advisorTextView);
         advisorTextView.setMovementMethod(new ScrollingMovementMethod());
         switchy = (Switch) findViewById(R.id.switcher);
@@ -72,6 +75,15 @@ public class SoftwareClass extends AppCompatActivity {
 
 
         text = true;
+
+        imageButton2.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SoftwareClass.this , Menu_Mockup.class);
+                startActivity(intent);
+            }
+        });
 
         advisorButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -95,33 +107,8 @@ public class SoftwareClass extends AppCompatActivity {
                             }
                     }
                 });
-                dataButton.setVisibility(View.VISIBLE);
                 switchy.setVisibility(View.VISIBLE);
                 tyler1.start();
-            }
-        });
-
-        dataButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switch (switchint) {
-                    case 0:
-                        pieChart.setVisibility(View.INVISIBLE);
-                        advisorTextView.setVisibility(View.VISIBLE);
-                        dataButton.setText("See pie chart");
-                        setText();
-                        switchint = 1;
-                        break;
-                    case 1:
-                        pieChart.setVisibility(View.VISIBLE);
-                        advisorTextView.setVisibility(View.INVISIBLE);
-                        dataButton.setText("See raw data");
-                        advisorTextView.setText("");
-                        switchint = 0;
-                        break;
-                    default:
-                        break;
-                }
             }
         });
 
@@ -141,6 +128,7 @@ public class SoftwareClass extends AppCompatActivity {
                     pieChart.setVisibility(View.VISIBLE);
                     advisorTextView.setVisibility(View.INVISIBLE);
                     switchy.setText("Pie chart");
+                    switchy.setTextColor(Color.WHITE);
                     advisorTextView.setText("");
                     switchint = 0;
                 }
