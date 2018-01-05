@@ -22,6 +22,7 @@ import com.example.martin.ciscofullapp.SoftwareAdvisor.SpecificLifecycle;
 import com.example.martin.ciscofullapp.getPorts.CertificateClient;
 import com.example.martin.ciscofullapp.getPorts.MainActivity;
 import com.example.martin.ciscofullapp.getPorts.PortsGet;
+import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -182,8 +183,9 @@ public class Menu_Mockup extends AppCompatActivity {
         PieData data = new PieData(dataset);
 
 
-        com.github.mikephil.charting.charts.PieChart pieChart = (com.github.mikephil.charting.charts.PieChart) findViewById(R.id.chart);
+        PieChart pieChart = (PieChart) findViewById(R.id.chart);
         pieChart.setData(data);
+        pieChart.getDescription().setEnabled(false);
         pieChart.animateY(1000);
         pieChart.invalidate();
     }

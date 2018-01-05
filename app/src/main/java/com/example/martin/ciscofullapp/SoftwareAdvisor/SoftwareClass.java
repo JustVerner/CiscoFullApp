@@ -1,5 +1,6 @@
 package com.example.martin.ciscofullapp.SoftwareAdvisor;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,11 +9,15 @@ import android.view.View;
 import android.view.ViewDebug;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.example.martin.ciscofullapp.CommandRunner.searchViewTest;
 import com.example.martin.ciscofullapp.R;
+import com.example.martin.ciscofullapp.VisualRepresentations.Menu_Mockup;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -41,7 +46,7 @@ public class SoftwareClass extends AppCompatActivity {
     public static boolean text;
     private String[] number = new String[5];
     private int[] numbers = new int[5];
-    private String[] names = {"psirtCritical", "psirtHigh", "psirtMedium", "psirtLow", "psirtEmpty"};
+    private String[] names = {"Critical", "High", "Medium", "Low", "Empty"};
     private String line;
     public CcoLogin ccoLogin = new CcoLogin();
     private boolean text2;
@@ -55,9 +60,8 @@ public class SoftwareClass extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.system_advisor);
-
+        ImageButton imageButton2 = (ImageButton) findViewById(R.id.imageButton2);
         advisorButton = (Button) findViewById(R.id.advisorButton);
-        dataButton = (Button) findViewById(R.id.DataButton);
         advisorTextView = (TextView) findViewById(R.id.advisorTextView);
         advisorTextView.setMovementMethod(new ScrollingMovementMethod());
         switchy = (Switch) findViewById(R.id.switcher);
@@ -66,9 +70,20 @@ public class SoftwareClass extends AppCompatActivity {
         pieChart = (PieChart)findViewById(R.id.PieAdvisor);
         pieChart.setRotationEnabled(true);
         pieChart.setHoleRadius(25f);
-        pieChart.setCenterText("psirt chart");
+        pieChart.setCenterText("PSIRT chart");
+        pieChart.setEntryLabelColor(Color.BLACK);
+
 
         text = true;
+
+        imageButton2.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SoftwareClass.this , Menu_Mockup.class);
+                startActivity(intent);
+            }
+        });
 
         advisorButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -92,33 +107,8 @@ public class SoftwareClass extends AppCompatActivity {
                             }
                     }
                 });
-                dataButton.setVisibility(View.VISIBLE);
                 switchy.setVisibility(View.VISIBLE);
                 tyler1.start();
-            }
-        });
-
-        dataButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switch (switchint) {
-                    case 0:
-                        pieChart.setVisibility(View.INVISIBLE);
-                        advisorTextView.setVisibility(View.VISIBLE);
-                        dataButton.setText("See pie chart");
-                        setText();
-                        switchint = 1;
-                        break;
-                    case 1:
-                        pieChart.setVisibility(View.VISIBLE);
-                        advisorTextView.setVisibility(View.INVISIBLE);
-                        dataButton.setText("See raw data");
-                        advisorTextView.setText("");
-                        switchint = 0;
-                        break;
-                    default:
-                        break;
-                }
             }
         });
 
@@ -138,6 +128,7 @@ public class SoftwareClass extends AppCompatActivity {
                     pieChart.setVisibility(View.VISIBLE);
                     advisorTextView.setVisibility(View.INVISIBLE);
                     switchy.setText("Pie chart");
+                    switchy.setTextColor(Color.WHITE);
                     advisorTextView.setText("");
                     switchint = 0;
                 }
@@ -153,17 +144,18 @@ public class SoftwareClass extends AppCompatActivity {
 
       for(int i = 0; i < numbers.length; i++)
       {
-          yEntries.add(new PieEntry(numbers[i], i));
+          yEntries.add(new PieEntry(numbers[i], names[i]));
       }
 
-      for(int i = 1; i < names.length; i++)
-      {
-          xEntries.add(names[i]);
-      }
+//      for(int i = 1; i < names.length; i++)
+//      {
+//          xEntries.add(names[i]);
+//      }
 
       PieDataSet pieDataSet = new PieDataSet(yEntries, "psirts");
       pieDataSet.setSliceSpace(2);
-      pieDataSet.setValueTextSize(12);
+      pieDataSet.setValueTextSize(14);
+      pieDataSet.setValueTextColor(Color.BLACK);
 
       ArrayList<Integer> colors = new ArrayList<>();
 
@@ -174,10 +166,11 @@ public class SoftwareClass extends AppCompatActivity {
       colors.add(Color.CYAN);
 
       pieDataSet.setColors(colors);
-      pieChart.getLegend().setTextSize(20f);
+      pieChart.getLegend().setTextSize(14f);
       pieChart.getLegend().setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
 
       PieData pieData = new PieData(pieDataSet);
+      pieChart.getDescription().setEnabled(false);
       pieChart.setData(pieData);
       pieChart.invalidate();
     }
