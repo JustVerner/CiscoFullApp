@@ -56,8 +56,7 @@ import static com.example.martin.ciscofullapp.Database.Login.username;
 public class Menu_Mockup extends AppCompatActivity {
 
 
-    private Button update, statistics, commandRunner, softwareAdvisor;
-    private TextView editText1, editText2,editText3, editText4, editText5;
+    private Button update, statistics;
     private PortsGet portsGet = new PortsGet();
     private InsertData insertData = new InsertData();
     private Login login = new Login();
@@ -71,14 +70,16 @@ public class Menu_Mockup extends AppCompatActivity {
 
         update = (Button) findViewById(R.id.buttonUpdate);
         statistics = (Button) findViewById(R.id.buttonStatistics);
-        commandRunner = (Button) findViewById(R.id.commandRunner);
-        softwareAdvisor = (Button) findViewById(R.id.softwareAdvisor);
-        editText1 = (TextView) findViewById(R.id.editText);
-        editText2 = (TextView) findViewById(R.id.editText2);
-        editText3 = (TextView) findViewById(R.id.editText3);
-        editText4 = (TextView) findViewById(R.id.editText4);
-        editText5 = (TextView) findViewById(R.id.editText5);
+        Button commandRunner = (Button) findViewById(R.id.commandRunner);
+        Button softwareAdvisor = (Button) findViewById(R.id.softwareAdvisor);
+        Button integrityverification = (Button) findViewById(R.id.button4);
+        TextView editText1 = (TextView) findViewById(R.id.editText);
+        TextView editText2 = (TextView) findViewById(R.id.editText2);
+        TextView editText3 = (TextView) findViewById(R.id.editText3);
+        TextView editText4 = (TextView) findViewById(R.id.editText4);
+        TextView editText5 = (TextView) findViewById(R.id.editText5);
 
+        integrityverification.setEnabled(false);
 
         for (int i = 0 ; i <total.size();i++)
         {

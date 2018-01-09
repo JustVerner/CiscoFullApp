@@ -1,6 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/c_runnerSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="530dp"
+        android:hint="Søg efter command"
+        android:iconifiedByDefault="false"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <requestFocus />
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/c_ownCommand"
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        android:hint="Skriv egen command"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@id/c_runnerSearch"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/listview"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="50dp" />
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="fill_parent"
+        android:layout_height="900dp"
+        android:layout_below="@+id/c_runnerSearch"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/c_runnerSearch" />
+
+    <Button
+        android:id="@+id/ownCommandButton"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:text="Run"
+        app:layout_constraintTop_toBottomOf="@id/c_runnerSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteX="316dp"
+        tools:layout_editor_absoluteY="45dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_marginTop="146dp"
+        android:background="@color/lightblue"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/listview">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/imageView3"
+            app:srcCompat="?android:attr/homeAsUpIndicator"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            app:srcCompat="@drawable/ciscologokopi"
+            tools:ignore="ContentDescription" />
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -1,6 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/test2" />
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="63dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginRight="52dp"
+        android:layout_weight="0.26"
+        android:text="Login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <EditText
+        android:id="@+id/Username"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="38dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginRight="52dp"
+        android:text="admin"
+        android:textColor="@color/gray"
+        app:layout_constraintBottom_toTopOf="@+id/Password"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="38dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginRight="52dp"
+        android:text="Sup3rfck!"
+        android:textColor="@color/gray"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/IpAdress"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <EditText
+        android:id="@+id/IpAdress"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="27dp"
+        android:textColor="@color/gray"
+        android:text="10.100.1.125"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogin"
+        app:layout_constraintLeft_toLeftOf="@+id/Password"
+        app:layout_constraintRight_toRightOf="@+id/Password"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:src="@drawable/ciscologokopi"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="127dp"
+        android:layout_height="29dp"
+        android:layout_marginBottom="198dp"
+        android:layout_marginLeft="-8dp"
+        android:layout_marginTop="199dp"
+        android:text="Username"
+        android:textSize="20sp"
+        android:textColor="@color/windowBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/IpAdress"
+        app:layout_constraintLeft_toLeftOf="@+id/Username"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="104dp"
+        android:layout_height="25dp"
+        android:text="Password"
+        android:textSize="20sp"
+        android:textColor="@color/windowBackground"
+        app:layout_constraintBottom_toBottomOf="@id/Username"
+        app:layout_constraintStart_toStartOf="@id/Password"
+        app:layout_constraintTop_toTopOf="@id/Password"
+        app:layout_constraintVertical_bias="0.594"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="133dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="40dp"
+        android:text="IP address"
+        android:textColor="@color/windowBackground"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/IpAdress"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/Password"
+        app:layout_constraintRight_toRightOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/Password"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 </android.support.constraint.ConstraintLayout>
