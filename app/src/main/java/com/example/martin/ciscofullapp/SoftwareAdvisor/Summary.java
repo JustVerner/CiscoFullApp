@@ -24,13 +24,9 @@ import static com.example.martin.ciscofullapp.getPorts.CertificateClient.getUnsa
  */
 
 public class Summary {
-    MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
-    String url = "https://10.100.1.125/api/v1/advice/cco-user/lifecycle/summary";
-
-    Login login = new Login();
-
+    private String url = "https://10.100.1.125/api/v1/advice/cco-user/lifecycle/summary";
+    private Login login = new Login();
     public static String data;
-
     public void run() {
 
 

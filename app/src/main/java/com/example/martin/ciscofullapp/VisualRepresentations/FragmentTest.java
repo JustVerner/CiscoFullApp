@@ -23,14 +23,14 @@ import static com.example.martin.ciscofullapp.VisualRepresentations.FragmentGrap
 public class FragmentTest extends Fragment {
 
 
-    String[] deviceArray = databaseHelper.getContacts();
-    Integer[] upArray = databaseHelper.getUpPorts();
-    Integer[] downArray = databaseHelper.getDownPorts();
-    String[] dateArray = databaseHelper.getDate();
-    String[] timeArray = databaseHelper.getTime();
-    ArrayList<String> allList = new ArrayList<String>();
-    GridView gv;
-    View view;
+    private String[] deviceArray = databaseHelper.getContacts();
+    private Integer[] upArray = databaseHelper.getUpPorts();
+    private Integer[] downArray = databaseHelper.getDownPorts();
+    private String[] dateArray = databaseHelper.getDate();
+    private String[] timeArray = databaseHelper.getTime();
+    private ArrayList<String> allList = new ArrayList<String>();
+    private GridView gv;
+    private View view;
 
     public FragmentTest() {
         // Required empty public constructor

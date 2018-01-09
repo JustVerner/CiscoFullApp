@@ -56,19 +56,11 @@ import static com.example.martin.ciscofullapp.Database.Login.username;
 public class Menu_Mockup extends AppCompatActivity {
 
 
-    //public static String requiredTicket;
-    private Button update, statistics, commandRunner, softwareAdvisor, fileButton;
+    private Button update, statistics, commandRunner, softwareAdvisor;
     private TextView editText1, editText2,editText3, editText4, editText5;
-    MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
-    String url = "https://" + ipadress + "/api/v1/ticket";
-    CcoLogin ccoLogin = new CcoLogin();
-    PortsGet portsGet = new PortsGet();
-    InsertData insertData = new InsertData();
-    SpecificLifecycle specificLifecycle = new SpecificLifecycle();
-    String test = "{\r\n  \"password\": \"Sup3rfck!\",\r\n  \"username\": \"admin\"\r\n}";
-    String full;
-    String full2;
-    Login login = new Login();
+    private PortsGet portsGet = new PortsGet();
+    private InsertData insertData = new InsertData();
+    private Login login = new Login();
     private int sum;
 
 
@@ -87,8 +79,6 @@ public class Menu_Mockup extends AppCompatActivity {
         editText4 = (TextView) findViewById(R.id.editText4);
         editText5 = (TextView) findViewById(R.id.editText5);
 
-        //List<Integer> intList = login.device();
-        //List<String> stringList = login.getStringList();
 
         for (int i = 0 ; i <total.size();i++)
         {

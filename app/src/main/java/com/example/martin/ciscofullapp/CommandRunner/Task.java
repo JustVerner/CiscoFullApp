@@ -28,15 +28,9 @@ import static com.example.martin.ciscofullapp.getPorts.CertificateClient.getUnsa
  */
 
 public class Task {
-
-    MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
-
-    String url;
-
-    Login login = new Login();
+    private String url;
+    private Login login = new Login();
     public static String fileid;
-
-    public static boolean taskCheck = false;
     private FileRunner fileRunner = new FileRunner();
 
     public void run() {

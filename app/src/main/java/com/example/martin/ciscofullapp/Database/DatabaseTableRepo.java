@@ -67,7 +67,6 @@ public class DatabaseTableRepo  {
         db.insert(DatabaseTable.TABLE,null, values);
         DatabaseManager.getInstance().closeDatabase();
 
-        //return tableId;
     }
 
 

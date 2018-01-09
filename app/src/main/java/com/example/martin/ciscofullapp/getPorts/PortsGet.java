@@ -82,18 +82,10 @@ public class PortsGet extends AppCompatActivity {
     public static ArrayList<Integer> portDown = new ArrayList<Integer>();
     public static ArrayList<Integer> percent = new ArrayList<Integer>();
     public static ArrayList<Double> percentAll = new ArrayList<Double>();
-    String[] urls;
-
-
-    Login login = new Login();
-
-
-    String networkURL;
-    String networkdevicesURL = "https://"+ipadress+"/api/v1/network-device";
-
-    InsertData insertData = new InsertData();
-
-    String url = "https://10.100.1.125/api/v1/interface/network-device/" + networkURL;
+    private String[] urls;
+    private Login login = new Login();
+    private String networkURL;
+    private String networkdevicesURL = "https://"+ipadress+"/api/v1/network-device";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -24,14 +24,9 @@ import okio.BufferedSink;
  */
 
 public class SpecificLifecycle {
-
-    CcoLogin ccoLogin = new CcoLogin();
-
-    Login login = new Login();
-
-    Timer timer = new Timer();
-
-    String url = "https://10.100.1.125/api/v1/advice/cco-user/lifecycle?eolType=PSIRT&limit=100&offset=0";
+    private CcoLogin ccoLogin = new CcoLogin();
+    private Login login = new Login();
+    private String url = "https://10.100.1.125/api/v1/advice/cco-user/lifecycle?eolType=PSIRT&limit=100&offset=0";
 
     public void run() {
 

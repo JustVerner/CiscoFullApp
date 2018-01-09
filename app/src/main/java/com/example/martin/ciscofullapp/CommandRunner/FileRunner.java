@@ -30,28 +30,16 @@ import static com.example.martin.ciscofullapp.getPorts.CertificateClient.getUnsa
  */
 
 public class FileRunner {
-
-    MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
-
-    public String url;
-
-    Login login = new Login();
-
+    private String url;
+    private Login login = new Login();
     public String[] metadataArray, metadataArray2;
-
     public String metaData, metaData2;
-
     public static String data;
-
-    static public boolean test;
-
-    boolean metaDataReturn = false;
+    public static boolean test;
 
     public void run() {
 
         url = "https://10.100.1.125/api/v1/file/" + fileid;
-
-        //test = false;
 
 
         getUnsafeOkHttpClient();

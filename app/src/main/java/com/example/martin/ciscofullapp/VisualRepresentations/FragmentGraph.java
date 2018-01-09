@@ -37,26 +37,16 @@ public class FragmentGraph extends Fragment {
 
     private GraphView graph;
     public static DatabaseHelper databaseHelper = new DatabaseHelper();
-    ArrayList<Integer> percentPorts;
-
-
-    String[] deviceArray = databaseHelper.getContacts();
-    Integer[] upArray = databaseHelper.getUpPorts();
-    Integer[] downArray = databaseHelper.getDownPorts();
-    Integer[] percentArray = databaseHelper.getPercent();
-    Double[] percentAllArray = databaseHelper.getPercentAll();
-    String[] dateAllArray = databaseHelper.getDateAll();
-    String[] dateArray = databaseHelper.getDate();
-    String[] timeArray = databaseHelper.getTime();
-    String[] timeArrayAll = databaseHelper.getTimeAll();
-    boolean test = false;
-
-    SimpleDateFormat format = new SimpleDateFormat("dd MMM yy");
-    SimpleDateFormat tFormat  = new SimpleDateFormat("HH:mm");
-    SimpleDateFormat finalFormat = new SimpleDateFormat("dd MMM yy HH:mm");
-
-
-    View view;
+    private String[] deviceArray = databaseHelper.getContacts();
+    private Integer[] percentArray = databaseHelper.getPercent();
+    private Double[] percentAllArray = databaseHelper.getPercentAll();
+    private String[] dateAllArray = databaseHelper.getDateAll();
+    private String[] dateArray = databaseHelper.getDate();
+    private String[] timeArray = databaseHelper.getTime();
+    private String[] timeArrayAll = databaseHelper.getTimeAll();
+    private boolean test = false;
+    private SimpleDateFormat finalFormat = new SimpleDateFormat("dd MMM yy HH:mm");
+    private View view;
 
     public FragmentGraph() {
         // Required empty public constructor
@@ -93,7 +83,7 @@ public class FragmentGraph extends Fragment {
     }
 
 
-    void run() {
+    public void run() {
 
         graph = (GraphView) view.findViewById(R.id.lineGraph);
 

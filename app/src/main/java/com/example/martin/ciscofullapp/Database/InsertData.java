@@ -38,34 +38,17 @@ import static com.example.martin.ciscofullapp.VisualRepresentations.FragmentOne.
  */
 
 public class InsertData {
-
-    public static int percentInt;
-    public static String deviceString;
-    public String nameSet;
-    public String usedSet;
-    public String nUsedSet;
-    public String dateSet;
-    String[] networksArray;
-    Integer[] upPorts;
-    Integer[] downPorts;
-    Integer[] percent;
-    Double[] percentAll;
-    Integer[] acces;
-    Integer[] trunk;
-    String[] dateAll;
-    String time;
-
-    SparkPost sparkPost = new SparkPost();
-
-    //Calendar c = Calendar.getInstance();
-
-    Date date = new Date();
-
-    SimpleDateFormat df = new SimpleDateFormat("dd MMM yy");
-    SimpleDateFormat tf = new SimpleDateFormat("HH:mm");
-
+    private String[] networksArray;
+    private Integer[] upPorts;
+    private Integer[] downPorts;
+    private Integer[] percent;
+    private Double[] percentAll;
+    private Integer[] acces;
+    private Integer[] trunk;
+    private Date date = new Date();
+    private SimpleDateFormat df = new SimpleDateFormat("dd MMM yy");
+    private SimpleDateFormat tf = new SimpleDateFormat("HH:mm");
     public static final String TAG = InsertData.class.getSimpleName();
-
 
     public void insertData()
 
@@ -156,14 +139,14 @@ public class InsertData {
                 PortsGet.TrunkArray.clear();
                 PortsGet.AccessArray.clear();
 
-                ListData();
+                listData();
 
             }
         }
 
     }
 
-    private void ListData() {
+    private void listData() {
 
         DatabaseTableRepo databaseTableRepo = new DatabaseTableRepo();
         DataBaseAllRepo dataBaseAllRepo = new DataBaseAllRepo();

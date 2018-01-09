@@ -39,12 +39,10 @@ public class Login extends AppCompatActivity{
     EditText userName, passWord, ipAdress;
     Button login;
     public static String username, password, ipadress;
-
     String test = "{\r\n  \"password\": \"Sup3rfck!\",\r\n  \"username\": \"admin\"\r\n}";
     String full;
     String full2;
     MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
-    String url = "https://"+ipadress+"/api/v1/ticket";
     public  static String requiredTicket;
     public boolean deviceCheck = false;
     public String[] splitString;
@@ -83,7 +81,7 @@ public class Login extends AppCompatActivity{
 
     }
 
-    void run() {
+    public void run() {
 
 
         String url = "https://"+ipadress+"/api/v1/ticket";
@@ -123,9 +121,6 @@ public class Login extends AppCompatActivity{
                             requiredTicket = myResponse.substring(myResponse.indexOf(":") + 19, myResponse.indexOf(",") - 1);
 
                             checkStuff();
-                        /*Toast toast = Toast.makeText(Menu_Mockup.this, "Your token is " + requiredTicket + ". Application needs restart in 6 hours(1 hour idle)", Toast.LENGTH_LONG);
-                        toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 50);
-                        toast.show();*/
                         }
                     });
 
@@ -197,7 +192,7 @@ public class Login extends AppCompatActivity{
     }
 
 
-            public void checkStuff()
+    public void checkStuff()
     {
         if(requiredTicket == null) {
 
@@ -240,13 +235,4 @@ public class Login extends AppCompatActivity{
         }
         return ret;
     }
-
-    /*public List<Integer> getList()
-    {
-        return total;
-    }
-    public List<String> getStringList()
-    {
-        return device;
-    }*/
 }

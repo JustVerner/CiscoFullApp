@@ -40,8 +40,6 @@ import static android.view.inputmethod.EditorInfo.IME_MASK_ACTION;
  */
 
 public class searchViewTest extends AppCompatActivity{
-    private TextView text;
-    int textLength = 0;
     private String s;
     private String s2;
     private EditText editText;
@@ -49,11 +47,10 @@ public class searchViewTest extends AppCompatActivity{
     private Button ownButton;
     private ListView list;
     public static boolean showText = false;
-    ArrayAdapter<String> adapter;
-    ArrayList<HashMap<String, String>> arrayList;
+    private ArrayAdapter<String> adapter;
 
     public searchViewTest(){
-
+        // Required empty public constructor
     }
 
     public searchViewTest(String s1) {
@@ -113,10 +110,8 @@ public class searchViewTest extends AppCompatActivity{
 
                 s = parent.getAdapter().getItem(position).toString();
 
-                Intent intent = new Intent(searchViewTest.this, CommandClass.class);
-                intent.putExtra("name", s);
+                startActivity(new Intent(searchViewTest.this, CommandClass.class).putExtra("name", s));
                 startActivity(new Intent(searchViewTest.this, CommandRunner.class).putExtra("name1", s));
-                startActivity(intent);
 
                 switch(s) {
                     case "ping":
@@ -139,9 +134,9 @@ public class searchViewTest extends AppCompatActivity{
                 switch (s2) {
                     case "ping":
                         showText = true;
-                        //editNumber.setInputType(InputType.TYPE_CLASS_TEXT);
+                        editNumber.setInputType(InputType.TYPE_CLASS_TEXT);
 
-                        //editNumber.setHint("Enter IP Address");
+                        editNumber.setHint("Enter IP Address");
                         break;
                     case "sh interface gig":
                         showText = true;

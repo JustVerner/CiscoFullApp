@@ -18,8 +18,7 @@ import okhttp3.OkHttpClient;
  */
 
 public class CertificateClient {
-
-    MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
+    
 
     public static OkHttpClient getUnsafeOkHttpClient() {
         try {

@@ -30,11 +30,7 @@ public class CommandClass extends AppCompatActivity {
     private Button commandButton;
     public TextView commandTextView;
     private TextView command;
-    private RelativeLayout editTextList;
-    CommandRunner commandRunner = new CommandRunner();
-    boolean runcheck = false;
-    String replaceString;
-    Object textLock = new Object();
+    private CommandRunner commandRunner = new CommandRunner();
     public static boolean text;
     private boolean text2;
     public static String s;
@@ -88,15 +84,6 @@ public class CommandClass extends AppCompatActivity {
                 tyler1.start();
             }
         });
-
-/*
-        commandBack.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(CommandClass.this , searchViewTest.class);
-                startActivity(intent);
-            }
-        });
-*/
 
     }
 

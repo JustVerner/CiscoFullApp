@@ -25,25 +25,15 @@ import static com.example.martin.ciscofullapp.getPorts.CertificateClient.getUnsa
  */
 
 public class CcoLogin {
-
-    Login login = new Login();
-
-    String url ;
-
-    MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
-
+    private Login login = new Login();
+    private String url ;
+    private MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
     public static String ccoToken;
-
     private Summary summary = new Summary();
-
-    private String kage;
 
     public void run() {
 
-
        url = "https://10.100.1.125/api/v1/advice/cco-user";
-        //test = false;
-
 
         getUnsafeOkHttpClient();
 

@@ -28,21 +28,20 @@ import static com.example.martin.ciscofullapp.VisualRepresentations.FragmentGrap
 
 public class FragmentOne extends Fragment {
 
-    View view;
+    private View view;
+    private Spinner deviceSpinner, dateSpinner;
+    private Button dataButton;
 
-    Spinner deviceSpinner, dateSpinner;
-    Button dataButton;
-
-    String[] deviceArray = databaseHelper.getContacts();
-    String[] dateArray = databaseHelper.getDate();
+    private String[] deviceArray = databaseHelper.getContacts();
+    private String[] dateArray = databaseHelper.getDate();
     public static String spinnerDeviceText;
     public static String spinnerDeviceTextDate;
-    List<String> deviceUnique;
-    List<String> dateUnique;
+    private List<String> deviceUnique;
+    private List<String> dateUnique;
     public static ArrayAdapter<String> spinnerArrayAdapter;
     public static ArrayAdapter<String> spinnerArrayAdapterDate;
-    FragmentPie fragmentPie = new FragmentPie();
-    FragmentGraph fragmentGraph = new FragmentGraph();
+    private FragmentPie fragmentPie = new FragmentPie();
+    private FragmentGraph fragmentGraph = new FragmentGraph();
 
 
     public FragmentOne() {
@@ -93,7 +92,7 @@ public class FragmentOne extends Fragment {
 
 
 
-    void run()
+    public void run()
     {
         List<String> deviceUniques = new ArrayList<>(new LinkedHashSet<>(deviceUnique));
         List<String> dateUniques = new ArrayList<>(new LinkedHashSet<>(dateUnique));

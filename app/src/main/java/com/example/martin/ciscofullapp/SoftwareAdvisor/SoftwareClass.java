@@ -51,10 +51,9 @@ public class SoftwareClass extends AppCompatActivity {
     public CcoLogin ccoLogin = new CcoLogin();
     private boolean text2;
     private int switchint = 0;
-    private boolean switchState;
     private boolean textSet;
-    PieChart pieChart;
-    String[] token;
+    private PieChart pieChart;
+    private String[] token;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -146,11 +145,6 @@ public class SoftwareClass extends AppCompatActivity {
       {
           yEntries.add(new PieEntry(numbers[i], names[i]));
       }
-
-//      for(int i = 1; i < names.length; i++)
-//      {
-//          xEntries.add(names[i]);
-//      }
 
       PieDataSet pieDataSet = new PieDataSet(yEntries, "psirts");
       pieDataSet.setSliceSpace(2);

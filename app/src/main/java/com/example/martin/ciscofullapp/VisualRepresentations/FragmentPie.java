@@ -31,34 +31,26 @@ import static com.example.martin.ciscofullapp.VisualRepresentations.FragmentGrap
 
 public class FragmentPie extends Fragment {
 
-    String portNames[] = {"upPorts", "downPorts"};
-    String[] deviceArray = databaseHelper.getContacts();
-    Integer[] upArray = databaseHelper.getUpPorts();
-    Integer[] downArray = databaseHelper.getDownPorts();
-    String[] dateArray = databaseHelper.getDate();
+    private String portNames[] = {"upPorts", "downPorts"};
+    private String[] deviceArray = databaseHelper.getContacts();
+    private Integer[] upArray = databaseHelper.getUpPorts();
+    private Integer[] downArray = databaseHelper.getDownPorts();
+    private String[] dateArray = databaseHelper.getDate();
 //    Integer[] accesArray = databaseHelper.getAccesPort();
  //   Integer[] trunkArray = databaseHelper.getTrunkPort();
-
-    Integer totalInt;
-    Integer totalInt2 = 0;
-    Integer totalInt3 = 0;
-    Integer testInt;
-
-    boolean allDevice;
-    boolean allAll;
-    boolean dateDevice;
-    boolean allDate;
-
-
-
-    PortsGet portsGet = new PortsGet();
-
-    float floatUp;
-    float floatDown;
-
+    private Integer totalInt;
+    private Integer totalInt2 = 0;
+    private Integer totalInt3 = 0;
+    private Integer testInt;
+    private boolean allDevice;
+    private boolean allAll;
+    private boolean dateDevice;
+    private boolean allDate;
+    private PortsGet portsGet = new PortsGet();
+    private float floatUp;
+    private float floatDown;
     public ArrayList<Float> floatArrayList = new ArrayList<Float>();
-
-    View view;
+    private View view;
 
     public FragmentPie() {
         // Required empty public constructor

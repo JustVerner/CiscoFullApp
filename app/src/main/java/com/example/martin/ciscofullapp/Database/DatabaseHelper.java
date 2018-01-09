@@ -25,11 +25,8 @@ import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
 
 public class DatabaseHelper  extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION =100;
-    private static final String LOG = "DatabaseHelper";
     private static final String DATABASE_NAME = "Database_name.db";
     private static final String TAG = DatabaseHelper.class.getSimpleName().toString();
-    private SQLiteOpenHelper _helper;
-    public ArrayList getDevice;
 
     public DatabaseHelper( ) {
         super(App.getContext(), DATABASE_NAME, null, DATABASE_VERSION);
@@ -51,15 +48,6 @@ public class DatabaseHelper  extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + DatabaseTableAll.tableAll);
         onCreate(db);
     }
-    /*public Cursor getPerson(int id) {
-//        DatabaseManager databaseHelper = new DatabaseManager();
-//
-        SQLiteDatabase db = openOrCreateDatabase("Database_name.db", android.content.Context.MODE_PRIVATE, null);
-        //SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery( "SELECT " + DatabaseTable.TABLE + " FROM " +
-                DatabaseTable.KEY_Name + " WHERE " + "komm_wlc ", new String[] { Integer.toString(id) } );
-        return res;*/
-
 
     public String[] getContacts(){
         Cursor cursor = getReadableDatabase().rawQuery("SELECT Name FROM Database", null);
@@ -192,16 +180,6 @@ public class DatabaseHelper  extends SQLiteOpenHelper {
         cursor.close();
         return trunk.toArray(new Integer[trunk.size()]);
     }
-
-
-
-    /*
-    public Cursor getAllPersons() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery( "SELECT * FROM " + PERSON_TABLE_NAME, null );
-        return res;
-    }
-*/
 
 
 
