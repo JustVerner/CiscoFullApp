@@ -31,7 +31,7 @@ import static com.example.martin.ciscofullapp.VisualRepresentations.FragmentGrap
 
 public class FragmentPie extends Fragment {
 
-    private String portNames[] = {"upPorts", "downPorts"};
+    public String portNames[] = {"upPorts", "downPorts"};
     private String[] deviceArray = databaseHelper.getContacts();
     private Integer[] upArray = databaseHelper.getUpPorts();
     private Integer[] downArray = databaseHelper.getDownPorts();
