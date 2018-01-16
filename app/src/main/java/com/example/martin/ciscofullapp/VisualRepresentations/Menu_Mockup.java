@@ -61,6 +61,7 @@ public class Menu_Mockup extends AppCompatActivity {
     private InsertData insertData = new InsertData();
     private Login login = new Login();
     private int sum;
+    private TextView[] textViewArray = new TextView[4];
 
 
     @Override
@@ -74,10 +75,8 @@ public class Menu_Mockup extends AppCompatActivity {
         Button softwareAdvisor = (Button) findViewById(R.id.softwareAdvisor);
         Button integrityverification = (Button) findViewById(R.id.button4);
         TextView editText1 = (TextView) findViewById(R.id.editText);
-        TextView editText2 = (TextView) findViewById(R.id.editText2);
-        TextView editText3 = (TextView) findViewById(R.id.editText3);
-        TextView editText4 = (TextView) findViewById(R.id.editText4);
-        TextView editText5 = (TextView) findViewById(R.id.editText5);
+
+
 
         integrityverification.setEnabled(false);
 
@@ -88,10 +87,17 @@ public class Menu_Mockup extends AppCompatActivity {
 
 
         editText1.setText("Total devices : " + sum);
-        editText2.setText(device.get(0) +" : "+ total.get(0));
-        editText3.setText(device.get(1) +" : "+ total.get(1));
-        editText4.setText(device.get(2) +" : "+ total.get(2));
-        editText5.setText(device.get(3) +" : "+ total.get(3));
+        for(int l = 0; l < device.size();l++)
+        {
+            textViewArray[l] = new TextView(this);
+            textViewArray[0] = (TextView) findViewById(R.id.editText0);
+            textViewArray[1] = (TextView) findViewById(R.id.editText1);
+            textViewArray[2] = (TextView) findViewById(R.id.editText2);
+            textViewArray[3] = (TextView) findViewById(R.id.editText3);
+            textViewArray[l].setText(device.get(l) +" : "+ total.get(l));
+        }
+        //editText3.setText(device.get(1) +" : "+ total.get(1));
+
 
 
 

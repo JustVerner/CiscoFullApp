@@ -56,6 +56,12 @@ public class CommandClass extends AppCompatActivity {
         if(s.equals("ping") || s.equals("sh interface gig")) {
             commandNumber.setInputType(InputType.TYPE_CLASS_PHONE);
         }
+
+        if (s.equals("ping"))
+            commandNumber.setHint("Enter IP Address");
+        if(s.equals("sh interface gig"))
+            commandNumber.setHint("Enter Port");
+
         command.setText(s);
 
 

@@ -64,7 +64,6 @@ public class searchViewTest extends AppCompatActivity{
 
         ImageButton imageButton = (ImageButton) findViewById(R.id.imageButton);
         editText = (EditText) findViewById(R.id.c_ownCommand);
-        editNumber = (EditText) findViewById(R.id.CommandNumber);
         ownButton = (Button) findViewById(R.id.ownCommandButton);
 
         final String command[] =  {"show version", "show running", "show proc cpu" , "sh interface gig" , "ping" };
@@ -84,14 +83,11 @@ public class searchViewTest extends AppCompatActivity{
             @Override
             public void onTextChanged(CharSequence cs, int i, int i1, int i2) {
 
-
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
                 searchViewTest.this.adapter.getFilter().filter(editable);
-
-
             }
         });
 
@@ -111,16 +107,13 @@ public class searchViewTest extends AppCompatActivity{
                 s = parent.getAdapter().getItem(position).toString();
 
                 startActivity(new Intent(searchViewTest.this, CommandClass.class).putExtra("name", s));
-                startActivity(new Intent(searchViewTest.this, CommandRunner.class).putExtra("name1", s));
 
                 switch(s) {
                     case "ping":
                         showText = true;
-                        editNumber.setHint("Enter IP Address");
                         break;
                     case "sh interface gig":
                         showText = true;
-                        editNumber.setHint("Enter Port");
                         break;
                 }
             }
@@ -134,22 +127,12 @@ public class searchViewTest extends AppCompatActivity{
                 switch (s2) {
                     case "ping":
                         showText = true;
-                        editNumber.setInputType(InputType.TYPE_CLASS_TEXT);
-
-                        editNumber.setHint("Enter IP Address");
                         break;
                     case "sh interface gig":
                         showText = true;
-                        editNumber.setInputType(InputType.TYPE_CLASS_TEXT);
-
-                        editNumber.setHint("Enter Port");
                         break;
                 }
-
-                startActivity(new Intent(searchViewTest.this, CommandRunner.class).putExtra("name1", s2));
                 startActivity(new Intent(searchViewTest.this, CommandClass.class).putExtra("name", s2));
-
-
             }
         });
 
