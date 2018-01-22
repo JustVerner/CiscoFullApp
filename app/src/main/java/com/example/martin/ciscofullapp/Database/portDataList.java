@@ -11,6 +11,8 @@ import com.example.martin.ciscofullapp.Database.DatabaseTableRepo;
 import com.example.martin.ciscofullapp.Database.DatabaseHelper;
 import com.example.martin.ciscofullapp.Database.InsertData;
 
+// LISTE TIL TABLE, SÅ KODEN LET KAN TILGÅS
+
 public class portDataList {
 
     private String id;

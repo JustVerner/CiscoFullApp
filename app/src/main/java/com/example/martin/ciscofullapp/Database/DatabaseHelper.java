@@ -23,6 +23,8 @@ import java.util.List;
 import static android.content.Context.MODE_PRIVATE;
 import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
 
+//OPRETTER DATABASE OG SLETTER OG OPRETTER NY HVIS ÆNDRINGER PÅ DATABASEN
+
 public class DatabaseHelper  extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION =100;
     private static final String DATABASE_NAME = "Database_name.db";

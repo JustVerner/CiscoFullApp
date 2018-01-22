@@ -37,6 +37,8 @@ import static com.example.martin.ciscofullapp.VisualRepresentations.FragmentOne.
  * Created by Martin on 28-08-2017.
  */
 
+// INSERT DATA I DATABASEN
+
 public class InsertData {
     private String[] networksArray;
     private Integer[] upPorts;

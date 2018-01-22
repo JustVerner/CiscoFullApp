@@ -20,6 +20,8 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
+// HER OPRETTES FØRSTE TABLE
+
 public class DatabaseTableRepo  {
 
     private DatabaseTable table;

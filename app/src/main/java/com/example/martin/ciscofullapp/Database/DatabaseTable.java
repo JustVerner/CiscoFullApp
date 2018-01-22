@@ -12,6 +12,8 @@ import java.util.Date;
  * Created by Martin on 28-08-2017.
  */
 
+// FØRSTE TABLE
+
 public class DatabaseTable {
 
     public static final String TAG = DatabaseTable.class.getSimpleName();

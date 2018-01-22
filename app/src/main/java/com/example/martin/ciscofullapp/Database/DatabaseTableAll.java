@@ -4,6 +4,8 @@ package com.example.martin.ciscofullapp.Database;
  * Created by Martin on 15-09-2017.
  */
 
+//ANDET TABLE
+
 public class DatabaseTableAll {
 
     public static final String tableAll = "TABLEALL";

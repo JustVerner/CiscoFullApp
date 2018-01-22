@@ -39,6 +39,7 @@ import com.example.martin.ciscofullapp.app.App;
 import static com.example.martin.ciscofullapp.Database.Login.ipadress;
 import static com.example.martin.ciscofullapp.R.id.portTextView;
 
+// HENTER INFORMATION FRA SERVER OG SORTERE DET
 
 public class PortsGet extends AppCompatActivity {
 

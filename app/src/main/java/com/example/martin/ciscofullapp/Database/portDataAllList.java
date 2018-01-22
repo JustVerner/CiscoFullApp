@@ -4,6 +4,8 @@ package com.example.martin.ciscofullapp.Database;
  * Created by Martin on 18-09-2017.
  */
 
+// LISTE TIL "ALL" TABLE, SÅ KODEN LET KAN TILGÅS
+
 public class portDataAllList {
 
     private String idAll;

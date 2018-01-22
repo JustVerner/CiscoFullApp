@@ -15,6 +15,8 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
+// HER OPRETTES ANDET TABLE
+
 public class DataBaseAllRepo  {
 
     private DatabaseTable table;

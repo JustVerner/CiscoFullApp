@@ -17,6 +17,8 @@ import okhttp3.OkHttpClient;
  * Created by Martin on 18-07-2017.
  */
 
+// SPLITTES OP I BASIC/ADVANCED/SERVER, VI BENYTTER KUN SERVER DA DER SKAL LAVES KALD TIL SERVEREN. DENNE ER NØDVENDIG GRUNDET GRATIS CERTIFICATE PÅ SERVER
+
 public class CertificateClient {
     
 

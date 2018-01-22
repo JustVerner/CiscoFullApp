@@ -7,6 +7,7 @@ package com.example.martin.ciscofullapp.Database;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+// ÅBNER OG LUKKER DATABASE
 
 public class DatabaseManager {
     private Integer mOpenCounter = 0;
